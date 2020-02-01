@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Theoretical Background}{4}
+\contentsline {subsection}{\numberline {2.1}Mindlin's 1964 Theory.}{4}
+\contentsline {subsection}{\numberline {2.2}Aifanti's 1992 Theory.}{5}
+\contentsline {section}{\numberline {3}Different FEM Approach}{6}
+\contentsline {subsection}{\numberline {3.1}Tomislav Lesicar - Two scale FEM formulation}{6}
+\contentsline {subsection}{\numberline {3.2}E. Amanatidou - Mixed type FEM formulation}{7}

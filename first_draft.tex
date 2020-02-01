@@ -1,0 +1,332 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{mathtools}
+\usepackage{lipsum}
+\usepackage{stackengine}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{float}
+\usepackage[a4paper,left=1in,right=1in,top=1in,bottom=1in,footskip=.25in]{geometry}
+\usepackage{etoolbox}
+\usepackage[nottoc]{tocbibind}
+\usepackage{tabu}
+\usepackage{enumitem,kantlipsum}
+\begin{document}
+	\begin{titlepage}
+		\centering
+		
+		\begin{figure}
+			\begin{center}
+				\includegraphics[scale=.2]{tubaf.pdf}  
+			\end{center}
+			
+		\end{figure}
+		
+		
+		
+		%\includegraphics[width=0.15\textwidth]{download}\par\vspace{1cm}
+		{\scshape\LARGE \textbf{Technische Universit\"at Bergakademie Freiberg} \par}
+		\vspace{1cm}
+		{\scshape\Large PERSONAL PROGRAMMING PROJECT\par}
+		{\scshape\Large (PPP)\par}
+		\vspace{1.5cm}
+		{\huge\bfseries Implementation of Gradient Elasticity Model In FEM \par}
+		\vspace{2cm}
+		{\scshape\Large \textbf{Dhaval Rasheshkumar Patel}\par}
+		{\scshape\Large 63940\par}
+		\vfill
+		{\normalsize\ Supervised by\par}
+		
+		Dr.~ \textsc{Sergii Kozinov}
+		
+		\vfill
+		
+		% Bottom of the page
+		{\large \today\par}
+	\end{titlepage}
+	\clearpage
+    \textbf{\LARGE Abstract}\\ \newline
+    \newline
+
+
+    \newpage
+    \clearpage
+    \tableofcontents
+    \clearpage
+
+\section{Introduction}
+Classical continuum solid mechanics theories, such as linear or non-linear elasticity and plasticity, have been used in wide range of fundamental problems and applications in various fields, but "Classical Continuum Constitutive Models" possess no material/intrinsic scale. So in this regime of micron and nano-scales that experimental evidence and observations have suggested that classical continuum theories do not suffice for an accurate and detailed description in the modelling of size dependent phenomena. Moreover, classical elastic singularities as those emerging during the application of point loads and description of size effects also not solve by it.
+\newline
+\par
+In General, in Gradient elasticity theories, the length scales enter the constitutive equations through the elastic strain energy function, which, in this case depends not only on the strain tensor but also on gradients of the strain tensors Gradient Elasticity theories provide extensions of the classical equations of elasticity with additional higher order spatial derivatives of strains and stresses, but in Gradient elasticity theory one of the most challenging task is to keep the number of additional constitutive parameters to a minimum.
+\newline
+\par
+Stress equation of equilibrium, constitutive equations and boundary conditions of the "Strain Gradient theory" were first given in a non-linear form by Toupin in 1960s. After this famous Strain Gradient elasticity theory in three different forms proposed by Mindlin in 1960s. In such theories , when the problem is formulated in terms of displacements, the governing partial differential equation contains the fourth order derivative of displacements. If traditional finite element formulation are used for the numerical solution of such problems, then $C^{1}$ displacement continuity is required. $C^{1}$ displacement continuity means displacement and its first derivative is continuous in inter-element. However, in FEM there is no any robust $C^{1}$ continuous element. So an alternative mixed finite elements formulation is developed, in which both the displacement and the displacement gradients are used as independent unknowns and their relationship is enforced using Lagrange Multiplier Method. In 1999 JOHN Y. SHU proposed the mixed finite formulation based Toupin—Mindlin theories, in which only $C^{0}$ continuous element was used. After this in 2002 E. Amanatidou and N. Aravas also proposed the Mixed type FEM formulation for Toupin—Mindlin theories and also used $C^{0}$ continuous element.
+\newline  
+\par
+In the present "Personal Programming Project" report, in the very first section we discussed the theoretical background of the strain gradient elasticity theory with its evolutions and different versions. Following to this section, we discussed in brief few of them theories. After this the Mixed type of FEM formulation with $C^{0}$ continuous element for Strain Gradient theory is discussed in details.
+\newpage
+ 
+\section{Theoretical Background}
+In this Section the main focus is to understand the "Classical Strain Gradient Elasticity Theory" and motivation behind the evolution of Strain Gradient Elasticity theories. In this section the brief overview of Toupin's, Mindlin's, Eringen's and Aifantis theory is given. After this also discussed about different possible FEM formulation.  
+     \begin{figure}[H]
+     	\includegraphics[scale=0.6]{file.png}  
+     \end{figure}
+\subsection{Mindlin's 1964 Theory.}
+In the early 1960s, the Mindlin presented a theory of elasticity with Microstructure length, in which he distinguished between kinematic quantities on two scale micro and macro. As discussed in introduction that it is very challenging task to keep the number of constitutive parameters to a minimum. In this theory constitutive tensor contains 1764 coefficients in total, but for isotropic material its reduced drastically to amount 18. Mindlin present the Strain energy equation as,
+\begin{equation}\label{first}
+\begin{aligned}
+U= &\frac{1}{2}\lambda\varepsilon_{ii}\varepsilon_{jj}+\mu\varepsilon_{ij}\varepsilon_{ij}+\frac{1}{2}b_1 \gamma_{ii} \gamma_{jj}+\frac{1}{2}b_2 \gamma_{ij} \gamma_{ij}+\frac{1}{2}b_3 \gamma_{ij} \gamma_{ji}+g_1\gamma_{ii}\varepsilon_{jj}
+\\   
+&+g_2(\gamma_{ij}+\gamma_{ji})\varepsilon_{jj}+a_1\kappa_{iik}\kappa_{kjj}+a_2\kappa_{iik}\kappa_{jkj}+\frac{1}{2}a_3\kappa_{iik}\kappa_{jjk}
+\\
+&+\frac{1}{2}a_4\kappa_{iij}\kappa_{ikk}
+ +a_5\kappa_{iij}\kappa_{kik}
++\frac{1}{2}a_8\kappa_{iji}\kappa_{kjk}+\frac{1}{2}a_{10}\kappa_{ijk}\kappa_{ijk}
+\\
+&+a_{11}\kappa_{ijk}\kappa_{jki}+\frac{1}{2}a_{13}\kappa_{ijk}\kappa_{ikj}
++\frac{1}{2}a_{14}\kappa_{ijk}\kappa_{jik}
++\frac{1}{2}a_{15}\kappa_{ijk}\kappa_{kji}
+\end{aligned}
+\end{equation}  
+\newline
+where $\lambda$ and $\mu$ are the usual Lame constants and the various $a_i$ , $b_i$ and $g_i$ are 16 additional constitutive coefficients. However for practical purpose the use of eq(1) is very limited as it requires so much additional coefficients. In later 1960s Mindlin also formulated the simpler version of his own elasticity theory by making assumption of expressing the strain energy density in terms of displacement only. So in last he proposed three different form of it. However, the equation of strain energy density is of order four and it requires $C^{1}$ continuity.
+\newpage
+
+\subsection{Aifanti's 1992 Theory.} 
+In the early 1990s, motivated by own work in plasticity and non-linear elasticity, Aifantis suggested to extend the linear constitutive model given by Mindlin in form $II$, in which second order terms are expressed as the strain gradient tensor. So he modified this Mindlin form $II$ by neglecting the most of the gradient coefficients. Mindlin present that for a general isotropic elastic solid the strain energy density depends upon
+$\varepsilon_{ij}$ and $\kappa_{ijk}$ as the following,
+\begin{equation}
+\begin{aligned}
+W(\varepsilon,\kappa) = 
+& G(\varepsilon_{ij}\varepsilon_{ij}+\frac{\nu}{1-2\nu}\varepsilon_{ij}\varepsilon_{ij}) \\
+&    +a_1\kappa_{iik}\kappa_{kjj}+a_2\kappa_{iik}\kappa_{kjj}+a_3\kappa_{iik}\kappa_{kjj}+a_4\kappa_{iik}\kappa_{kjj}+a_5\kappa_{iik}\kappa_{kjj}
+\end{aligned}
+\end{equation}
+where G is elastic shear modulus, $\nu$ is Poisson's ratio and $a_1$,$a_2$,$a_3$,$a_4$,$a_5$ are material constants.   
+\newline
+In this he considered,
+\newline
+\begin{equation}
+\begin{aligned}
+& a_1 = a_3 = a_5 = 0,   &   a_2 = \frac{\nu}{1-2\nu}Gl^2, &&  a_4 = Gl^2
+\end{aligned}
+\end{equation} 
+Accordingly, the strain energy density is defined as
+\begin{equation}
+W = \frac{1}{2}\lambda\varepsilon_{ii}\varepsilon_{jj}+\mu\varepsilon_{ij}\varepsilon_{ij}+l^2(\frac{1}{2}\lambda\varepsilon_{ii,k}\varepsilon_{jj,k}+\mu\varepsilon_{ij,k}\varepsilon_{ij,k})
+\end{equation}
+In Eq. (4), $\lambda$ and $\mu$ are Lame constants, while $l$ represents microstructural parameter (material length scale).However this equation(4) of strain energy also requires 
+$C^{1}$ continuous element.
+\newline
+\newline
+\textbf{Conclusion of above both theories (2.1) and (2.2) : }
+\newline
+\newline
+In above both strain gradient theories the principle of virtual work for a linear elastic strain gradient solid can be expressed as
+\begin{equation}
+\int\limits_\upsilon\! [\sigma_{ij} \delta\varepsilon_{ij} + \tau_{ijk}\delta\eta_{ijk}]  dV = \int\limits_\upsilon\! [b_k\delta u_k] dV + \int\limits_s \! [f_k\delta u_k+r_kD\delta u_k]dS
+\end{equation}
+where $D(.) = n_k\frac{\partial(.)}{\partial x_k}$ is surface normal-gradient operator, $b_k$ is the body force per unit volume
+of the body $V$ while $f_k$ and $r_k$ are the truncation and the double stress traction per unit area of the surface $S$. They are in equilibrium with the Cauchy stress $\sigma_{ij}$ and the higher-order stress $\tau_{ijk}$ according to
+\begin{equation}
+b_k + (\sigma_{ij}-\tau_{jik,j})_{,i} = 0
+\end{equation}
+The constitutive law governing the stress $\sigma_{ij}$ and the higher-order stress $\tau_{ijk}$ for an elastic solid is derived through $\sigma_{ij} = \partial w / \partial \varepsilon_{ij}$ and $\tau_{ijk}= \partial w / \partial \eta_{ijk}$ where w is the strain energy density per unit volume. In this Cauchy stress $\sigma_{ij}$ is work conjugate to the strain $\varepsilon_{ij}$ and higher-order stress $\tau_{ijk}$ is work conjugate to the strain gradient  $\eta_{ijk}$.
+\newline
+\newline
+Here, second-order derivatives of displacement occurred in the principle of virtual work Eq.(5), implying that displacement-based elements of $C^1$-continuity are indispensable in a finite element formulation. However there are no robust $C^1$ continuous elements were available at that time for the application of fem formulation of above mentioned both strain gradient theories.
+
+\section{Different FEM Approach}
+There are different FEM approach to the Strain Gradient Elasticity theories are available because of the fact that $C^1$ continuous elements are very difficult to formulate and on the other hand there are also a mixed finite element formulation of strain gradient elasticity derived, which only requires $C^0$ continuity.
+
+\subsection{Tomislav Lesicar - Two scale FEM formulation} 
+The Aifantis strain gradient theory given in subsection (2.2) has been embedded into finite element framework by Tomislav Lesicar, Zdenko Tonkovic and Jurica Soric. They used the three node triangular finite element named C1PE3. The element is shown in
+Fig. It contains twelve degrees of freedom (DOF) per node, and it satisfies $C^1$ continuity with assumptions of the plane strains with unit thickness
+\newline
+     \begin{figure}[H]
+     	\begin{center}
+	      \includegraphics[scale=0.8]{Tri_Element.JPG}  
+	    \end{center}  
+     \end{figure}
+They used the same weak form of the finite element formulation as given by Eq.(5). Furthermore, using the basic finite element relations strain and stress tensors can be expressed as
+\begin{equation}
+\varepsilon = Bu,      \sigma=C\varepsilon
+\end{equation}
+\newline
+where B is a matrix containing linear combinations of the first derivatives of the components of the shape function matrix, ̄C is an isotropic elastic constitutive matrix and u  is a displacement vector. Relating to Eq.(7) the strain gradient tensor is represented as
+
+\[
+\varepsilon_{,1}=
+\begin{bmatrix}
+\varepsilon_{11,1} \\
+\varepsilon_{22,1} \\
+2\varepsilon_{12,1} 
+\end{bmatrix}
+=B_{xx}u , \quad   
+\varepsilon_{,2}=
+\begin{bmatrix}
+\varepsilon_{11,2} \\
+\varepsilon_{22,2} \\
+2\varepsilon_{12,2}
+\end{bmatrix}
+=B_{yy}u
+\]
+\newline
+where matrices $ B_{xx} $ and $ B_{yy} $ contain linear combination of the second derivatives of the components of the shape function matrix with respect to x and y respectively. By using above expressions the higher order stress is obtain as
+\[
+\mu_{1ij}=
+\begin{bmatrix}
+\mu_{111} \\
+\mu_{122} \\
+\mu_{112} 
+\end{bmatrix}
+=l^2C\varepsilon_{,1} , \quad   
+\mu_{2ij}=
+\begin{bmatrix}
+\mu_{211} \\
+\mu_{222} \\
+\mu_{212} 
+\end{bmatrix}
+=l^2C\varepsilon_{,2}
+\]
+\newline
+Finally, substituting the above expression into the virtual work Eq.(5), yields the finite element equation $Ku = F$. Here, the element stiffness matrix K is given by,
+\begin{equation}
+K = K_l + l^2(K_{xx}+K_{yy}),
+\end{equation}  
+where the matrices $ K_l $ , $ K_{xx} $ and $ K_{yy} $ are expressed as,
+\begin{equation}
+\begin{aligned}
+K_l &= \int_A B^TCBdA \\
+K_{xx} &= \int_A B^T_{xx}CB_{xx}dA \\
+K_{yy} &= \int_A B^T_{yy}CB_{yy}dA 
+\end{aligned}
+\end{equation}
+here, as observed from Eq.(8), the general stiffness matrix of the strain gradient element ($C^1$ continuous element) consists of the two parts, which are basic ($K_l$) and a higher order one ($K_{xx}+K_{yy}$). From this it can be analyse that when the microstructural length parameter l is zero this Eq.(8) is reduced to the classical one.
+\newline
+\newline
+This element has been implemented into the FE program ABAQUS using the User Element Subroutine UEL by Tomislav Lesicar and et al. They used the reduced Gauss integration
+technique with 13 integration points for numerical integration of the stiffness matrices and force vector, instead of the full integration scheme with 25 points. The positions of the all 13 integration points are given in Fig. However, as discussed earlier this reduced integration technique for $C^1$ Continuous planar Triangular element provides not quite satisfactory results and it is more convenient for the multi scale analysis like Strain-gradient second-order computational homogenization scheme.     
+
+\subsection{E. Amanatidou - Mixed type FEM formulation}
+In Mindlin's 1960s theory (2.1), when the problem is formulated in terms of displacements, the governing partial differential Eq.(\ref{first}) is of fourth order. If traditional finite elements are used for the numerical solutions of such problems, then $C^1$ displacements continuity is required at inter elements.
+\newline
+\newline
+Furthermore, E. Amanatidou and et al. developed the alternative Mixed type finite element formulation, in which both displacements and the displacement gradients are used as independent unknowns and their relationship is enforced in an integral sense. In addition to that, this variational formulation can be used for both linear and non-linear strain gradient elasticity theories. In conclusion, this finite elements requires only $C^0$ continuity and simple to formulate and implement into FE program using UEL.   
+\newline
+\newline
+The three equivalent forms strain energy density W given by Mindlin is expressed as,
+\begin{equation}
+W = \tilde{\mathbf{W}}(\varepsilon,\tilde{\mathbf{\kappa}}) = \hat{\mathbf{W}}(\varepsilon,\hat{\mathbf{\kappa}}) = \bar{\mathbf{W}}(\varepsilon,\bar{\kappa},\bar{\bar \kappa})
+\end{equation}
+where the expression $W = \tilde{\mathbf{W}}(\varepsilon,\tilde{\mathbf{\kappa}})$ known as "Type $I$", the expression $W =\hat{\mathbf{W}}(\varepsilon,\hat{\mathbf{\kappa}}) $ known as "Type $II$" and the expression $W = \bar{\mathbf{W}}(\varepsilon,\bar{\kappa},\bar{\bar \kappa}) $ known as "Type $III$".
+\newline
+\newline
+where the Strain energy density for all three forms are represented as,
+\begin{equation}\label{eleven}
+\tilde{\mathbf{W}}(\varepsilon,\tilde{\mathbf{\kappa}}) = \dfrac{1}{2}\lambda\varepsilon_{ii}\varepsilon_{kk} + \mu\varepsilon_{ij}\varepsilon_{ij}+\frac{1}{2}l^2[\lambda\tilde{\kappa_{ijj}}\tilde{\kappa_{ikk}} + \mu(\tilde{\kappa_{ijk}}\tilde{\kappa_{ijk}}+\tilde{\kappa_{ijk}}\tilde{\kappa_{kji}})]
+\end{equation}
+\begin{equation}
+ \hat{\mathbf{W}}(\varepsilon,\hat{\mathbf{\kappa}}) = \dfrac{1}{2}\lambda\varepsilon_{ii}\varepsilon_{kk} + \mu\varepsilon_{ij}\varepsilon_{ij}+\frac{1}{2}l^2(\lambda\tilde{\kappa_{ijj}}\tilde{\kappa_{ikk}}+2\mu\lambda\tilde{\kappa_{ijk}}\tilde{\kappa_{ijk}})
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\bar{\mathbf{W}}(\varepsilon,\bar{\kappa},\bar{\bar \kappa}) &= \dfrac{1}{2}\lambda\varepsilon_{ii}\varepsilon_{kk} + \mu\varepsilon_{ij}\varepsilon_{ij} +l^2 [\frac{2}{9}(\lambda+3\mu)\bar{\kappa_{ij}}\bar{\kappa_{ij}}-\frac{2}{9} \lambda \bar{\kappa_{ij}} \bar{\kappa_{ji}} \\
+& + \dfrac{1}{2}\lambda \bar{\bar{\kappa_{iij}}} \bar{\bar {\kappa_{kkj}}} + \mu \bar{\bar{ \kappa_{ijk}}} \bar{\bar{ \kappa_{ijk}}} \frac{2}{3}\lambda e_{ijk}\bar{\kappa_{ij}}\bar{\bar {\kappa_{kpp}}}]
+\end{aligned}
+\end{equation}
+\newline
+\newline
+Amanatidou and Aravas only considered the first form of strain energy density Eq.(\ref{eleven}), which only depends upon conventional strain $ \varepsilon_{ij} $ and higher-order strain-gradient $ \kappa_{ijk} $. 
+\newline
+\newline
+\textbf{Stress :}
+\newline
+From the Eq.(\ref{eleven}) we can easily derived the Cauchy stress $\sigma_{ij}$ as,
+\begin{equation}\label{fifteen}
+\begin{aligned}
+\bar{\sigma}_{ij} = \frac{\partial \tilde{\mathbf{W}} }{\partial \varepsilon_{ij}} &=  \lambda\varepsilon_{kk}\delta_{ij} +2\mu\varepsilon_{ij} 
+\\
+\\
+&= \lambda\varepsilon_{kl}\delta_{kl}\delta_{ij} + 2\mu\varepsilon_{kl}\delta_{ik}\delta_{jl} 
+\\
+\\
+&= (\lambda\delta_{kl}\delta_{ij} + 2\mu\delta_{ik}\delta_{jl})\varepsilon_{kl}
+\end{aligned}
+\end{equation} 
+\newline
+\newline
+Now, it can be easily defined the Second-order tensor $C_{ijkl}$ using the stress-strain relation as,
+\begin{equation}\label{sixteen}
+{\sigma}_{ij} = C_{ijkl} \varepsilon_{kl} 
+\end{equation}
+By comparing the Eq.(\ref{fifteen}) and Eq.(\ref{sixteen}),
+\begin{equation}
+C_{ijkl} = \lambda\delta_{kl}\delta_{ij} + 2\mu\delta_{ik}\delta_{jl}
+\end{equation}
+It can be also written in symmetric $3\times3$ Matrix as,
+\begin{equation}
+C = 
+\begin{bmatrix}
+\lambda+2\mu & \lambda & 0 \\
+\lambda & \lambda+2\mu & 0 \\
+0 & 0 & \frac{1}{2}\mu
+\end{bmatrix}
+\end{equation}
+\newpage
+\textbf{Higher Order Stress :}
+\newline
+From the Eq.(\ref{eleven}) we can easily derived the Higher Order stress $\mu_{ijk}$ as,
+\begin{equation}\label{eighteen}
+\begin{aligned}
+\tilde{\mu}_{ijk} =  \frac{\partial \tilde{\mathbf{W}} }{\partial \kappa_{ijk}} &= \frac{1}{2}l^2[\lambda \kappa_{ijj}\delta_{ip} \delta_{kq} \delta_{kr} + \lambda \kappa_{ikk}\delta_{ip} \delta_{jq} \delta_{jr} \\
+& + 2\mu \kappa_{ijk}\delta_{ip} \delta_{jq} \delta_{kr}  + \mu \kappa_{kji}\delta_{ip} \delta_{jq} \delta_{kr} + \mu \kappa_{ijk}\delta_{kp} \delta_{jq} \delta_{ir} ] \\
+\\
+&= \frac{1}{2}l^2 [ \lambda \kappa_{pjj}\delta_{qr} + \lambda \kappa_{pkk}\delta_{qr}  +2\mu \kappa_{pqr} + \mu\kappa_{rqq} + \mu\kappa_{rqp}   ] \\ 
+\\
+&= \frac{1}{2}l^2 [ \lambda\delta_{qr} (\kappa_{pjj}+\kappa_{pkk})   + 2\mu (\kappa_{pqr} + \kappa_{rqp}) ] \\
+\\
+&= \frac{1}{2}l^2 [ 2\lambda \delta_{qr} \delta_{ip} \delta_{kj} + 2\mu(\delta_{ip} \delta_{jq} \delta_{kr} + \delta_{ir} \delta_{jq} \delta_{kp})  ] \kappa_{ijk}
+\\
+\\
+&= l^2 [ \lambda \delta_{qr} \delta_{ip} \delta_{kj} + \mu(\delta_{ip} \delta_{jq} \delta_{kr} + \delta_{ir} \delta_{jq} \delta_{kp}) ] \kappa_{ijk}
+\end{aligned}
+\end{equation}
+\\
+\\
+Now, it can be easily derived the Third-order tensor $D_{pqrijk}$ using the Higher order stress and Strain gradient relation as,
+\begin{equation}\label{nineteen}
+\mu_{pqr} = D_{pqrijk} \kappa_{ijk}
+\end{equation}
+By, comparing the Eq.(\ref{eighteen}) and Eq.(\ref{nineteen}),
+\begin{equation}\label{twenty}
+D_{pqrijk} = l^2 [ \lambda \delta_{qr} \delta_{ip} \delta_{kj} + \mu(\delta_{ip} \delta_{jq} \delta_{kr} + \delta_{ir} \delta_{jq} \delta_{kp}) ]
+\end{equation}
+Now, Eq.(\ref{twenty}) can also be written in matrix notation as following, where $D_{pqrijk}$ is a symmetric $6\times6$ matrix.
+\begin{equation}
+D = l^2
+\begin{bmatrix}
+\lambda + 2\mu & 0 & 0 & 0 & 0 & \frac{\lambda}{2} \\
+0 & \mu & 0  & 0  & 0  & \frac{\mu}{2} \\
+0 & 0 & \mu & 0  & \frac{\mu}{2}  & 0 \\
+0 & 0 & 0 & \lambda + 2\mu & \frac{\lambda}{2} & 0 \\
+0 & 0 & \frac{\mu}{2}  & \frac{\lambda}{2} & \frac{\lambda + 3\mu}{4} & 0 \\
+ \frac{\lambda}{2} & \frac{\mu}{2} & 0 & 0 & 0 & \frac{\lambda + 3\mu}{4} 
+\end{bmatrix}
+\end{equation}
+
+
+
+
+
+
+
+\end{document}
