@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.2.21)  1 FEB 2020 12:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.2.21)  1 FEB 2020 18:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -744,7 +744,11 @@ Package: xparse 2016/11/21 v6760 L3 Experimental document command parser
 . ignored.
 .................................................
 )
-(./first_draft.aux)
+(./first_draft.aux
+
+LaTeX Warning: Label `sixteen' multiply defined.
+
+)
 \openout1 = `first_draft.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -759,8 +763,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count170
 \scratchdimen=\dimen286
@@ -972,86 +975,128 @@ Underfull \hbox (badness 10000) in paragraph at lines 214--220
 
  []
 
+<U111_Eta_111.JPG, id=46, 218.61674pt x 113.82526pt>
+File: U111_Eta_111.JPG Graphic file (type jpg)
+ <use U111_Eta_111.JPG>
+Package pdftex.def Info: U111_Eta_111.JPG used on input line 223.
+(pdftex.def)             Requested size: 174.89362pt x 91.06032pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--229
+<U222_Eta_222.JPG, id=47, 216.81pt x 114.4275pt>
+File: U222_Eta_222.JPG Graphic file (type jpg)
+ <use U222_Eta_222.JPG>
+Package pdftex.def Info: U222_Eta_222.JPG used on input line 224.
+(pdftex.def)             Requested size: 173.44823pt x 91.54211pt.
 
- []
+<U122_Eta_122.JPG, id=48, 214.401pt x 104.18925pt>
+File: U122_Eta_122.JPG Graphic file (type jpg)
+ <use U122_Eta_122.JPG>
+Package pdftex.def Info: U122_Eta_122.JPG used on input line 229.
+(pdftex.def)             Requested size: 171.52103pt x 83.3515pt.
 
+<U211_Eta_211.JPG, id=49, 215.00325pt x 124.66576pt>
+File: U211_Eta_211.JPG Graphic file (type jpg)
+ <use U211_Eta_211.JPG>
+Package pdftex.def Info: U211_Eta_211.JPG used on input line 230.
+(pdftex.def)             Requested size: 172.00282pt x 99.73273pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--229
+<U121_Eta_121.JPG, id=50, 215.6055pt x 105.39375pt>
+File: U121_Eta_121.JPG Graphic file (type jpg)
+ <use U121_Eta_121.JPG>
+Package pdftex.def Info: U121_Eta_121.JPG used on input line 235.
+(pdftex.def)             Requested size: 172.48462pt x 84.3151pt.
 
- []
+<U212_Eta_212.JPG, id=51, 215.00325pt x 124.66576pt>
+File: U212_Eta_212.JPG Graphic file (type jpg)
+ <use U212_Eta_212.JPG>
+Package pdftex.def Info: U212_Eta_212.JPG used on input line 236.
+(pdftex.def)             Requested size: 172.00282pt x 99.73273pt.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--236
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 247--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 247--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 247--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 265--269
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 302--306
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 308--312
+[7 <./U111_Eta_111.JPG> <./U222_Eta_222.JPG>]
+Underfull \hbox (badness 10000) in paragraph at lines 241--248
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--320
+Underfull \hbox (badness 10000) in paragraph at lines 241--248
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--320
+Underfull \hbox (badness 10000) in paragraph at lines 250--258
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--320
+Underfull \hbox (badness 10000) in paragraph at lines 250--258
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--334
+Underfull \hbox (badness 10000) in paragraph at lines 250--258
+
+ []
+
+[8 <./U122_Eta_122.JPG> <./U211_Eta_211.JPG> <./U121_Eta_121.JPG> <./U212_Eta_2
+12.JPG>]
+Underfull \hbox (badness 10000) in paragraph at lines 269--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--290
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--307
 
  []
 
 [9]
-<Element_mixed_type_formulation_E_Amanatidou.JPG, id=55, 581.7735pt x 263.7855p
+Underfull \hbox (badness 10000) in paragraph at lines 323--327
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--333
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--341
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--341
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--341
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 351--355
+
+ []
+
+[10]
+<Element_mixed_type_formulation_E_Amanatidou.JPG, id=64, 581.7735pt x 263.7855p
 t>
 File: Element_mixed_type_formulation_E_Amanatidou.JPG Graphic file (type jpg)
  <use Element_mixed_type_formulation_E_Amanatidou.JPG>
 Package pdftex.def Info: Element_mixed_type_formulation_E_Amanatidou.JPG used o
-n input line 339.
+n input line 360.
 (pdftex.def)             Requested size: 378.1483pt x 171.45854pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 342--345
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 342--345
+Underfull \hbox (badness 10000) in paragraph at lines 363--365
 
  []
 
@@ -1065,31 +1110,69 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--357
+Underfull \hbox (badness 10000) in paragraph at lines 367--373
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--357
+Underfull \hbox (badness 10000) in paragraph at lines 367--373
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--357
+Underfull \hbox (badness 10000) in paragraph at lines 374--377
 
  []
 
-[10 <./Element_mixed_type_formulation_E_Amanatidou.JPG>] [11]
+[11 <./Element_mixed_type_formulation_E_Amanatidou.JPG>]
+Underfull \hbox (badness 10000) in paragraph at lines 404--406
+
+ []
+
+[12] <Shu_1_2.JPG, id=72, 399.894pt x 165.61874pt>
+File: Shu_1_2.JPG Graphic file (type jpg)
+ <use Shu_1_2.JPG>
+Package pdftex.def Info: Shu_1_2.JPG used on input line 449.
+(pdftex.def)             Requested size: 239.93823pt x 99.37201pt.
+
+<Shu_3.JPG, id=73, 172.84575pt x 151.767pt>
+File: Shu_3.JPG Graphic file (type jpg)
+ <use Shu_3.JPG>
+Package pdftex.def Info: Shu_3.JPG used on input line 450.
+(pdftex.def)             Requested size: 103.70824pt x 91.06088pt.
+
+<Shu_4.JPG, id=74, 180.07275pt x 153.57375pt>
+File: Shu_4.JPG Graphic file (type jpg)
+ <use Shu_4.JPG>
+Package pdftex.def Info: Shu_4.JPG used on input line 455.
+(pdftex.def)             Requested size: 108.04448pt x 92.14494pt.
+
+<Shu_5_6.JPG, id=75, 398.08725pt x 159.59625pt>
+File: Shu_5_6.JPG Graphic file (type jpg)
+ <use Shu_5_6.JPG>
+Package pdftex.def Info: Shu_5_6.JPG used on input line 456.
+(pdftex.def)             Requested size: 238.85419pt x 95.75847pt.
+
+<Shu_info.JPG, id=76, 325.81725pt x 95.75775pt>
+File: Shu_info.JPG Graphic file (type jpg)
+ <use Shu_info.JPG>
+Package pdftex.def Info: Shu_info.JPG used on input line 461.
+(pdftex.def)             Requested size: 260.65413pt x 76.6063pt.
+ [13 <./Shu_1_2.JPG> <./Shu_3.JPG>] [14 <./Shu_4.JPG> <./Shu_5_6.JPG> <./Shu_in
+fo.JPG>]
 (./first_draft.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 24430 strings out of 494248
- 477002 string characters out of 6160325
- 939196 words of memory out of 5000000
- 27441 multiletter control sequences out of 15000+600000
+ 24492 strings out of 494248
+ 478013 string characters out of 6160325
+ 941196 words of memory out of 5000000
+ 27492 multiletter control sequences out of 15000+600000
  12240 words of font info for 45 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
  55i,11n,56p,10407b,314s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1102,10 +1185,10 @@ st/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy10.pfb>
-Output written on first_draft.pdf (12 pages, 818585 bytes).
+Output written on first_draft.pdf (15 pages, 1096819 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 

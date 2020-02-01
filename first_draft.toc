@@ -6,8 +6,13 @@
 \contentsline {subsection}{\numberline {3.1}Tomislav Lesicar - Two scale FEM formulation}{6}
 \contentsline {subsubsection}{\numberline {3.1.1} C1-Continuous Element}{6}
 \contentsline {subsubsection}{\numberline {3.1.2} Higher-order stress and strain gradient tensor}{6}
-\contentsline {subsection}{\numberline {3.2}E. Amanatidou - Mixed type FEM formulation}{7}
-\contentsline {subsubsection}{\numberline {3.2.1} Stress }{8}
-\contentsline {subsubsection}{\numberline {3.2.2} Higher Order Stress }{9}
-\contentsline {subsubsection}{\numberline {3.2.3} Mixed Tpye Elements}{10}
-\contentsline {subsection}{\numberline {3.3}John Y. Shu - Mixed type FEM formulation}{10}
+\contentsline {subsubsection}{\numberline {3.1.3} Physical interpretation of Strain Gradient}{7}
+\contentsline {subsection}{\numberline {3.2}E. Amanatidou - Mixed type FEM formulation}{8}
+\contentsline {subsubsection}{\numberline {3.2.1} Stress }{9}
+\contentsline {subsubsection}{\numberline {3.2.2} Higher Order Stress }{10}
+\contentsline {subsubsection}{\numberline {3.2.3} Mixed Tpye Elements}{11}
+\contentsline {subsection}{\numberline {3.3}John Y. Shu - Mixed type FEM formulation}{11}
+\contentsline {subsubsection}{\numberline {3.3.1} Modified Virtual Work}{11}
+\contentsline {subsubsection}{\numberline {3.3.2} Stress}{12}
+\contentsline {subsubsection}{\numberline {3.3.3} Higher-order Stress}{13}
+\contentsline {subsubsection}{\numberline {3.3.4} Isoparametric elements for the strain gradient solid}{13}

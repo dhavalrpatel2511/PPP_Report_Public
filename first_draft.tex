@@ -103,7 +103,7 @@ where $\lambda$ and $\mu$ are the usual Lame constants and the various $a_i$ , $
 \subsection{Aifanti's 1992 Theory.} 
 In the early 1990s, motivated by own work in plasticity and non-linear elasticity, Aifantis suggested to extend the linear constitutive model given by Mindlin in form $II$, in which second order terms are expressed as the strain gradient tensor. So he modified this Mindlin form $II$ by neglecting the most of the gradient coefficients. Mindlin present that for a general isotropic elastic solid the strain energy density depends upon
 $\varepsilon_{ij}$ and $\kappa_{ijk}$ as the following,
-\begin{equation}
+\begin{equation}\label{two}
 \begin{aligned}
 W(\varepsilon,\kappa) = 
 & G(\varepsilon_{ij}\varepsilon_{ij}+\frac{\nu}{1-2\nu}\varepsilon_{ij}\varepsilon_{ij}) \\
@@ -217,6 +217,25 @@ here, as observed from Eq.(8), the general stiffness matrix of the strain gradie
 \newline
 This element has been implemented into the FE program ABAQUS using the User Element Subroutine UEL by Tomislav Lesicar and et al. They used the reduced Gauss integration
 technique with 13 integration points for numerical integration of the stiffness matrices and force vector, instead of the full integration scheme with 25 points. The positions of the all 13 integration points are given in Fig. However, as discussed earlier this reduced integration technique for $C^1$ Continuous planar Triangular element provides not quite satisfactory results and it is more convenient for the multi scale analysis like Strain-gradient second-order computational homogenization scheme.     
+\subsubsection{ Physical interpretation of Strain Gradient}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.8]{U111_Eta_111.JPG}  \qquad \qquad
+		\includegraphics[scale=0.8]{U222_Eta_222.JPG}
+	\end{center}  
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.8]{U122_Eta_122.JPG}  \qquad \qquad
+		\includegraphics[scale=0.8]{U211_Eta_211.JPG}
+	\end{center}  
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.8]{U121_Eta_121.JPG}  \qquad \qquad
+		\includegraphics[scale=0.8]{U212_Eta_212.JPG}
+	\end{center}  
+\end{figure}
 
 \subsection{E. Amanatidou - Mixed type FEM formulation}
 In Mindlin's 1960s theory (2.1), when the problem is formulated in terms of displacements, the governing partial differential Eq.(\ref{first}) is of fourth order. If traditional finite elements are used for the numerical solutions of such problems, then $C^1$ displacements continuity is required at inter elements.
@@ -229,10 +248,13 @@ The three equivalent forms strain energy density W given by Mindlin is expressed
 \begin{equation}
 W = \tilde{\mathbf{W}}(\varepsilon,\tilde{\mathbf{\kappa}}) = \hat{\mathbf{W}}(\varepsilon,\hat{\mathbf{\kappa}}) = \bar{\mathbf{W}}(\varepsilon,\bar{\kappa},\bar{\bar \kappa})
 \end{equation}
+\newline
 where the expression $W = \tilde{\mathbf{W}}(\varepsilon,\tilde{\mathbf{\kappa}})$ known as "Type $I$", the expression $W =\hat{\mathbf{W}}(\varepsilon,\hat{\mathbf{\kappa}}) $ known as "Type $II$" and the expression $W = \bar{\mathbf{W}}(\varepsilon,\bar{\kappa},\bar{\bar \kappa}) $ known as "Type $III$".
 \newline
 \newline
 where the Strain energy density for all three forms are represented as,
+\newline
+\newline
 \begin{equation}\label{eleven}
 \tilde{\mathbf{W}}(\varepsilon,\tilde{\mathbf{\kappa}}) = \dfrac{1}{2}\lambda\varepsilon_{ii}\varepsilon_{kk} + \mu\varepsilon_{ij}\varepsilon_{ij}+\frac{1}{2}l^2[\lambda\tilde{\kappa_{ijj}}\tilde{\kappa_{ikk}} + \mu(\tilde{\kappa_{ijk}}\tilde{\kappa_{ijk}}+\tilde{\kappa_{ijk}}\tilde{\kappa_{kji}})]
 \end{equation}
@@ -248,7 +270,6 @@ where the Strain energy density for all three forms are represented as,
 \newline
 \newline
 Amanatidou and Aravas only considered the first form of strain energy density Eq.(\ref{eleven}), which only depends upon conventional strain $ \varepsilon_{ij} $ and higher-order strain-gradient $ \kappa_{ijk} $. 
-\newline
 \newline
 \subsubsection{ Stress  }
 From the Eq.(\ref{eleven}) we can easily derived the Cauchy stress $\sigma_{ij}$ as,
@@ -270,7 +291,7 @@ Now, it can be easily defined the Second-order tensor $C_{ijkl}$ using the stres
 {\sigma}_{ij} = C_{ijkl} \varepsilon_{kl} 
 \end{equation}
 By comparing the Eq.(\ref{fifteen}) and Eq.(\ref{sixteen}),
-\begin{equation}
+\begin{equation}\label{sixteen}
 C_{ijkl} = \lambda\delta_{kl}\delta_{ij} + 2\mu\delta_{ik}\delta_{jl}
 \end{equation}
 It can be also written in symmetric $3\times3$ Matrix as,
@@ -282,7 +303,7 @@ C =
 0 & 0 & \frac{1}{2}\mu
 \end{bmatrix}
 \end{equation}
-\newpage
+\newline
 \subsubsection { Higher Order Stress  }
 From the Eq.(\ref{eleven}) we can easily derived the Higher Order stress $\mu_{ijk}$ as,
 \begin{equation}\label{eighteen}
@@ -341,7 +362,6 @@ So, Eq.(\ref{seventeen}) and Eq.(\ref{twoone}) are the Voigt-notation of the con
     \end{figure}
 Amanatidou and Aravas presented several elements that can be used in Type-I formulation are shown in above Fig. The elements are shown in Fig. , the corresponding nodal degrees of freedom are u,$\alpha$ and $\sigma$. Out of these given elements only the element I9-70 passes the all patch test, whereas the elements I5-28 and I13-70 failed into the patch test.
 \\
-\\
 \subsection{John Y. Shu - Mixed type FEM formulation}
 \vspace{0.4cm}
 Conventional continuum mechanics theories assume that stress at a material point is a function
@@ -350,7 +370,7 @@ of state variables, such as strain, at the same point. This assumption has valid
 \newline
 John Y. Shu developed Mixed type FEM formulation of Fleck—Hutchinson strain gradient elasticity theory. They devised $C^0$ continuous elements of mixed type, in which additional nodal degrees of freedom "Relaxed Strain" is introduced and enforce the kinematic constraints between displacement and relaxed strain by Lagrange multipliers.
 \newline
-\newline
+\subsubsection{ Modified Virtual Work}
 Firstly, for mixed type FEM formulation, they first derive a weak form of the principle of virtual
 work suitable for finite element implementation using $C^0$-shape functions. In this modified virtual work only first-order gradients of kinematic quantities involving. In this introduced a second-order tensor $\psi$ and a related third-order tensor $\eta$ such that $\eta_{ijk}$ is defined as,
 \\
@@ -378,6 +398,78 @@ and the modified constraint from Eq.(\ref{twofour}) becomes,
 \begin{equation}
 \int\limits_\Omega\! (\psi_{jk} - u_{k,j})\delta\rho_{jk}  d\Omega = 0  \quad (no \quad sum\quad over \quad j \quad and \quad k)
 \end{equation} 
+By considering the above criteria we get the strain energy density in terms of the relaxed strain gradient from Eq.(\ref{two}) as,
+\begin{equation}\label{twoseven}
+W = \frac{1}{2}\lambda\varepsilon_{ii}\varepsilon_{jj}+\mu\varepsilon_{ij}\varepsilon_{ij} +\frac{1}{2}\mu l^2 ( \eta_{ijk}\eta_{ijk} - \eta_{ijk}\eta_{kji} )
+\end{equation}
+\\
+\subsubsection{ Stress}
+From the Eq.(\ref{twoseven}) we can easily derived the Cauchy stress $\sigma_{ij}$ as,
+\begin{equation}\label{twoeight}
+\begin{aligned}
+\bar{\sigma}_{ij} = \frac{\partial \tilde{\mathbf{W}} }{\partial \varepsilon_{ij}} &=  \lambda\varepsilon_{kk}\delta_{ij} +2\mu\varepsilon_{ij} = (\lambda\delta_{kl}\delta_{ij} + 2\mu\delta_{ik}\delta_{jl})\varepsilon_{kl} = C_{ijkl} \varepsilon_{kl}
+\end{aligned}
+\end{equation} 
+So, it yields the same result as given by Eq.(\ref{fifteen}) and Eq.(\ref{sixteen}). Therefore, we can also write the matrix notation of $ C_{ijkl} $ and it also same as Eq.(\ref{seventeen}).
+\subsubsection{ Higher-order Stress}
+From the Eq.(\ref{twoseven}) we can easily derived the Higher-order stress $\tau_{ijk}$ as,
+\begin{equation}\label{twonine}
+\begin{aligned}
+\tau_{pqr} & = \frac{\partial \tilde{\mathbf{W}} }{\partial \eta_{pqr}} \\
+& = \frac{1}{2}\mu l^2 [ 2(\eta_{ijk} \delta_{ip} \delta_{jq} \delta_{kr}) - \eta_{kji} \delta_{ip} \delta_{jq} \delta_{kr} - \eta_{ijk} \delta_{kp} \delta_{jq} \delta_{ir} ] \\
+& =  \frac{1}{2}\mu l^2 [ 2(\eta_{pqr}) - \eta_{rqp} -\eta_{rqp} ] \\
+& = \mu l^2 [ \eta_{pqr} - \eta_{rqp} ] \\
+& = \mu l^2 [ \delta_{lp} \delta_{mq} \delta_{nr} - \delta_{lr} \delta_{mq} \delta_{np} ]  \eta_{lmn}
+\end{aligned}
+\end{equation}
+Now, it can be easily derived the Third-order tensor $D_{pqrlmn}$ using the Higher order stress $ \tau_{pqr} $ and Strain gradient $ \eta_{lmn} $ relation as,
+\begin{equation}\label{thirty}
+\tau_{pqr} = D_{pqrlmn} \cdot \eta_{lmn}
+\end{equation}
+By, comparing the Eq.(\ref{twonine}) and Eq.(\ref{thirty}),
+\begin{equation}\label{threeone}
+D_{pqrlmn} = \mu l^2 [ \delta_{lp} \delta_{mq} \delta_{nr} - \delta_{lr} \delta_{mq} \delta_{np} ]
+\end{equation}
+Now, Eq.(\ref{twonine}) can also be written in matrix notation as following, where $D_{pqrlmn}$ is a symmetric $6\times6$ matrix.
+\begin{equation}\label{threetwo}
+D = \mu l^2
+\begin{bmatrix}
+0 & 0 & 0 & 0 & 0 & 0  \\
+0 & 1 & 0  & 0  & 0  & -\frac{1}{2} \\
+0 & 0 & 1 & 0  & -\frac{1}{2}  & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & -\frac{1}{2}  & 0 & \frac{1}{4} & 0 \\
+0 & -\frac{1}{2} & 0 & 0 & 0 & \frac{1}{4} 
+\end{bmatrix}
+\end{equation}
+So, Eq.(\ref{seventeen}) and Eq.(\ref{threetwo}) are the Voigt-notation of the constitutive equation of a Couple strain gradient solid represented by JOHN Y. SHU, WAYNE E. KING and NORMAN A. FLECK. 
+\subsubsection{ Isoparametric elements for the strain gradient solid}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{Shu_1_2.JPG}  \qquad
+		\includegraphics[scale=0.6]{Shu_3.JPG}
+	\end{center}  
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{Shu_4.JPG}  \qquad
+		\includegraphics[scale=0.6]{Shu_5_6.JPG}
+	\end{center}  
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.8]{Shu_info.JPG}
+	\end{center}  
+\end{figure}
+A total of six types of triangular element and quadrilateral element have been developed by JOHN Y. SHU for strain gradient theory. In which Displacement gradients are introduced as extra nodal degrees of freedom in terms of relaxed strain. The kinematic constraints between the relaxed strain and true gradients of displacement are enforced via Lagrange multipliers. All six types of element passed a patch test. However, he recommended QU34L4 elements for practical applications, since it gives precise accuracy than other elements.
+
+
+
+
+
+
+
+
 
 
 
