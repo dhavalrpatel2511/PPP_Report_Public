@@ -4,4 +4,10 @@
 \contentsline {subsection}{\numberline {2.2}Aifanti's 1992 Theory.}{5}
 \contentsline {section}{\numberline {3}Different FEM Approach}{6}
 \contentsline {subsection}{\numberline {3.1}Tomislav Lesicar - Two scale FEM formulation}{6}
+\contentsline {subsubsection}{\numberline {3.1.1} C1-Continuous Element}{6}
+\contentsline {subsubsection}{\numberline {3.1.2} Higher-order stress and strain gradient tensor}{6}
 \contentsline {subsection}{\numberline {3.2}E. Amanatidou - Mixed type FEM formulation}{7}
+\contentsline {subsubsection}{\numberline {3.2.1} Stress }{8}
+\contentsline {subsubsection}{\numberline {3.2.2} Higher Order Stress }{9}
+\contentsline {subsubsection}{\numberline {3.2.3} Mixed Tpye Elements}{10}
+\contentsline {subsection}{\numberline {3.3}John Y. Shu - Mixed type FEM formulation}{10}

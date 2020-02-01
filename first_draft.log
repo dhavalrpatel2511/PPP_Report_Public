@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.2.21)  1 FEB 2020 09:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.2.21)  1 FEB 2020 12:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -958,47 +958,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 141--146
 [5] <Tri_Element.JPG, id=41, 301.72725pt x 173.448pt>
 File: Tri_Element.JPG Graphic file (type jpg)
  <use Tri_Element.JPG>
-Package pdftex.def Info: Tri_Element.JPG used on input line 156.
+Package pdftex.def Info: Tri_Element.JPG used on input line 157.
 (pdftex.def)             Requested size: 241.38211pt x 138.75858pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--158
+Underfull \hbox (badness 10000) in paragraph at lines 152--159
 
  []
 
 Missing character: There is no Ì in font cmr12!
 Missing character: There is no „ in font cmr12!
 [6 <./Tri_Element.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 212--218
+Underfull \hbox (badness 10000) in paragraph at lines 214--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--227
+Underfull \hbox (badness 10000) in paragraph at lines 222--229
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--227
+Underfull \hbox (badness 10000) in paragraph at lines 222--229
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--234
+Underfull \hbox (badness 10000) in paragraph at lines 231--236
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 245--254
+Underfull \hbox (badness 10000) in paragraph at lines 247--253
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--254
+Underfull \hbox (badness 10000) in paragraph at lines 247--253
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--268
+Underfull \hbox (badness 10000) in paragraph at lines 247--253
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--269
 
  []
 
@@ -1007,16 +1012,84 @@ Underfull \hbox (badness 10000) in paragraph at lines 302--306
 
  []
 
-[9] (./first_draft.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--312
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--320
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--320
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--320
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--334
+
+ []
+
+[9]
+<Element_mixed_type_formulation_E_Amanatidou.JPG, id=55, 581.7735pt x 263.7855p
+t>
+File: Element_mixed_type_formulation_E_Amanatidou.JPG Graphic file (type jpg)
+ <use Element_mixed_type_formulation_E_Amanatidou.JPG>
+Package pdftex.def Info: Element_mixed_type_formulation_E_Amanatidou.JPG used o
+n input line 339.
+(pdftex.def)             Requested size: 378.1483pt x 171.45854pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 342--345
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 342--345
+
+ []
+
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ” in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ” in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ” in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--357
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--357
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--357
+
+ []
+
+[10 <./Element_mixed_type_formulation_E_Amanatidou.JPG>] [11]
+(./first_draft.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 24420 strings out of 494248
- 476702 string characters out of 6160325
+ 24430 strings out of 494248
+ 477002 string characters out of 6160325
  939196 words of memory out of 5000000
- 27432 multiletter control sequences out of 15000+600000
+ 27441 multiletter control sequences out of 15000+600000
  12240 words of font info for 45 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
  55i,11n,56p,10407b,314s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1029,10 +1102,10 @@ st/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy10.pfb>
-Output written on first_draft.pdf (10 pages, 772837 bytes).
+Output written on first_draft.pdf (12 pages, 818585 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 92 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

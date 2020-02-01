@@ -148,6 +148,7 @@ Here, second-order derivatives of displacement occurred in the principle of virt
 There are different FEM approach to the Strain Gradient Elasticity theories are available because of the fact that $C^1$ continuous elements are very difficult to formulate and on the other hand there are also a mixed finite element formulation of strain gradient elasticity derived, which only requires $C^0$ continuity.
 
 \subsection{Tomislav Lesicar - Two scale FEM formulation} 
+\subsubsection{ C1-Continuous Element}
 The Aifantis strain gradient theory given in subsection (2.2) has been embedded into finite element framework by Tomislav Lesicar, Zdenko Tonkovic and Jurica Soric. They used the three node triangular finite element named C1PE3. The element is shown in
 Fig. It contains twelve degrees of freedom (DOF) per node, and it satisfies $C^1$ continuity with assumptions of the plane strains with unit thickness
 \newline
@@ -156,6 +157,7 @@ Fig. It contains twelve degrees of freedom (DOF) per node, and it satisfies $C^1
 	      \includegraphics[scale=0.8]{Tri_Element.JPG}  
 	    \end{center}  
      \end{figure}
+\subsubsection{ Higher-order stress and strain gradient tensor} 
 They used the same weak form of the finite element formulation as given by Eq.(5). Furthermore, using the basic finite element relations strain and stress tensors can be expressed as
 \begin{equation}
 \varepsilon = Bu,      \sigma=C\varepsilon
@@ -248,8 +250,7 @@ where the Strain energy density for all three forms are represented as,
 Amanatidou and Aravas only considered the first form of strain energy density Eq.(\ref{eleven}), which only depends upon conventional strain $ \varepsilon_{ij} $ and higher-order strain-gradient $ \kappa_{ijk} $. 
 \newline
 \newline
-\textbf{Stress :}
-\newline
+\subsubsection{ Stress  }
 From the Eq.(\ref{eleven}) we can easily derived the Cauchy stress $\sigma_{ij}$ as,
 \begin{equation}\label{fifteen}
 \begin{aligned}
@@ -273,7 +274,7 @@ By comparing the Eq.(\ref{fifteen}) and Eq.(\ref{sixteen}),
 C_{ijkl} = \lambda\delta_{kl}\delta_{ij} + 2\mu\delta_{ik}\delta_{jl}
 \end{equation}
 It can be also written in symmetric $3\times3$ Matrix as,
-\begin{equation}
+\begin{equation}\label{seventeen}
 C = 
 \begin{bmatrix}
 \lambda+2\mu & \lambda & 0 \\
@@ -282,8 +283,7 @@ C =
 \end{bmatrix}
 \end{equation}
 \newpage
-\textbf{Higher Order Stress :}
-\newline
+\subsubsection { Higher Order Stress  }
 From the Eq.(\ref{eleven}) we can easily derived the Higher Order stress $\mu_{ijk}$ as,
 \begin{equation}\label{eighteen}
 \begin{aligned}
@@ -306,12 +306,18 @@ Now, it can be easily derived the Third-order tensor $D_{pqrijk}$ using the High
 \begin{equation}\label{nineteen}
 \mu_{pqr} = D_{pqrijk} \kappa_{ijk}
 \end{equation}
+\\
+\\
 By, comparing the Eq.(\ref{eighteen}) and Eq.(\ref{nineteen}),
 \begin{equation}\label{twenty}
 D_{pqrijk} = l^2 [ \lambda \delta_{qr} \delta_{ip} \delta_{kj} + \mu(\delta_{ip} \delta_{jq} \delta_{kr} + \delta_{ir} \delta_{jq} \delta_{kp}) ]
 \end{equation}
+\\
+\\
 Now, Eq.(\ref{twenty}) can also be written in matrix notation as following, where $D_{pqrijk}$ is a symmetric $6\times6$ matrix.
-\begin{equation}
+\\
+\\
+\begin{equation}\label{twoone}
 D = l^2
 \begin{bmatrix}
 \lambda + 2\mu & 0 & 0 & 0 & 0 & \frac{\lambda}{2} \\
@@ -322,6 +328,62 @@ D = l^2
  \frac{\lambda}{2} & \frac{\mu}{2} & 0 & 0 & 0 & \frac{\lambda + 3\mu}{4} 
 \end{bmatrix}
 \end{equation}
+\\
+\\
+So, Eq.(\ref{seventeen}) and Eq.(\ref{twoone}) are the Voigt-notation of the constitutive equation of a general strain gradient solid introduced by Amanatidou and Aravas. 
+
+\newpage
+\subsubsection{ Mixed Tpye Elements}
+    \begin{figure}[H]
+    	\begin{center}
+		     \includegraphics[scale=.65]{Element_mixed_type_formulation_E_Amanatidou.JPG}  	
+	    \end{center}     
+    \end{figure}
+Amanatidou and Aravas presented several elements that can be used in Type-I formulation are shown in above Fig. The elements are shown in Fig. , the corresponding nodal degrees of freedom are u,$\alpha$ and $\sigma$. Out of these given elements only the element I9-70 passes the all patch test, whereas the elements I5-28 and I13-70 failed into the patch test.
+\\
+\\
+\subsection{John Y. Shu - Mixed type FEM formulation}
+\vspace{0.4cm}
+Conventional continuum mechanics theories assume that stress at a material point is a function
+of state variables, such as strain, at the same point. This assumption has valid until when the wavelength of a deformation field is much larger than the dominant micro-structural length scale of the material. However, when the two length scales are comparable, this assumption is proved wrong because the material behaviour at any material point is affected by the surrounding material points deformation. Therefore, Fleck—Hutchinson strain gradient plasticity, which falls within the Toupin—Mindlin framework, represent the virtual work in terms of strain gradients and higher order stresses.
+\newline
+\newline
+John Y. Shu developed Mixed type FEM formulation of Fleck—Hutchinson strain gradient elasticity theory. They devised $C^0$ continuous elements of mixed type, in which additional nodal degrees of freedom "Relaxed Strain" is introduced and enforce the kinematic constraints between displacement and relaxed strain by Lagrange multipliers.
+\newline
+\newline
+Firstly, for mixed type FEM formulation, they first derive a weak form of the principle of virtual
+work suitable for finite element implementation using $C^0$-shape functions. In this modified virtual work only first-order gradients of kinematic quantities involving. In this introduced a second-order tensor $\psi$ and a related third-order tensor $\eta$ such that $\eta_{ijk}$ is defined as,
+\\
+\begin{equation}\label{twotwo} 
+\eta_{ijk} = (\psi_{jk,i}+\psi_{ik,j})/2
+\end{equation}
+Now, modified weak form virtual work is represented as,
+\begin{equation}\label{twothree}
+\begin{aligned}
+\int\limits_\Omega\! [ \sigma_{ij}\delta\varepsilon_{ij} + \tau_{ijk}\delta\eta_{ijk} + \tau_{ijk,i}(\delta\psi_{jk}-\delta u_{k,j})  ] d\Omega &= \int\limits_\Omega\! [b_k\delta u_k] d\Omega + \int\limits_\Gamma\! [ t_k\delta u_k + n_jr_k\delta\psi_{jk} ] d\Gamma \\
+&+ \int\limits_\Gamma\! ( n_i\tau_{ijk} -n_jr_k ) ( \delta\psi_{jk}-\delta u_{k,j} ) d\Gamma
+\end{aligned}
+\end{equation}
+\newline
+for arbitrary variations of du and d$\psi$. If $ \psi $ is subjected strictly to the constraint of
+$ \delta\psi = \delta u_{k,j} $ into the whole domain $ \Omega $, then as previously discussed, the strict enforcement of this constraint will demand $C^1$ continuous elements. Therefore, to facilitate the use of convenient $C^0$-continuous elements, this constraint is enforced in the following weighted residual manner as,
+\begin{equation}\label{twofour}
+\int\limits_\Omega\! (\psi_{jk} - u_{k,j})\delta\tau_{ijk,i} d\Omega = 0  \quad (no \quad sum\quad over \quad j \quad and \quad k)
+\end{equation}
+for an arbitrary variation of the Lagrange multipliers $ \tau_{ijk,i} $. Finally, by denoting the Lagrange multipliers $ \delta \tau_{ijk,i}$ in above equation as $ \delta\rho_{jk} $ the modified virtual work statement Eq.(\ref{twothree}) becomes,
+\begin{equation}
+\int\limits_\Omega\! [ \sigma_{ij}\delta\varepsilon_{ij} + \tau_{ijk}\delta\eta_{ijk} + \rho_{jk}(\delta\psi_{jk}-\delta u_{k,j})] d\Omega = \int\limits_\Omega\! [b_k\delta u_k] d\Omega + \int\limits_\Gamma\! [ t_k\delta u_k + n_jr_k\delta\psi_{jk} ] d\Gamma
+\end{equation}
+and the modified constraint from Eq.(\ref{twofour}) becomes,
+\begin{equation}
+\int\limits_\Omega\! (\psi_{jk} - u_{k,j})\delta\rho_{jk}  d\Omega = 0  \quad (no \quad sum\quad over \quad j \quad and \quad k)
+\end{equation} 
+
+
+
+
+
+
 
 
 
