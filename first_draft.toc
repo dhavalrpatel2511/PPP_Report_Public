@@ -16,3 +16,4 @@
 \contentsline {subsubsection}{\numberline {3.3.2} Stress}{12}
 \contentsline {subsubsection}{\numberline {3.3.3} Higher-order Stress}{13}
 \contentsline {subsubsection}{\numberline {3.3.4} Isoparametric elements for the strain gradient solid}{13}
+\contentsline {section}{\numberline {4}FEM Implementation}{15}

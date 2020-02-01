@@ -462,10 +462,13 @@ So, Eq.(\ref{seventeen}) and Eq.(\ref{threetwo}) are the Voigt-notation of the c
 	\end{center}  
 \end{figure}
 A total of six types of triangular element and quadrilateral element have been developed by JOHN Y. SHU for strain gradient theory. In which Displacement gradients are introduced as extra nodal degrees of freedom in terms of relaxed strain. The kinematic constraints between the relaxed strain and true gradients of displacement are enforced via Lagrange multipliers. All six types of element passed a patch test. However, he recommended QU34L4 elements for practical applications, since it gives precise accuracy than other elements.
+\newpage
 
-
-
-
+\section{FEM Implementation}
+In subsection "John Y. Shu - Mixed type FEM formulation", there are 6 different triangular element and quadrilateral element represented out of which element QU34L4 is recommended for practical applications. so here we will use the QU34L4 element in order to implement strain gradient theory.
+\\
+\\
+This QU34L4 is Shown in below Fig. ,which contains total 9 nodes and 38 degrees of freedom. In this element there are two displacements DOF $ u_1 $ and $ u_2  $ at each nodes of it. There are newly introduced relaxed strain DOF $ \psi_{11} $,$ \psi_{21} $,$ \psi_{12} $ and $ \psi_{22} $ at each corner nodes of it. In addition to that there are also four Lagrange multipliers $ \rho_{11} $,  $ \rho_{21} $, $ \rho_{12} $, $ \rho_{22} $  which are assumed to be constant throughout the element.
 
 
 
