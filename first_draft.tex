@@ -467,8 +467,313 @@ A total of six types of triangular element and quadrilateral element have been d
 \section{FEM Implementation}
 In subsection "John Y. Shu - Mixed type FEM formulation", there are 6 different triangular element and quadrilateral element represented out of which element QU34L4 is recommended for practical applications. so here we will use the QU34L4 element in order to implement strain gradient theory.
 \\
+\subsection{QU34L4 - ELEMENT}
+This QU34L4 is Shown in below Fig. ,which contains total 9 nodes and 38 degrees of freedom. In this element there are two displacements DOF $ u_1 $ and $ u_2  $ at each nodes of it. There are newly introduced relaxed strain DOF $ \psi_{11} $,$ \psi_{21} $,$ \psi_{12} $ and $ \psi_{22} $ at each corner nodes of it. In addition to that there are also four Lagrange multipliers $ \rho_{11} $,  $ \rho_{21} $, $ \rho_{12} $ and $ \rho_{22} $,  which are assumed to be constant throughout the element. So, in QU34L4 Q stands for nine-noded isoparametric quadrilateral element, where U stands for number of DOF related to the displacement which are total 34 in this element, where L stands for Lagrange multipliers which are total 4 in this element. 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.7]{ele.png}
+	\end{center}  
+\end{figure}
+Displacements $ u_1 $,$ u_2 $ are interpolated using standard quadratic shape functions in terms of the area co-ordinates. Relaxed displacement gradients $ \psi_{11} $,$ \psi_{21} $,$ \psi_{12} $ and $ \psi_{22} $ are interpolated linearly. The different interpolation is motivated by the consideration that the true displacement gradients $ \varepsilon_{ij} $ will depend linearly
+on the co-ordinates if all sides of the element are straight.
+\subsection{Degrees of Freedom(DOF)}
+In this section we derive the finite element shape function and its derivatives for the different DOF - displacements and relaxed strain. In this we also defined matrices for langrange multipliers and also established the matrices containing the shape functions and its derivatives.
+\subsubsection{ Displacement DOF}
+As discussed in above section, there are two displacements DOF $u_1$ and $u_2$ at each nodes. From the weak of modified virtual work we can derive the relation between global displacements and nodal-displacement as,
 \\
-This QU34L4 is Shown in below Fig. ,which contains total 9 nodes and 38 degrees of freedom. In this element there are two displacements DOF $ u_1 $ and $ u_2  $ at each nodes of it. There are newly introduced relaxed strain DOF $ \psi_{11} $,$ \psi_{21} $,$ \psi_{12} $ and $ \psi_{22} $ at each corner nodes of it. In addition to that there are also four Lagrange multipliers $ \rho_{11} $,  $ \rho_{21} $, $ \rho_{12} $, $ \rho_{22} $  which are assumed to be constant throughout the element.
+\\
+\begin{equation}\label{threethree}
+u^{(e)}=
+\begin{bmatrix}
+u_1^{(e)}\\
+u_2^{(e)}
+\end{bmatrix}
+=N^{[u]^{\textbf{T}}}\cdot \hat{u}^{(e)}
+\end{equation}
+\\
+\\
+where $\hat{u}_{(e)}$ is defined in terms of vector as,
+\begin{equation}\label{threefour}
+\hat u^{(e)}=
+\begin{bmatrix}
+u_1^{(1)}&u_2^{(1)}&u_1^{(2)}&u_2^{(2)}&\cdots &\cdots u_1^{(9)} u_2^{(9)}
+\end{bmatrix}
+\end{equation}
+\\
+In QU34L4 element, as discussed earlier $u_i$ are interpolated using standard quadratic shape functions in terms of the area co-ordinates. So here we derived the shape functions for nine-nodded element in coordinates $\xi$ and $\omega$.
+\\
+\\
+\begin{equation}\label{threefive}
+\begin{aligned}
+N^{[U]^{(1)}} &= \dfrac{1}{4}\xi(\xi-1)\omega(\omega-1)  \\
+N^{[U]^{(2)}} &= \dfrac{1}{4}\xi(\xi+1)\omega(\omega-1)  \\
+N^{[U]^{(3)}} &= \dfrac{1}{4}\xi(\xi+1)\omega(\omega+1)  \\
+N^{[U]^{(4)}} &= \dfrac{1}{4}\xi(\xi-1)\omega(\omega+1)  \\
+N^{[U]^{(5)}} &= \dfrac{1}{2}(1-\xi^2)\omega(\omega-1)   \\
+N^{[U]^{(6)}} &= \dfrac{1}{2}\xi(\xi+1)(1-\omega^2)  \\
+N^{[U]^{(7)}} &= \dfrac{1}{2}(1-\xi^2)\omega(\omega+1)  \\
+N^{[U]^{(8)}} &= \dfrac{1}{2}\xi(\xi-1)(1-\omega^2) \\
+N^{[U]^{(9)}} &= (1-\xi^2)(1-\omega^2)  \\
+\end{aligned}
+\end{equation}
+\\
+\\
+From equations Eq.(\ref{threethree}), Eq.(\ref{threefour}) and Eq.(\ref{threefive}) we can assemble the shape matrix as following,
+\begin{equation}\label{threesix}
+N^{[u]^{T}}=
+\begin{bmatrix}
+N^{[u]^{(1)}}&0&N^{[u]^{(2)}}&0&\cdots &\cdots& N^{[u]^{(9)}}&0 \\
+0&N^{[u]^{(1)}}&0&N^{[u]^{(2)}}&\cdots &\cdots& 0&N^{[u]^{(9)}}
+\end{bmatrix}
+\end{equation}
+\newpage
+Now we have shape functions, so in next step we derive the local derivatives of the shape functions with respect to $\xi$ and $\omega$. 
+\\
+\\
+The local derivatives of shape function with respect to are coordinates $\xi$ and $\omega$ is given as, 
+\begin{equation}\label{threeseven}
+N^{[U]^{(i)}}_{,\xi} = \dfrac{\partial N^{[U]^{(i)}} }{\partial \xi}
+\end{equation}
+\begin{equation}\label{threeeight}
+N^{[U]^{(i)}}_{,\omega} = \dfrac{\partial N^{[U]^{(i)}} }{\partial \omega}
+\end{equation}
+\\
+\\
+From Eq.(\ref{threeseven}) we can get the local derivatives w.r.t  $\xi$ as,
+\begin{equation}\label{threenine}
+\begin{aligned}
+N_{,\xi}^{[U]^{(1)}} &= -\dfrac{1}{2}\xi\omega-\dfrac{1}{4}\omega^2+\dfrac{1}{4}\omega+\dfrac{1}{2}\xi\omega^2  \\
+N_{,\xi}^{[U]^{(2)}} &= -\dfrac{1}{2}\xi\omega+\dfrac{1}{4}\omega^2-\dfrac{1}{4}\omega+\dfrac{1}{2}\xi\omega^2  \\
+N_{,\xi}^{[U]^{(3)}} &= \dfrac{1}{2}\xi\omega+\dfrac{1}{4}\omega^2+\dfrac{1}{4}\omega+\dfrac{1}{2}\xi\omega^2 \\
+N_{,\xi}^{[U]^{(4)}} &= \dfrac{1}{2}\xi\omega-\dfrac{1}{4}\omega^2-\dfrac{1}{4}\omega+\dfrac{1}{2}\xi\omega^2 \\
+N_{,\xi}^{[U]^{(5)}} &= \xi\omega-\xi\omega^2 \\
+N_{,\xi}^{[U]^{(6)}} &= \xi-\xi\omega^2+\dfrac{1}{2}-\dfrac{1}{2}\omega^2 \\
+N_{,\xi}^{[U]^{(7)}} &= -\xi\omega-\xi\omega^2 \\
+N_{,\xi}^{[U]^{(8)}} &= \xi-\xi\omega^2-\dfrac{1}{2}+\dfrac{1}{2}\omega^2 \\
+N_{,\xi}^{[U]^{(9)}} &= -2\xi+2\xi\omega^2 \\
+\end{aligned}
+\end{equation}
+\\
+From Eq.(\ref{threeeight}) we can get the local derivatives w.r.t  $\omega$ as,
+\begin{equation}\label{fourty}
+\begin{aligned}
+N_{,\omega}^{[U]^{(1)}} &= -\dfrac{1}{2}\xi\omega-\dfrac{1}{4}\xi^2+\dfrac{1}{4}\xi+\dfrac{1}{2}\xi^2\omega \\
+N_{,\omega}^{[U]^{(2)}} & = \dfrac{1}{2}\xi\omega-\dfrac{1}{4}\xi^2-\dfrac{1}{4}\xi+\dfrac{1}{2}\xi^2\omega \\
+N_{,\omega}^{[U]^{(3)}} &= \dfrac{1}{2}\xi\omega+\dfrac{1}{4}\xi^2+\dfrac{1}{4}\xi+\dfrac{1}{2}\xi^2\omega \\
+N_{,\omega}^{[U]^{(4)}} &= -\dfrac{1}{2}\xi\omega+\dfrac{1}{4}\xi^2-\dfrac{1}{4}\xi+\dfrac{1}{2}\xi^2\omega \\
+N_{,\omega}^{[U]^{(5)}} &= \dfrac{1}{2}\xi^2-\dfrac{1}{2}-\xi^2\omega+\omega \\
+N_{,\omega}^{[U]^{(6)}} &= -\xi^2\omega-\xi\omega \\
+N_{,\omega}^{[U]^{(7)}} &=  -\dfrac{1}{2}\xi^2+\dfrac{1}{2}-\xi^2\omega+\omega \\
+N_{,\omega}^{[U]^{(8)}} &= -\xi^2\omega+\xi\omega \\
+N_{,\omega}^{[U]^{(9)}} &= -2\omega+2\xi^2\omega \\
+\end{aligned}
+\end{equation}
+\\
+Taking the equations above into consideration, the displacement gradient in the element is derived as following,
+\begin{equation}\label{fourone}
+\nabla u^{(e)}=
+\begin{Bmatrix}
+	u_{1,1}^{(e)} \\
+	\\
+	u_{1,2}^{(e)} \\
+	\\
+	u_{2,1}^{(e)} \\
+	\\
+	u_{2,2}^{(e)} 
+\end{Bmatrix}
+=M^{[u]^{\textbf{T}}}u^{(e)}
+\end{equation}
+\\
+So here in Eq.(\ref{fourone}), the $u_{1,2}$ and $u_{2,1}$ are not same as in consideration of normal strain, where we considered $\varepsilon_{1,2}$ and $ \varepsilon_{2,1}$ are same.
+\\
+\\
+From Eq.(\ref{threefour}) and Eq.(\ref{fourone}), we can defined the Displacements Gradient Matrix as following, 
+\begin{equation}\label{fourtwo}
+M^{[u]^\textbf{T}}=
+\begin{bmatrix}
+N_{,1}^{[u]^{(1)}}&0&N_{,1}^{[u]^{(2)}}&0&\cdots &\cdots& N_{,1}^{[u]^{(9)}}&0 \\
+0&N_{,2}^{[u]^{(1)}}&0&N_{,2}^{[u]^{(2)}}&\cdots &\cdots& 0&N_{,2}^{[u]^{(9)}} \\
+N_{,1}^{[u]^{(1)}}&0&N_{,1}^{[u]^{(2)}}&0&\cdots &\cdots& N_{,1}^{[u]^{(9)}}&0 \\
+0&N_{,2}^{[u]^{(1)}}&0&N_{,2}^{[u]^{(2)}}&\cdots &\cdots& 0&N_{,2}^{[u]^{(9)}}
+\end{bmatrix}
+\end{equation}
+\\
+\\
+Now, we can derived the true strain matrix as following,
+\begin{equation}\label{fourthree}
+\varepsilon^{(e)}=
+\begin{Bmatrix}
+\varepsilon_{11}^{(e)} \\
+\\
+\varepsilon_{22}^{(e)}  \\
+\\
+\gamma_{12}^{(e)}  \\ 
+\end{Bmatrix}
+\approx B^{[u]^{\textbf{T}}}u^{(e)}
+\end{equation}
+\\
+From Eq.(\ref{threefour}) and Eq.(\ref{fourthree}), we can defined the differential Matrix $B^u$, which contains the global derivatives of shape functions as following, 
+\begin{equation}\label{fourfour}
+B^{[u]^\textbf{T}}=
+\begin{bmatrix}
+	N_{,1}^{[u]^{(1)}}&0&N_{,1}^{[u]^{(2)}}&0&\cdots &\cdots& N_{,1}^{[u]^{(9)}}&0 \\
+	0&N_{,2}^{[u]^{(1)}}&0&N_{,2}^{[u]^{(2)}}&\cdots &\cdots& 0&N_{,2}^{[u]^{(9)}} \\
+	N_{,2}^{[u]^{(1)}}&N_{,1}^{[u]^{(1)}}&N_{,2}^{[u]^{(2)}}&N_{,1}^{[u]^{(2)}}&\cdots &\cdots& N_{,2}^{[u]^{(9)}}&N_{,1}^{[u]^{(9)}}
+\end{bmatrix}
+\end{equation}
+\\
+\\
+In both the Eq.(\ref{fourtwo}) and Eq.(\ref{fourfour}), it can be seen that there $N_{,1}$ and $N_{,2}$ which are represented as $N_{,1}^{[u]^{(i)}} = \dfrac{\partial N^{[u]^{(i)}}}{\partial x_1}$ and $N_{,2}^{[u]^{(i)}} = \dfrac{\partial N^{[u]^{(i)}}}{\partial x_2}$, which are global derivatives of shape functions related to displacements DOF. which can not be calculated directly since the shape functions are set up in the local coordinate system.
+\subsubsection{ Relaxed Strain DOF}
+As discussed in above section, there are four relaxed strain DOF $\psi_{11}$,$\psi_{21}$,$\psi_{12}$ and $\psi_{22}$,  at each corned nodes. Now, we can derive the relation between global relaxed strain and nodal-relaxed strain as,
+\\
+\begin{equation}\label{fourfive}
+\psi^{(e)}=
+\begin{Bmatrix}
+\psi_{11}^{(e)} \\
+\\
+\psi_{21}^{(e)} \\
+\\
+\psi_{12}^{(e)} \\
+\\
+\psi_{22}^{(e)}
+\end{Bmatrix}
+=N^{[\psi]^{\textbf{T}}} \hat{\psi}^{(e)}
+\end{equation}
+\\
+\\
+where, nodal relaxed strain vector $\hat{\psi}^{(e)}$ is defined as following,
+\begin{equation}\label{foursix}
+\hat{\psi}^{(e)^{\textbf{T}}}=
+\begin{bmatrix}
+\psi_{(11)}^{(1)}&\psi_{(21)}^{(1)}&\psi_{(12)}^{(1)}&\psi_{(22)}^{(1)}&\cdots &\cdots& \psi_{(11)}^{(4)}&\psi_{(21)}^{(4)}&\psi_{(12)}^{(4)}&\psi_{(22)}^{(4)}
+\end{bmatrix}
+\end{equation}
+\\
+Now, defined the shape functions for the relaxed strain. As discussed earlier, in QU34L4 element $\psi_i$ are interpolated using standard bi-linear shape functions in terms of the area coordinates $\xi$ and $\omega$.
+\\
+\\
+\begin{equation}\label{fourseven}
+\begin{aligned}
+N^{[\psi]^{(1)}} &= \dfrac{1}{4}(1-\xi)(1-\omega) \\
+N^{[\psi]^{(2)}} &= \dfrac{1}{4}(1+\xi)(1-\omega) \\ 
+N^{[\psi]^{(3)}} &= \dfrac{1}{4}(1+\xi)(1+\omega) \\
+N^{[\psi]^{(4)}} &= \dfrac{1}{4}(1-\xi)(1+\omega) \\
+\end{aligned}
+\end{equation}
+\\
+\\
+Now, considering the equations Eq.(\ref{fourfive}), Eq.(\ref{foursix}) and Eq.(\ref{fourseven}) we can assemble the shape matrix for the relaxed strain degree of freedom as following,
+\\
+\\
+\begin{equation}\label{foureight}
+N^{[\psi]^\textbf{T}}=
+\begin{bmatrix}
+N^{{\psi}^{(1)}}&0&0&0&\cdots&\cdots&N^{{\psi}^{(4)}}&0&0&0 \\
+0&N^{{\psi}^{(1)}}&0&0&\cdots&\cdots&0&N^{{\psi}^{(4)}}&0&0 \\
+0&0&N^{{\psi}^{(1)}}&0&\cdots&\cdots&0&0&N^{{\psi}^{(4)}}&0 \\
+0&0&0&N^{{\psi}^{(1)}}&\cdots&\cdots&0&0&0&N^{{\psi}^{(4)}} 
+\end{bmatrix}
+\end{equation}
+\\
+\\
+Now we have shape functions for relaxed strain DOF Eq.(\ref{fourseven}), so in next step we derive the local derivatives of the shape functions with respect to $\xi$ and $\omega$. 
+\\
+The local derivatives of shape function with respect to are coordinates $\xi$ and $\omega$ is given as, 
+\begin{equation}\label{fournine}
+N^{[\psi]^{(i)}}_{,\xi} = \dfrac{\partial N^{[\psi]^{(i)}} }{\partial \xi}
+\end{equation}
+\begin{equation}\label{fifty}
+N^{[\psi]^{(i)}}_{,\omega} = \dfrac{\partial N^{[\psi]^{(i)}} }{\partial \omega}
+\end{equation}
+\\
+From Eq.(\ref{fournine}) we can get the local derivatives w.r.t  $\xi$ as,
+\begin{equation}
+\begin{aligned}
+N_{,\xi}^{[\psi]^{(1)}} &= \dfrac{1}{4}(-1+\omega) \\
+N_{,\xi}^{[\psi]^{(2)}} &= \dfrac{1}{4}(1-\omega) \\
+N_{,\xi}^{[\psi]^{(3)}} &= \dfrac{1}{4}(1+\omega) \\
+N_{,\xi}^{[\psi]^{(4)}} &= \dfrac{1}{4}(-1-\omega) \\
+\end{aligned}
+\end{equation}
+\\
+From Eq.(\ref{fifty}) we can get the local derivatives w.r.t  $\omega$ as,
+\begin{equation}
+\begin{aligned}
+N_{,\omega}^{[\psi]^{(1)}} &= \dfrac{1}{4}(-1+\xi) \\
+N_{,\omega}^{[\psi]^{(2)}} &= \dfrac{1}{4}(-1-\xi) \\
+N_{,\omega}^{[\psi]^{(3)}} &= \dfrac{1}{4}(1+\xi) \\
+N_{,\omega}^{[\psi]^{(4)}} &= \dfrac{1}{4}(1-\xi) \\
+\end{aligned}
+\end{equation}
+\\
+Now, we defined the strain gradient using the differential matrix Eq.(\ref{fivefour}) and nodal relaxed strain Eq.(\ref{foursix})  
+\begin{equation}\label{fivethree}
+\eta^{(e)}=
+\begin{Bmatrix}
+	\eta_{111}^{(e)} \\
+	\\
+	\eta_{221}^{(e)} \\
+	\\
+	\eta_{112}^{(e)} \\
+	\\
+	\eta_{222}^{(e)} \\
+	\\
+	\phi_{1}^{(e)} \\
+	\\
+	\phi_{2}^{(e)}
+\end{Bmatrix}
+\thickapprox B^{[\psi]^{\textbf{T}}}\psi^{(e)}
+\end{equation}
+\\
+Form, considering Eq.(\ref{foursix}) and Eq.(\ref{fivethree}) now we can defined the differential matrix $B^\psi$ as following,
+\begin{equation}\label{fivefour}
+B^{[\psi]^\textbf{T}}=
+\begin{bmatrix}
+N_{,1}^{{[\psi]}^{(1)}}&0&0&0&\cdots&\cdots&N_{,1}^{{[\psi]}^{(4)}}&0&0&0 \\
+0&N_{,2}^{{[\psi]}^{(1)}}&0&0&\cdots&\cdots&0&N_{,2}^{{[\psi]}^{(4)}}&0&0 \\
+0&0&N_{,1}^{{[\psi]}^{(1)}}&0&\cdots&\cdots&0&0&N_{,1}^{{[\psi]}^{(4)}}&0 \\
+0&0&0&N_{,2}^{{[\psi]}^{(1)}}&\cdots&\cdots&0&0&0&N_{,2}^{{[\psi]}^{(4)}} \\
+N_{,2}^{{[\psi]}^{(1)}}&N_{,1}^{{[\psi]}^{(1)}}&0&0&\cdots&\cdots&N_{,2}^{{[\psi]}^{(4)}}&N_{,1}^{{[\psi]}^{(4)}}&0&0 \\
+0&0&N_{,2}^{{[\psi]}^{(1)}}&N_{,1}^{{[\psi]}^{(1)}}&\cdots&\cdots&0&0&N_{,2}^{{[\psi]}^{(4)}}&N_{,1}^{{[\psi]}^{(4)}} 
+\end{bmatrix}
+\end{equation}
+\\
+In this above Eq.(\ref{fivefour}), it can be seen that there $N_{,1}^\psi$ and $N_{,2}^\psi$ which are represented as $N_{,1}^{[\psi]^{(i)}} = \dfrac{\partial N^{[\psi]^{(i)}}}{\partial x_1}$ and $N_{,2}^{[\psi]^{(i)}} = \dfrac{\partial N^{[\psi]^{(i)}}}{\partial x_2}$, which are global derivatives of shape functions related to displacements DOF. which can not be calculated directly since the shape functions are set up in the local coordinate system $ \xi$ and $ \omega$.
+\subsubsection{ Langrange Multiplier}
+The Lagrange multipliers in the element $ \rho^{(e)}$ are defined as,
+\begin{equation}
+\rho^{(e)}=
+\begin{Bmatrix}
+\rho_{11}^{(e)} \\
+\\
+\rho_{21}^{(e)} \\
+\\
+\rho_{12}^{(e)} \\
+\\
+\rho_{22}^{(e)}
+\end{Bmatrix}
+=N^{[\rho]^{\textbf{T}}}\rho^{(e)}
+\end{equation}
+\\
+As discussed earlier in above section, it is assumed that  Lagrange multipliers constant throughout the element they are only existent at the middle node and therefore, the shape functions matrix for it defined as,
+\begin{equation}
+N^{[\rho]}=
+\begin{bmatrix}
+1&0&0&0 \\
+\\
+0&1&0&0 \\
+\\
+0&0&1&0 \\
+\\
+0&0&0&1
+\end{bmatrix}
+\end{equation}
+
+
+
+
+
 
 
 
