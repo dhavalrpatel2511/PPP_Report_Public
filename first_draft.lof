@@ -1,0 +1,27 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces The history of Strain Gradient Theory\relax }}{5}
+\contentsline {figure}{\numberline {2}{\ignorespaces C1-Continuous Triangular Element\relax }}{7}
+\contentsline {figure}{\numberline {3}{\ignorespaces Physical Interpretation of Strain Gradient $\eta _{111}$ and $\eta _{222}$\relax }}{8}
+\contentsline {figure}{\numberline {4}{\ignorespaces Physical Interpretation of Strain Gradient $\eta _{221}$ and $\eta _{112}$\relax }}{9}
+\contentsline {figure}{\numberline {5}{\ignorespaces Physical Interpretation of Strain Gradient $\eta _{211}$ and $\eta _{122}$\relax }}{9}
+\contentsline {figure}{\numberline {6}{\ignorespaces C0-continuous Finite elements for Type I formulation.\relax }}{12}
+\contentsline {figure}{\numberline {7}{\ignorespaces C0-continuous 6 Finite elements for Mixed type of formulation.\relax }}{15}
+\contentsline {figure}{\numberline {8}{\ignorespaces C0-continuous QU34L4 Element.\relax }}{16}
+\contentsline {figure}{\numberline {9}{\ignorespaces Displacement visualization of ABAQUS Model.\relax }}{23}
+\contentsline {figure}{\numberline {10}{\ignorespaces Displacement visualization of Strain Gradient Model.\relax }}{24}
+\contentsline {figure}{\numberline {11}{\ignorespaces Stress visualization of ABAQUS Model.\relax }}{24}
+\contentsline {figure}{\numberline {12}{\ignorespaces Stress visualization of Strain Gradient Model.\relax }}{25}
+\contentsline {figure}{\numberline {13}{\ignorespaces Meshed Plate-720 with hole in the left-bottom corner.\relax }}{26}
+\contentsline {figure}{\numberline {14}{\ignorespaces Fine mesh and Transition in Plate-720.\relax }}{26}
+\contentsline {figure}{\numberline {15}{\ignorespaces Strain Gradient Visualization in Plate-720.\relax }}{27}
+\contentsline {figure}{\numberline {16}{\ignorespaces Visualization of Strain Gradient $\eta _{111} $\relax }}{27}
+\contentsline {figure}{\numberline {17}{\ignorespaces Visualization of Strain Gradient $\eta _{221} $\relax }}{28}
+\contentsline {figure}{\numberline {18}{\ignorespaces Visualization of Strain Gradient $\eta _{112} $\relax }}{28}
+\contentsline {figure}{\numberline {19}{\ignorespaces Visualization of Strain Gradient $\eta _{222} $\relax }}{29}
+\contentsline {figure}{\numberline {20}{\ignorespaces Visualization of Strain Gradient $\eta _{121}$ + $\eta _{211}$\relax }}{29}
+\contentsline {figure}{\numberline {21}{\ignorespaces Visualization of Strain Gradient $\eta _{122}$ + $\eta _{212}$\relax }}{30}
+\contentsline {figure}{\numberline {22}{\ignorespaces Square Domain with one element for implementation of Patch Test-1.\relax }}{31}
+\contentsline {figure}{\numberline {23}{\ignorespaces Visualization of Displacement $u_1 $ in Patch Test-1 Model.\relax }}{32}
+\contentsline {figure}{\numberline {24}{\ignorespaces Visualization of Displacement $u_2 $ in Patch Test-1 Model.\relax }}{32}
+\contentsline {figure}{\numberline {25}{\ignorespaces Square Domain with four element for implementation of Patch Test-2.\relax }}{33}
+\contentsline {figure}{\numberline {26}{\ignorespaces Visualization of Displacement $u_1 $ in Patch Test-2 Model.\relax }}{34}
+\contentsline {figure}{\numberline {27}{\ignorespaces Visualization of Displacement $u_2 $ in Patch Test-2 Model.\relax }}{34}

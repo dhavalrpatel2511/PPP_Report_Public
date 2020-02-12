@@ -1,0 +1,42 @@
+\begin{thebibliography}{1}
+
+\bibitem{amanatidou2002mixed}
+E~Amanatidou and N~Aravas.
+\newblock Mixed finite element formulations of strain-gradient elasticity
+  problems.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  191(15-16):1723--1751, 2002.
+
+\bibitem{askes2011gradient}
+Harm Askes and Elias~C Aifantis.
+\newblock Gradient elasticity in statics and dynamics: an overview of
+  formulations, length scale identification procedures, finite element
+  implementations and new results.
+\newblock {\em International Journal of Solids and Structures},
+  48(13):1962--1990, 2011.
+
+\bibitem{lesivcar2017two}
+Tomislav Lesi{\v{c}}ar, Zdenko Tonkovi{\'c}, and Jurica Sori{\'c}.
+\newblock Two-scale computational approach using strain gradient theory at
+  microlevel.
+\newblock {\em International Journal of Mechanical Sciences}, 126:67--78, 2017.
+
+\bibitem{mindlin1968first}
+Raymond~David Mindlin and NN~Eshel.
+\newblock On first strain-gradient theories in linear elasticity.
+\newblock {\em International Journal of Solids and Structures}, 4(1):109--124,
+  1968.
+
+\bibitem{putar2017damage}
+Filip Putar, Jurica Sori{\'c}, Tomislav Lesi{\v{c}}ar, and Zdenko Tonkovi{\'c}.
+\newblock Damage modeling employing strain gradient continuum theory.
+\newblock {\em International Journal of Solids and Structures}, 120:171--185,
+  2017.
+
+\bibitem{shu1999finite}
+John~Y Shu, Wayne~E King, and Norman~A Fleck.
+\newblock Finite elements for materials with strain gradient effects.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  44(3):373--391, 1999.
+
+\end{thebibliography}

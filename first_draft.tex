@@ -18,7 +18,10 @@
 \usepackage[nottoc]{tocbibind}
 \usepackage{tabu}
 \usepackage{enumitem,kantlipsum}
+\usepackage{appendix}
+\usepackage{pdfpages}
 \begin{document}
+
 	\begin{titlepage}
 		\centering
 		
@@ -57,6 +60,7 @@
 
 
     \newpage
+    	\listoffigures
     \clearpage
     \tableofcontents
     \clearpage
@@ -77,10 +81,13 @@ In the present "Personal Programming Project" report, in the very first section 
 \section{Theoretical Background}
 In this Section the main focus is to understand the "Classical Strain Gradient Elasticity Theory" and motivation behind the evolution of Strain Gradient Elasticity theories. In this section the brief overview of Toupin's, Mindlin's, Eringen's and Aifantis theory is given. After this also discussed about different possible FEM formulation.  
      \begin{figure}[H]
-     	\includegraphics[scale=0.6]{file.png}  
+     	\begin{center}
+     	     	\includegraphics[scale=0.5]{file.png}
+     	\end{center}
+     	\caption{The history of Strain Gradient Theory}
      \end{figure}
 \subsection{Mindlin's 1964 Theory.}
-In the early 1960s, the Mindlin presented a theory of elasticity with Microstructure length, in which he distinguished between kinematic quantities on two scale micro and macro. As discussed in introduction that it is very challenging task to keep the number of constitutive parameters to a minimum. In this theory constitutive tensor contains 1764 coefficients in total, but for isotropic material its reduced drastically to amount 18. Mindlin present the Strain energy equation as,
+In the early 1960s, the Mindlin presented \cite{mindlin1968first} a theory of elasticity with Microstructure length, in which he distinguished between kinematic quantities on two scale micro and macro. As discussed in introduction that it is very challenging task to keep the number of constitutive parameters to a minimum. In this theory constitutive tensor contains 1764 coefficients in total, but for isotropic material its reduced drastically to amount 18. Mindlin present the Strain energy equation as,
 \begin{equation}\label{first}
 \begin{aligned}
 U= &\frac{1}{2}\lambda\varepsilon_{ii}\varepsilon_{jj}+\mu\varepsilon_{ij}\varepsilon_{ij}+\frac{1}{2}b_1 \gamma_{ii} \gamma_{jj}+\frac{1}{2}b_2 \gamma_{ij} \gamma_{ij}+\frac{1}{2}b_3 \gamma_{ij} \gamma_{ji}+g_1\gamma_{ii}\varepsilon_{jj}
@@ -101,7 +108,7 @@ where $\lambda$ and $\mu$ are the usual Lame constants and the various $a_i$ , $
 \newpage
 
 \subsection{Aifanti's 1992 Theory.} 
-In the early 1990s, motivated by own work in plasticity and non-linear elasticity, Aifantis suggested to extend the linear constitutive model given by Mindlin in form $II$, in which second order terms are expressed as the strain gradient tensor. So he modified this Mindlin form $II$ by neglecting the most of the gradient coefficients. Mindlin present that for a general isotropic elastic solid the strain energy density depends upon
+In the early 1990s, motivated by own work in plasticity and non-linear elasticity, Aifantis \cite{askes2011gradient} suggested to extend the linear constitutive model given by Mindlin in form $II$, in which second order terms are expressed as the strain gradient tensor. So he modified this Mindlin form $II$ by neglecting the most of the gradient coefficients. Mindlin present that for a general isotropic elastic solid the strain energy density depends upon
 $\varepsilon_{ij}$ and $\kappa_{ijk}$ as the following,
 \begin{equation}\label{two}
 \begin{aligned}
@@ -149,13 +156,14 @@ There are different FEM approach to the Strain Gradient Elasticity theories are 
 
 \subsection{Tomislav Lesicar - Two scale FEM formulation} 
 \subsubsection{ C1-Continuous Element}
-The Aifantis strain gradient theory given in subsection (2.2) has been embedded into finite element framework by Tomislav Lesicar, Zdenko Tonkovic and Jurica Soric. They used the three node triangular finite element named C1PE3. The element is shown in
+The Aifantis strain gradient theory given in subsection (2.2) has been embedded into finite element framework by Tomislav Lesicar, Zdenko Tonkovic and Jurica Soric \cite{lesivcar2017two}. They used the three node triangular finite element named C1PE3 \cite{putar2017damage}. The element is shown in
 Fig. It contains twelve degrees of freedom (DOF) per node, and it satisfies $C^1$ continuity with assumptions of the plane strains with unit thickness
 \newline
      \begin{figure}[H]
      	\begin{center}
 	      \includegraphics[scale=0.8]{Tri_Element.JPG}  
 	    \end{center}  
+        \caption{C1-Continuous Triangular Element}
      \end{figure}
 \subsubsection{ Higher-order stress and strain gradient tensor} 
 They used the same weak form of the finite element formulation as given by Eq.(5). Furthermore, using the basic finite element relations strain and stress tensors can be expressed as
@@ -217,23 +225,27 @@ here, as observed from Eq.(8), the general stiffness matrix of the strain gradie
 \newline
 This element has been implemented into the FE program ABAQUS using the User Element Subroutine UEL by Tomislav Lesicar and et al. They used the reduced Gauss integration
 technique with 13 integration points for numerical integration of the stiffness matrices and force vector, instead of the full integration scheme with 25 points. The positions of the all 13 integration points are given in Fig. However, as discussed earlier this reduced integration technique for $C^1$ Continuous planar Triangular element provides not quite satisfactory results and it is more convenient for the multi scale analysis like Strain-gradient second-order computational homogenization scheme.     
-\subsubsection{ Physical interpretation of Strain Gradient}
+\subsubsection{Physical interpretation of Strain Gradient}
+Here, we can see the Physical interpretation of Strain Gradient \cite{lesivcar2017two}.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.8]{U111_Eta_111.JPG}  \qquad \qquad
 		\includegraphics[scale=0.8]{U222_Eta_222.JPG}
-	\end{center}  
+	\end{center}
+   	\caption{Physical Interpretation of Strain Gradient $\eta_{111}$ and $\eta_{222}$}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.8]{U122_Eta_122.JPG}  \qquad \qquad
 		\includegraphics[scale=0.8]{U211_Eta_211.JPG}
+   	\caption{Physical Interpretation of Strain Gradient $\eta_{221}$ and $\eta_{112}$}		
 	\end{center}  
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.8]{U121_Eta_121.JPG}  \qquad \qquad
 		\includegraphics[scale=0.8]{U212_Eta_212.JPG}
+   	\caption{Physical Interpretation of Strain Gradient $\eta_{211}$ and $\eta_{122}$}
 	\end{center}  
 \end{figure}
 
@@ -241,7 +253,7 @@ technique with 13 integration points for numerical integration of the stiffness 
 In Mindlin's 1960s theory (2.1), when the problem is formulated in terms of displacements, the governing partial differential Eq.(\ref{first}) is of fourth order. If traditional finite elements are used for the numerical solutions of such problems, then $C^1$ displacements continuity is required at inter elements.
 \newline
 \newline
-Furthermore, E. Amanatidou and et al. developed the alternative Mixed type finite element formulation, in which both displacements and the displacement gradients are used as independent unknowns and their relationship is enforced in an integral sense. In addition to that, this variational formulation can be used for both linear and non-linear strain gradient elasticity theories. In conclusion, this finite elements requires only $C^0$ continuity and simple to formulate and implement into FE program using UEL.   
+Furthermore, E. Amanatidou \cite{amanatidou2002mixed} and et al. developed the alternative Mixed type finite element formulation, in which both displacements and the displacement gradients are used as independent unknowns and their relationship is enforced in an integral sense. In addition to that, this variational formulation can be used for both linear and non-linear strain gradient elasticity theories. In conclusion, this finite elements requires only $C^0$ continuity and simple to formulate and implement into FE program using UEL.   
 \newline
 \newline
 The three equivalent forms strain energy density W given by Mindlin is expressed as,
@@ -358,7 +370,8 @@ So, Eq.(\ref{seventeen}) and Eq.(\ref{twoone}) are the Voigt-notation of the con
     \begin{figure}[H]
     	\begin{center}
 		     \includegraphics[scale=.65]{Element_mixed_type_formulation_E_Amanatidou.JPG}  	
-	    \end{center}     
+	    \end{center}  
+        \caption{C0-continuous Finite elements for Type I formulation.}   
     \end{figure}
 Amanatidou and Aravas presented several elements that can be used in Type-I formulation are shown in above Fig. The elements are shown in Fig. , the corresponding nodal degrees of freedom are u,$\alpha$ and $\sigma$. Out of these given elements only the element I9-70 passes the all patch test, whereas the elements I5-28 and I13-70 failed into the patch test.
 \\
@@ -368,7 +381,7 @@ Conventional continuum mechanics theories assume that stress at a material point
 of state variables, such as strain, at the same point. This assumption has valid until when the wavelength of a deformation field is much larger than the dominant micro-structural length scale of the material. However, when the two length scales are comparable, this assumption is proved wrong because the material behaviour at any material point is affected by the surrounding material points deformation. Therefore, Fleck—Hutchinson strain gradient plasticity, which falls within the Toupin—Mindlin framework, represent the virtual work in terms of strain gradients and higher order stresses.
 \newline
 \newline
-John Y. Shu developed Mixed type FEM formulation of Fleck—Hutchinson strain gradient elasticity theory. They devised $C^0$ continuous elements of mixed type, in which additional nodal degrees of freedom "Relaxed Strain" is introduced and enforce the kinematic constraints between displacement and relaxed strain by Lagrange multipliers.
+John Y. Shu \cite{shu1999finite} developed Mixed type FEM formulation of Fleck—Hutchinson strain gradient elasticity theory. They devised $C^0$ continuous elements of mixed type, in which additional nodal degrees of freedom "Relaxed Strain" is introduced and enforce the kinematic constraints between displacement and relaxed strain by Lagrange multipliers.
 \newline
 \subsubsection{ Modified Virtual Work}
 Firstly, for mixed type FEM formulation, they first derive a weak form of the principle of virtual
@@ -460,6 +473,7 @@ So, Eq.(\ref{seventeen}) and Eq.(\ref{threetwo}) are the Voigt-notation of the c
 	\begin{center}
 		\includegraphics[scale=0.8]{Shu_info.JPG}
 	\end{center}  
+    \caption{C0-continuous 6 Finite elements for Mixed type of formulation.}
 \end{figure}
 A total of six types of triangular element and quadrilateral element have been developed by JOHN Y. SHU for strain gradient theory. In which Displacement gradients are introduced as extra nodal degrees of freedom in terms of relaxed strain. The kinematic constraints between the relaxed strain and true gradients of displacement are enforced via Lagrange multipliers. All six types of element passed a patch test. However, he recommended QU34L4 elements for practical applications, since it gives precise accuracy than other elements.
 \newpage
@@ -472,7 +486,8 @@ This QU34L4 is Shown in below Fig. ,which contains total 9 nodes and 38 degrees 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.7]{ele.png}
-	\end{center}  
+	\end{center} 
+    \caption{C0-continuous QU34L4 Element.} 
 \end{figure}
 Displacements $ u_1 $,$ u_2 $ are interpolated using standard quadratic shape functions in terms of the area co-ordinates. Relaxed displacement gradients $ \psi_{11} $,$ \psi_{21} $,$ \psi_{12} $ and $ \psi_{22} $ are interpolated linearly. The different interpolation is motivated by the consideration that the true displacement gradients $ \varepsilon_{ij} $ will depend linearly
 on the co-ordinates if all sides of the element are straight.
@@ -769,6 +784,182 @@ N^{[\rho]}=
 0&0&0&1
 \end{bmatrix}
 \end{equation}
+\newpage
+\section{Verification of model without Gradient term}
+After completely programmed the Strain Gradient theory for FEM model into Fortran programming language. I tried to run this code with ABAQUS. And Surprisingly, I got the different errors, out of which main errors are Convergence errors, NAN error and singularities error. In conclusion of that I have decided to debug my code from the scratch. Therefore, I have decided to check for the simpler case which is Mechanical Displacement degree of freedom. So first i wanted to check that my code is correctly running for the Displacement degree if freedom.
+\\
+\\
+So, I have just commented all the terms which is related to gradient term i.e. which is related to the relaxed strain and Lagrange degree of freedom. After that I have implement my code to the plate-720 geometry which is explained in detailed in later sections.
+\\
+\\ 
+Now, I have implement the my code which is correctly running after the removing of many hurdles in terms of programming error. Here, I representing the my code results for simpler loading conditions and compare it with the ABAQUS results.  
+\\
+\\
+So, here I represent the displacement results of ABAQUS with simpler loading i.e. $ 1 \% $ of displacement in positive Y direction with my results without including the gradient terms and any other degrees of freedom.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{ABAQUS_result.png}  
+	\end{center}  
+    \caption{Displacement visualization of ABAQUS Model.}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{MY_code_result_1.png} 
+	\end{center}  
+    \caption{Displacement visualization of Strain Gradient Model.}
+\end{figure}
+So, here I represent the Stress results of ABAQUS with simpler loading i.e. $ 1 \% $ of displacement in positive Y direction with my results without including the gradient terms and any other degrees of freedom. In the second fig I have represent the complex part of geometry.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{ABAQUS_result_stress.png} 
+		\includegraphics[scale=0.35]{ABAQUS_result_stress_crp.png} 
+	\end{center}  
+    \caption{Stress visualization of ABAQUS Model.}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{MY_code_result_stress.png} \quad
+		\includegraphics[scale=0.32]{MY_code_result_stress_crp.png}
+	\end{center}  
+   \caption{Stress visualization of Strain Gradient Model.}
+\end{figure}
+
+\newpage
+\section{Verification of Model Plate-720}
+As of described in E. Amanatidou - Mixed type FEM formulation, they have used the PLATE-720 which contains the 720 elements and 2983 nodes. Using this geometry they try to find the stress concentration factor and plot the stress concentration factor for different microstructural length.
+\\
+So, here I have used the same geometry i.e. Plate with domain length of 10 and hole radius is 0.333. I also mesh it as same as described in that paper with also transition of fine mesh into the coarse mesh, which is at 1.332 from the centre of the hole.   
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.35]{mesh_part.png} 
+	\end{center}  
+   \caption{Meshed Plate-720 with hole in the left-bottom corner.}
+\end{figure}
+Here, I specifically represent the fine mesh around the hole and also the transition of mesh from coarse mesh to fine mesh at specific position from the centre of the hole.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.38]{fine_mesh_part.png} 
+	\end{center} 
+   \caption{Fine mesh and Transition in Plate-720.} 
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{Gradient_720.png} 
+	\end{center}  
+   \caption{Strain Gradient Visualization in Plate-720.}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{Gradient_720_11.png} 
+	\end{center}  
+   \caption{Visualization of Strain Gradient $\eta_{111} $}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{Gradient_720_12.png} 
+	\end{center}  
+   \caption{Visualization of Strain Gradient $\eta_{221} $}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{Gradient_720_13.png} 
+	\end{center}  
+   \caption{Visualization of Strain Gradient $\eta_{112} $}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{Gradient_720_22.png} 
+	\end{center}  
+   \caption{Visualization of Strain Gradient $\eta_{222} $}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{Gradient_720_23.png} 
+	\end{center}  
+   \caption{Visualization of Strain Gradient $\eta_{121}$ + $\eta_{211}$}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{Gradient_720_33.png} 
+	\end{center}  
+   \caption{Visualization of Strain Gradient $\eta_{122}$ + $\eta_{212}$}
+\end{figure}
+
+\newpage
+\section{Patch Tests}
+In this chapter I present the Patch test which is implemented with the one element and four element of same geometry using finite element method. The Patch tests are necessary for checking the stability of the newly developed user element and also important to check the convergence of the finite element solutions.  
+\\
+\subsection{Patch Test - 1}
+Now, we considered an one Square geometry with specific dimensions as given below. In below given fig L = 1.0 and so therefore the coordinates of the points A(0,0), B(1,0), C(1,1) and D(0,1).  
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{patch_one.JPG} 
+	\end{center}  
+   \caption{Square Domain with one element for implementation of Patch Test-1.}
+\end{figure} 
+In this Patch test we just find the analytical solution for displacements and relaxed strain.
+After that we are finding the values of the displacements and relaxed strain at each nodes and each corner nodes respectively by assigning the position of that node. In the last we implement the all nodal degrees of freedom in terms of the boundary condition and we find the stiffness matrix and right hand side matrix for one element by running the code with ABAQUS and we try to prove the equilibrium equation.
+\\
+\\
+In details, we have total 18 displacements values of all nodes and 16 relaxed strain values of each corner nodes of the element which are prescribe in the Input file for one element in terms of boundary condition.  
+\\ 
+\\
+For proving the equilibrium equation, we have stiffness matrix, RHS matrix and displacement matrix in hand. But the dimension of the above matrices are big so we wouldn't prefer to solve it on paper by hand. so i write one python scripts which reads the data of all matrices from individual files. So for that now we have to put the stiffness matrix into 'AMATRX.dat', RHS matrix into 'RHS.dat' and displacement matrix into 'U.dat' file respectively. This python file read the data and store it in terms of multidimensional array and that try to find the residual of the equilibrium equation and print it into terminal so we can verify our results.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.45]{p1_u1.png} 
+	\end{center}  
+    \caption{Visualization of Displacement $u_1 $ in Patch Test-1 Model.}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.45]{p1_u2.png} 
+	\end{center}  
+    \caption{Visualization of Displacement $u_2 $ in Patch Test-1 Model.}
+\end{figure}
+\subsection{Patch Test - 2}
+Now, we considered the same geometry with same dimensions as described in Patch test-1, but now we mesh it into four element as shown in below fig.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.75]{patch_four.JPG} 
+	\end{center}  
+    \caption{Square Domain with four element for implementation of Patch Test-2.}
+\end{figure}
+Now,we trying to implement the Patch test-2, for this one there are some criteria to pass the count test therefore, we considered the four element on the same geometry instead of one. In this patch test we just find the displacements and relaxed strain of the nodes at the boundary by analytical way as same as in patch test one. 
+\\
+\\
+In details, we have total 32 displacements values of all nodes and 32 relaxed strains values at each corner nodes of the elements which are prescribed in the Input file for four element in terms of boundary conditions.
+\\
+\\
+As same as in Patch Test-1 i wrote the one python script for patch test-2 which also gives the analytical values of displacements and relaxed strains of the deformed nodes. we just give the values of it at the boundary and we compare the values of all inner nodes with analytical solutions.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.45]{p2_u1.png} 
+	\end{center}
+    \caption{Visualization of Displacement $u_1 $ in Patch Test-2 Model.}  
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.45]{p2_u2.png} 
+	\end{center}
+    \caption{Visualization of Displacement $u_2 $ in Patch Test-2 Model.} 
+\end{figure}
+\newpage
+\begin{appendices}
+\section{Python file for Patch test-1}
+\includegraphics[scale=0.93,page=1]{Patch_test_1_elem_eqn.pdf}
+\includegraphics[scale=0.93,page=1]{pro.pdf}
+\section{Python file for Patch test-2}
+\includegraphics[scale=0.80,page=1]{Patch_Test_4_elem_eqn.pdf}
+\includegraphics[scale=0.80,page=2]{Patch_Test_4_elem_eqn.pdf}
+\section{Python file for 9-node Element mesh generation}
+\includegraphics[scale=0.80,page=1]{9Node_Mesh_generation.pdf}
+\includegraphics[scale=0.80,page=2]{9Node_Mesh_generation.pdf}
+\section{Flowchart of Strain Gradient Elasticity FEM Model}
+\vspace{5cm}
+\includegraphics[scale=0.60,page=1]{flow_chart_1.pdf}
+\includegraphics[scale=0.60,page=1]{flow_chart_2.pdf}
+\end{appendices}
 
 
 
@@ -790,5 +981,7 @@ N^{[\rho]}=
 
 
 
-
+\newpage
+\bibliographystyle{plain}
+\bibliography{refren}
 \end{document}
