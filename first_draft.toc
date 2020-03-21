@@ -1,35 +1,39 @@
-\contentsline {section}{List of Figures}{2}
-\contentsline {section}{\numberline {1}Introduction}{4}
-\contentsline {section}{\numberline {2}Theoretical Background}{5}
-\contentsline {subsection}{\numberline {2.1}Mindlin's 1964 Theory.}{5}
-\contentsline {subsection}{\numberline {2.2}Aifanti's 1992 Theory.}{6}
-\contentsline {section}{\numberline {3}Different FEM Approach}{7}
-\contentsline {subsection}{\numberline {3.1}Tomislav Lesicar - Two scale FEM formulation}{7}
-\contentsline {subsubsection}{\numberline {3.1.1} C1-Continuous Element}{7}
-\contentsline {subsubsection}{\numberline {3.1.2} Higher-order stress and strain gradient tensor}{7}
-\contentsline {subsubsection}{\numberline {3.1.3}Physical interpretation of Strain Gradient}{8}
-\contentsline {subsection}{\numberline {3.2}E. Amanatidou - Mixed type FEM formulation}{9}
-\contentsline {subsubsection}{\numberline {3.2.1} Stress }{10}
-\contentsline {subsubsection}{\numberline {3.2.2} Higher Order Stress }{11}
-\contentsline {subsubsection}{\numberline {3.2.3} Mixed Tpye Elements}{12}
-\contentsline {subsection}{\numberline {3.3}John Y. Shu - Mixed type FEM formulation}{12}
-\contentsline {subsubsection}{\numberline {3.3.1} Modified Virtual Work}{12}
-\contentsline {subsubsection}{\numberline {3.3.2} Stress}{13}
-\contentsline {subsubsection}{\numberline {3.3.3} Higher-order Stress}{14}
-\contentsline {subsubsection}{\numberline {3.3.4} Isoparametric elements for the strain gradient solid}{14}
-\contentsline {section}{\numberline {4}FEM Implementation}{16}
-\contentsline {subsection}{\numberline {4.1}QU34L4 - ELEMENT}{16}
-\contentsline {subsection}{\numberline {4.2}Degrees of Freedom(DOF)}{16}
-\contentsline {subsubsection}{\numberline {4.2.1} Displacement DOF}{17}
-\contentsline {subsubsection}{\numberline {4.2.2} Relaxed Strain DOF}{20}
-\contentsline {subsubsection}{\numberline {4.2.3} Langrange Multiplier}{22}
-\contentsline {section}{\numberline {5}Verification of model without Gradient term}{23}
-\contentsline {section}{\numberline {6}Verification of Model Plate-720}{26}
-\contentsline {section}{\numberline {7}Patch Tests}{31}
-\contentsline {subsection}{\numberline {7.1}Patch Test - 1}{31}
-\contentsline {subsection}{\numberline {7.2}Patch Test - 2}{32}
-\contentsline {section}{\numberline {A}Python file for Patch test-1}{35}
-\contentsline {section}{\numberline {B}Python file for Patch test-2}{37}
-\contentsline {section}{\numberline {C}Python file for 9-node Element mesh generation}{39}
-\contentsline {section}{\numberline {D}Flowchart of Strain Gradient Elasticity FEM Model}{41}
-\contentsline {section}{References}{43}
+\contentsline {section}{List of Figures}{2}%
+\contentsline {section}{List of Tables}{2}%
+\contentsline {section}{\numberline {1}Introduction}{5}%
+\contentsline {section}{\numberline {2}Theoretical Background}{6}%
+\contentsline {subsection}{\numberline {2.1}Mindlin's 1964 Theory.}{6}%
+\contentsline {subsection}{\numberline {2.2}Aifanti's 1992 Theory.}{7}%
+\contentsline {section}{\numberline {3}Different FEM Approach}{8}%
+\contentsline {subsection}{\numberline {3.1}Tomislav Lesicar - Two scale FEM formulation}{8}%
+\contentsline {subsubsection}{\numberline {3.1.1} C1-Continuous Element}{8}%
+\contentsline {subsubsection}{\numberline {3.1.2} Higher-order stress and strain gradient tensor}{8}%
+\contentsline {subsubsection}{\numberline {3.1.3} Physical interpretation of Strain Gradient}{9}%
+\contentsline {subsection}{\numberline {3.2}E. Amanatidou - Mixed type FEM formulation}{10}%
+\contentsline {subsubsection}{\numberline {3.2.1} Stress }{11}%
+\contentsline {subsubsection}{\numberline {3.2.2} Higher Order Stress }{12}%
+\contentsline {subsubsection}{\numberline {3.2.3} Mixed Tpye Elements}{13}%
+\contentsline {subsection}{\numberline {3.3}John Y. Shu - Mixed type FEM formulation}{13}%
+\contentsline {subsubsection}{\numberline {3.3.1} Modified Virtual Work}{13}%
+\contentsline {subsubsection}{\numberline {3.3.2} Stress}{14}%
+\contentsline {subsubsection}{\numberline {3.3.3} Higher-order Stress}{15}%
+\contentsline {subsubsection}{\numberline {3.3.4} Isoparametric elements for the strain gradient solid}{15}%
+\contentsline {subsubsection}{\numberline {3.3.5} Finite Element Approaximation }{16}%
+\contentsline {section}{\numberline {4}FEM Implementation}{18}%
+\contentsline {subsection}{\numberline {4.1}QU34L4 - ELEMENT}{18}%
+\contentsline {subsection}{\numberline {4.2}Degrees of Freedom(DOF)}{18}%
+\contentsline {subsubsection}{\numberline {4.2.1} Displacement DOF}{19}%
+\contentsline {subsubsection}{\numberline {4.2.2} Relaxed Strain DOF}{22}%
+\contentsline {subsubsection}{\numberline {4.2.3} Langrange Multiplier}{24}%
+\contentsline {section}{\numberline {5}Verification of model without Gradient term}{25}%
+\contentsline {section}{\numberline {6}Verification of Model Plate-720}{28}%
+\contentsline {section}{\numberline {7}Validation Tests}{35}%
+\contentsline {subsection}{\numberline {7.1}Patch Test - 1}{35}%
+\contentsline {subsection}{\numberline {7.2}Patch Test - 2}{37}%
+\contentsline {subsection}{\numberline {7.3}Rigid Body Transformation Test}{41}%
+\contentsline {section}{\numberline {A}Python file for Patch test-1}{42}%
+\contentsline {section}{\numberline {B}Python file for Patch test-2}{44}%
+\contentsline {section}{\numberline {C}Python file for 9-node Element mesh generation}{46}%
+\contentsline {section}{\numberline {D}Flowchart of Strain Gradient Elasticity FEM Model}{48}%
+\contentsline {section}{\numberline {E}Postprocessing tool to visualize UEL}{50}%
+\contentsline {section}{References}{51}%

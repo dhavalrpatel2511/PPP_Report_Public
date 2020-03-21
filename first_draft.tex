@@ -1,11 +1,10 @@
 \documentclass[12pt]{article}
-
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{caption}
-\usepackage{mathtools}
+\usepackage{math tools}
 \usepackage{lipsum}
 \usepackage{stackengine}
 \usepackage{fancyhdr}
@@ -20,6 +19,8 @@
 \usepackage{enumitem,kantlipsum}
 \usepackage{appendix}
 \usepackage{pdfpages}
+\usepackage{geometry}
+\usepackage{color,colortbl}
 \begin{document}
 
 	\begin{titlepage}
@@ -35,7 +36,7 @@
 		
 		
 		%\includegraphics[width=0.15\textwidth]{download}\par\vspace{1cm}
-		{\scshape\LARGE \textbf{Technische Universit\"at Bergakademie Freiberg} \par}
+		{\scshape \LARGE \textbf{Technische Universit\"at Bergakademie Freiberg} \par}
 		\vspace{1cm}
 		{\scshape\Large PERSONAL PROGRAMMING PROJECT\par}
 		{\scshape\Large (PPP)\par}
@@ -61,6 +62,7 @@
 
     \newpage
     	\listoffigures
+    	\listoftables
     \clearpage
     \tableofcontents
     \clearpage
@@ -82,7 +84,7 @@ In the present "Personal Programming Project" report, in the very first section 
 In this Section the main focus is to understand the "Classical Strain Gradient Elasticity Theory" and motivation behind the evolution of Strain Gradient Elasticity theories. In this section the brief overview of Toupin's, Mindlin's, Eringen's and Aifantis theory is given. After this also discussed about different possible FEM formulation.  
      \begin{figure}[H]
      	\begin{center}
-     	     	\includegraphics[scale=0.5]{file.png}
+     	     	\includegraphics[scale=0.5]{straingradienthistory.png}
      	\end{center}
      	\caption{The history of Strain Gradient Theory}
      \end{figure}
@@ -103,7 +105,7 @@ U= &\frac{1}{2}\lambda\varepsilon_{ii}\varepsilon_{jj}+\mu\varepsilon_{ij}\varep
 +\frac{1}{2}a_{15}\kappa_{ijk}\kappa_{kji}
 \end{aligned}
 \end{equation}  
-\newline
+
 where $\lambda$ and $\mu$ are the usual Lame constants and the various $a_i$ , $b_i$ and $g_i$ are 16 additional constitutive coefficients. However for practical purpose the use of eq(1) is very limited as it requires so much additional coefficients. In later 1960s Mindlin also formulated the simpler version of his own elasticity theory by making assumption of expressing the strain energy density in terms of displacement only. So in last he proposed three different form of it. However, the equation of strain energy density is of order four and it requires $C^{1}$ continuity.
 \newpage
 
@@ -171,7 +173,8 @@ They used the same weak form of the finite element formulation as given by Eq.(5
 \varepsilon = Bu,      \sigma=C\varepsilon
 \end{equation}
 \newline
-where B is a matrix containing linear combinations of the first derivatives of the components of the shape function matrix, ̄C is an isotropic elastic constitutive matrix and u  is a displacement vector. Relating to Eq.(7) the strain gradient tensor is represented as
+
+where B is a matrix containing linear combinations of the first derivatives of the components of the shape function matrix, C is an isotropic elastic constitutive matrix and u  is a displacement vector. Relating to Eq.(7) the strain gradient tensor is represented as
 
 \[
 \varepsilon_{,1}=
@@ -225,7 +228,7 @@ here, as observed from Eq.(8), the general stiffness matrix of the strain gradie
 \newline
 This element has been implemented into the FE program ABAQUS using the User Element Subroutine UEL by Tomislav Lesicar and et al. They used the reduced Gauss integration
 technique with 13 integration points for numerical integration of the stiffness matrices and force vector, instead of the full integration scheme with 25 points. The positions of the all 13 integration points are given in Fig. However, as discussed earlier this reduced integration technique for $C^1$ Continuous planar Triangular element provides not quite satisfactory results and it is more convenient for the multi scale analysis like Strain-gradient second-order computational homogenization scheme.     
-\subsubsection{Physical interpretation of Strain Gradient}
+\subsubsection{ Physical interpretation of Strain Gradient}
 Here, we can see the Physical interpretation of Strain Gradient \cite{lesivcar2017two}.
 \begin{figure}[H]
 	\begin{center}
@@ -303,7 +306,7 @@ Now, it can be easily defined the Second-order tensor $C_{ijkl}$ using the stres
 {\sigma}_{ij} = C_{ijkl} \varepsilon_{kl} 
 \end{equation}
 By comparing the Eq.(\ref{fifteen}) and Eq.(\ref{sixteen}),
-\begin{equation}\label{sixteen}
+\begin{equation}\label{onesix}
 C_{ijkl} = \lambda\delta_{kl}\delta_{ij} + 2\mu\delta_{ik}\delta_{jl}
 \end{equation}
 It can be also written in symmetric $3\times3$ Matrix as,
@@ -404,11 +407,11 @@ $ \delta\psi = \delta u_{k,j} $ into the whole domain $ \Omega $, then as previo
 \int\limits_\Omega\! (\psi_{jk} - u_{k,j})\delta\tau_{ijk,i} d\Omega = 0  \quad (no \quad sum\quad over \quad j \quad and \quad k)
 \end{equation}
 for an arbitrary variation of the Lagrange multipliers $ \tau_{ijk,i} $. Finally, by denoting the Lagrange multipliers $ \delta \tau_{ijk,i}$ in above equation as $ \delta\rho_{jk} $ the modified virtual work statement Eq.(\ref{twothree}) becomes,
-\begin{equation}
+\begin{equation}\label{twofive}
 \int\limits_\Omega\! [ \sigma_{ij}\delta\varepsilon_{ij} + \tau_{ijk}\delta\eta_{ijk} + \rho_{jk}(\delta\psi_{jk}-\delta u_{k,j})] d\Omega = \int\limits_\Omega\! [b_k\delta u_k] d\Omega + \int\limits_\Gamma\! [ t_k\delta u_k + n_jr_k\delta\psi_{jk} ] d\Gamma
 \end{equation}
 and the modified constraint from Eq.(\ref{twofour}) becomes,
-\begin{equation}
+\begin{equation}\label{twosix}
 \int\limits_\Omega\! (\psi_{jk} - u_{k,j})\delta\rho_{jk}  d\Omega = 0  \quad (no \quad sum\quad over \quad j \quad and \quad k)
 \end{equation} 
 By considering the above criteria we get the strain energy density in terms of the relaxed strain gradient from Eq.(\ref{two}) as,
@@ -476,8 +479,53 @@ So, Eq.(\ref{seventeen}) and Eq.(\ref{threetwo}) are the Voigt-notation of the c
     \caption{C0-continuous 6 Finite elements for Mixed type of formulation.}
 \end{figure}
 A total of six types of triangular element and quadrilateral element have been developed by JOHN Y. SHU for strain gradient theory. In which Displacement gradients are introduced as extra nodal degrees of freedom in terms of relaxed strain. The kinematic constraints between the relaxed strain and true gradients of displacement are enforced via Lagrange multipliers. All six types of element passed a patch test. However, he recommended QU34L4 elements for practical applications, since it gives precise accuracy than other elements.
-\newpage
 
+\subsubsection{ Finite Element Approaximation  }
+From equations Eq.(\ref{twofive}) and Eq.(\ref{twosix}) we can write this equations in matrix notation and also in absence of body forces b.
+\begin{equation}\label{thre_23}
+\begin{aligned}
+0 = &\sum_{e} \delta \bar{u}^{{(e)}^T} \Bigg[\int\limits_{\Omega^{e}}\! (B^{[u]}\sigma^{(e)} - MN^{[\rho^{T}]} \bar{\rho}^{(e)} ) d\Omega - \int\limits_{\Gamma^{(e)}_t}\!  N^{[u]}\bar{t}^{[e]}d\Gamma \Bigg] \\ + &\sum_{e} \delta \bar{\psi}^{{(e)}^T} \Bigg[\int\limits_{\Omega^{e}}\! (B^{[\psi]}\tau^{(e)} - N^{[\psi^{T}]}N^{[\rho^{T}]} \bar{\rho}^{(e)} ) d\Omega - \int\limits_{\Gamma^{(e)}}\!  N^{[\psi]}\bar{r}^{[e]}d\Gamma \Bigg]
+\end{aligned}
+\end{equation}
+It is also same for the constraint by also excluding the body forces.
+\begin{equation}\label{thre_234}
+\begin{aligned}
+\sum_{e} \delta \bar{u}^{{(e)}^T} \int\limits_{\Omega^{e}}\! N^{[\rho]}(N^{[\psi]^{T}}\bar{\psi}^{[e]} - M^T\bar{u}^{(e)} ) d\Omega = 0
+\end{aligned}
+\end{equation}
+So, from equations Eq.(\ref{thre_23}) and Eq.(\ref{thre_234}), we can write the nonlinear internal force vectors are 
+\begin{equation}\label{thre_2345}
+\begin{aligned}
+F(\bar{u}^{(e)},\bar{\rho}^{(e)}) &= \int\limits_{\Omega^{e}}\! (B^{[u]}\sigma^{(e)} - MN^{[\rho^{T}]} \bar{\rho}^{(e)} ) d\Omega \\
+R(\bar{\psi}^{(e)},\bar{\rho}^{(e)}) &= \int\limits_{\Omega^{e}}\! (B^{[\psi]}\tau^{(e)} - N^{[\psi^{T}]}N^{[\rho^{T}]} \bar{\rho}^{(e)} ) d\Omega \\
+S(\bar{u}^{(e)},\bar{\psi}^{(e)}) &= \int\limits_{\Omega^{e}}\! N^{[\rho]}(N^{[\psi]^{T}}\bar{\psi}^{[e]} - M^T\bar{u}^{(e)} ) d\Omega
+\end{aligned}
+\end{equation}
+we can also write the applied loads in form of vector as below,
+\begin{equation}\label{thre_23456}
+\begin{aligned}
+\psi &= \int\limits_{\Gamma^{(e)}_t}\!  N^{[u]}\bar{t}^{[e]}d\Gamma, \\
+\Theta &= \int\limits_{\Gamma^{(e)}}\!  N^{[\psi]}\bar{r}^{[e]}d\Gamma
+\end{aligned}
+\end{equation}
+So, initial system of equation which was solved by Newtion raphson method is,
+\begin{equation}\label{thre_234567}
+\begin{aligned}
+0 &= G(\bar{u}^{(e)},\bar{\rho}^{(e)}) = F(\bar{u}^{(e)},\bar{\rho}^{(e)}) - \psi, \\
+0 &= H(\bar{\psi}^{(e)},\bar{\rho}^{(e)}) = R(\bar{\psi}^{(e)},\bar{\rho}^{(e)}) - \Theta, \\
+0 &= I(\bar{u}^{(e)},\bar{\psi}^{(e)}) = S(\bar{u}^{(e)},\bar{\psi}^{(e)}) 
+\end{aligned}
+\end{equation}
+Now, from equations (\ref{thre_2345},\ref{thre_23456} and \ref{thre_234567}), we can write the stiffness matrix,solved by the newton raphson scheme,as follow,
+\begin{equation}\label{thre_2345678}
+\begin{aligned}
+K^{[uu]}  &= \frac{dG}{d\bar{u}^{(e)}} = \int\limits_{\Omega^{e}}\! B^{[u]}\Upsilon B^{[u]^{T}} d\Omega, \\
+K^{[\psi\psi]}  &= \frac{dH}{d\bar{\psi}^{(e)}} =\int\limits_{\Omega^{e}}\! B^{[\psi]} \varLambda B^{[\psi]^{T}} d\Omega, \\
+K^{[u\rho]}  &= \frac{dG}{d\bar{\rho}^{(e)}}  =\int\limits_{\Omega^{e}}\! M N^{[\rho]^{T}} d\Omega, \\
+K^{[\psi\rho]}  &= \frac{dH}{d\bar{\rho}^{(e)}} =\int\limits_{\Omega^{e}}\! N^{[\psi]} N^{[\rho]^{T}} d\Omega
+\end{aligned}
+\end{equation}
+\newpage
 \section{FEM Implementation}
 In subsection "John Y. Shu - Mixed type FEM formulation", there are 6 different triangular element and quadrilateral element represented out of which element QU34L4 is recommended for practical applications. so here we will use the QU34L4 element in order to implement strain gradient theory.
 \\
@@ -485,7 +533,7 @@ In subsection "John Y. Shu - Mixed type FEM formulation", there are 6 different 
 This QU34L4 is Shown in below Fig. ,which contains total 9 nodes and 38 degrees of freedom. In this element there are two displacements DOF $ u_1 $ and $ u_2  $ at each nodes of it. There are newly introduced relaxed strain DOF $ \psi_{11} $,$ \psi_{21} $,$ \psi_{12} $ and $ \psi_{22} $ at each corner nodes of it. In addition to that there are also four Lagrange multipliers $ \rho_{11} $,  $ \rho_{21} $, $ \rho_{12} $ and $ \rho_{22} $,  which are assumed to be constant throughout the element. So, in QU34L4 Q stands for nine-noded isoparametric quadrilateral element, where U stands for number of DOF related to the displacement which are total 34 in this element, where L stands for Lagrange multipliers which are total 4 in this element. 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{ele.png}
+		\includegraphics[scale=0.8]{ele_1.png}
 	\end{center} 
     \caption{C0-continuous QU34L4 Element.} 
 \end{figure}
@@ -844,56 +892,79 @@ Here, I specifically represent the fine mesh around the hole and also the transi
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.4]{Gradient_720.png} 
+		\includegraphics[scale=0.8]{full_grad_crop.png} 
 	\end{center}  
    \caption{Strain Gradient Visualization in Plate-720.}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.4]{Gradient_720_11.png} 
+		\includegraphics[scale=0.8]{Reg11_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{111} $}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.4]{Gradient_720_12.png} 
+		\includegraphics[scale=0.8]{Reg22_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{221} $}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.4]{Gradient_720_13.png} 
+		\includegraphics[scale=0.8]{Reg33_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{112} $}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.4]{Gradient_720_22.png} 
+		\includegraphics[scale=0.8]{Reg12_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{222} $}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.4]{Gradient_720_23.png} 
+		\includegraphics[scale=0.8]{Reg23_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{121}$ + $\eta_{211}$}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.4]{Gradient_720_33.png} 
+		\includegraphics[scale=0.8]{Reg13_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{122}$ + $\eta_{212}$}
 \end{figure}
-
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.8]{Higher_order_stress_crop.png} 
+	\end{center}  
+	\caption{Visualization of Higher order stress in XY plane}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1.2]{path_full_grad_crop.png} 
+	\end{center}  
+	\caption{Visualization of Strain Gradient in specific path}
+\end{figure}
+\begin{figure}[H]
+\advance\leftskip-0.5cm
+		\includegraphics[scale=0.58]{path_full_grad_plot.png} 
+ 
+	\caption{Strain Gradient plot in perticular path}
+\end{figure}
+\begin{figure}[H]
+\advance\leftskip-0.5cm
+		\includegraphics[scale=0.58]{Higher_order_stress_plot.png} 
+ 
+	\caption{Higher order stress plot in perticular path}
+\end{figure}
 \newpage
-\section{Patch Tests}
+\section{Validation Tests}
 In this chapter I present the Patch test which is implemented with the one element and four element of same geometry using finite element method. The Patch tests are necessary for checking the stability of the newly developed user element and also important to check the convergence of the finite element solutions.  
 \\
 \subsection{Patch Test - 1}
 Now, we considered an one Square geometry with specific dimensions as given below. In below given fig L = 1.0 and so therefore the coordinates of the points A(0,0), B(1,0), C(1,1) and D(0,1).  
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.6]{patch_one.JPG} 
+		\includegraphics[scale=0.8]{ele_1.png} 
 	\end{center}  
    \caption{Square Domain with one element for implementation of Patch Test-1.}
 \end{figure} 
@@ -907,21 +978,58 @@ In details, we have total 18 displacements values of all nodes and 16 relaxed st
 For proving the equilibrium equation, we have stiffness matrix, RHS matrix and displacement matrix in hand. But the dimension of the above matrices are big so we wouldn't prefer to solve it on paper by hand. so i write one python scripts which reads the data of all matrices from individual files. So for that now we have to put the stiffness matrix into 'AMATRX.dat', RHS matrix into 'RHS.dat' and displacement matrix into 'U.dat' file respectively. This python file read the data and store it in terms of multidimensional array and that try to find the residual of the equilibrium equation and print it into terminal so we can verify our results.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.45]{p1_u1.png} 
+		\includegraphics[scale=0.83]{patch_1_disp_crop.png} 
 	\end{center}  
     \caption{Visualization of Displacement $u_1 $ in Patch Test-1 Model.}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.45]{p1_u2.png} 
+		\includegraphics[scale=0.83]{patch_1_relaxed_strain_crop.png} 
 	\end{center}  
-    \caption{Visualization of Displacement $u_2 $ in Patch Test-1 Model.}
+    \caption{Visualization of Relaxed Strain $\psi$ in Patch Test-1 Model.}
 \end{figure}
+\begin{table}
+\begin{center}
+	\begin{tabular}{||c c c c c c c||} 
+		\hline
+		Node Number & U1 & U2 & $\psi_{11}$ & $\psi_{12}$ & $\psi_{21}$ & $\psi_{22}$\\ [0.8ex] 
+		\hline\hline
+		1 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0  \\ 
+		[0.8ex]
+		\hline
+		2 & -0.005 & -0.01 & -0.01 & 0.0 & -0.02 & 0.0  \\ 
+		[0.8ex]
+		\hline
+		3 & 0.005 & -0.005 & -0.01 & 0.02 & -0.02 & 0.01  \\ 
+		[0.8ex]
+		\hline
+		4 & 0.01 & 0.005 & 0.0 & 0.02 & 0.0 & 0.01  \\ 
+		[0.8ex]
+		\hline
+		5 & -0.00125 & -0.0025 & - & - & - & -  \\ 
+		[0.8ex]
+		\hline
+		6 & -0.0025 & -0.00875 & - & - & - & - \\ 
+		[0.8ex]
+		\hline
+		7 & 0.00875 & 0.0025 & - & - & - & - \\ 
+		[0.8ex]
+		\hline
+		8 & 0.0025 & 0.00125 & - & - & - & - \\ 
+		[0.8ex]
+		\hline		
+		9 & 0.00125 & -0.00125 & - & - & - & -\\  [0.8ex] 
+		\hline
+	\end{tabular}
+	\caption{Input displacement and Relaxed strain values}
+\end{center}
+\end{table}
+
 \subsection{Patch Test - 2}
 Now, we considered the same geometry with same dimensions as described in Patch test-1, but now we mesh it into four element as shown in below fig.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.75]{patch_four.JPG} 
+		\includegraphics[scale=0.75]{ele_4.png} 
 	\end{center}  
     \caption{Square Domain with four element for implementation of Patch Test-2.}
 \end{figure}
@@ -944,21 +1052,228 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 	\end{center}
     \caption{Visualization of Displacement $u_2 $ in Patch Test-2 Model.} 
 \end{figure}
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}{||c c c c c c c||} 
+			\hline
+			Node Number & U1 Input& U1 Output  & U1 Expected & U2 & U2 Output & U2 Expected\\ [0.8ex] 
+			\hline\hline
+			1 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0  \\ 
+			[0.8ex]
+			\hline
+			2 & -0.0003125 & -0.0003125 & -0.0003125 & -0.000625 & -0.000625 & -0.000625  \\ 
+			[0.8ex]
+			\hline
+			3 & -0.00125 & -0.00125 & -0.00125 & 0.02 & 0.02 & 0.02  \\ 
+			[0.8ex]
+			\hline
+			4 & -0.0028125 & -0.0028125 & -0.0028125 & -0.005625 & -0.005625 & -0.005625  \\ 
+			[0.8ex]
+			\hline
+			5 & -0.005 & -0.005 & -0.005 & -0.01 & -0.01 & -0.01 \\ 
+			[0.8ex]
+			\hline
+			6 & 0.000625 & 0.000625 & 0.000625 & 0.0003125 & 0.0003125 & 0.0003125 \\ 
+			[0.8ex]
+			\hline
+			\rowcolor{lightgray} 7 & - & - & 0.0003125 & - & - & -0.0003125 \\ 
+			[0.8ex]
+			\hline
+			\rowcolor{lightgray} 8 & - & - & -0.000625 & - & - & -0.0021875 \\ 
+			[0.8ex]
+			\hline	
+			\rowcolor{lightgray} 9 & - & - & -0.0021875 & - & - & -0.0053125  \\ 
+			[0.8ex]
+			\hline
+			10 & -0.004375 & -0.004375 & -0.004375 & -0.0096875 & -0.0096875 & -0.0096875  \\ 
+			[0.8ex]
+			\hline
+			11 & 0.0025 & 0.0025 & 0.0025 & 0.00125 & 0.00125 & 0.00125  \\ 
+			[0.8ex]
+			\hline
+			\rowcolor{lightgray} 12 & - & - & 0.0021875 & - & - & 0.000625  \\ 
+			[0.8ex]
+			\hline
+			\rowcolor{lightgray} 13 & - & - & -0.00125 & - & - & -0.00125  \\ 
+			[0.8ex]
+			\hline
+			\rowcolor{lightgray} 14 & - & - & -0.0003125 & - & - & -0.004375 \\ 
+			[0.8ex]
+			\hline
+			15 & -0.0025 & -0.0025 & -0.0025 & -0.00875 & -0.00875 & -0.00875 \\ 
+			[0.8ex]	
+			\hline
+			16 & 0.005625 & 0.005625 & 0.005625 & 0.0028125 & 0.0028125 & 0.0028125 \\ 
+			[0.8ex]
+			\hline	
+			\rowcolor{lightgray} 17 & - & - & 0.0053125 & - & - & 0.0021875  \\ 
+			[0.8ex]
+			\hline 
+			
+			\rowcolor{lightgray} 18 & - & - & 0.004375 & - & - & 0.0003125 \\ 
+			[0.8ex]
+			\hline
+			\rowcolor{lightgray} 19 & - & - & 0.0028125 & - & - & -0.0028125  \\ 
+			[0.8ex]
+			\hline
+			20 & 0.000625 & 0.000625 & 0.000625 & -0.0071875 & -0.0071875 & -0.0071875  \\ 
+			[0.8ex]
+			\hline
+			21 & 0.01 & 0.01 & 0.01 & 0.005 & 0.005 & 0.005  \\ 
+			[0.8ex]
+			\hline
+			22 & 0.0096875 & 0.0096875 & 0.0096875 & 0.004375 & 0.004375 & 0.004375 \\ 
+			[0.8ex]
+			\hline
+			23 & 0.00875 & 0.00875 & 0.00875 & 0.0025 & 0.0025 & 0.0025 \\ 
+			[0.8ex]
+			\hline
+			24 & 0.0071875 & 0.0071875 & 0.0071875 & -0.000625 & -0.000625 & -0.000625 \\ 
+			[0.8ex]	
+			\hline
+			25 & 0.005 & 0.005 & 0.005 & -0.005 & -0.005 & -0.005 \\  [0.8ex] 
+			\hline
+		\end{tabular}
+		\caption{Displacement Values in Patch test-2.}
+	\end{center}
+\end{table}
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}{||c c c c c||} 
+			\hline
+			Node Number & $\psi_{11}$ Output & $\psi_{11}$ Expected  & $\psi_{22}$ Output & $\psi_{22}$ Expected \\ [0.8ex] 
+			\hline\hline
+			1 & 0.0 & 0.0 & 0.0 & 0.0  \\ 
+			[0.8ex]
+			\hline
+			3 & -0.005 & -0.005 & 0.0 & 0.0  \\ 
+			[0.8ex]
+			\hline
+			5 & -0.01 & -0.01 & 0.0 & 0.0   \\ 
+			[0.8ex]
+			\hline
+			11 & 0.0 & 0.0 & 0.005 & 0.005   \\ 
+			[0.8ex]
+			\hline
+			\rowcolor{lightgray} 13 & - & -0.005 & - & 0.005  \\ 
+			[0.8ex]
+			\hline
+			15 & -0.01 & -0.01 & 0.005 & 0.005  \\ 
+			[0.8ex]
+			\hline
+			21 & 0.0 & 0.0 & 0.01 & 0.01  \\ 
+			[0.8ex]
+			\hline
+			23 & -0.005 & -0.005 & 0.01 & 0.01  \\ 
+			[0.8ex]
+			\hline	
+			25 & -0.01 & -0.01 & 0.01 & 0.01   \\ 
+			[0.8ex]
+			\hline
+		\end{tabular}
+		\caption{Relaxed Strain $\psi_{11}$ and $\psi_{22}$ Values in Patch test-2.}
+	\end{center}
+\end{table}
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}{||c c c c c||} 
+			\hline
+			Node Number & $\psi_{21}$ Output & $\psi_{21}$ Expected  & $\psi_{12}$ Output & $\psi_{12}$ Expected \\ [0.8ex] 
+			\hline\hline
+			1 & 0.0 & 0.0 & 0.0 & 0.0  \\ 
+			[0.8ex]
+			\hline
+			3 & 0.0 & 0.0 & -0.01 & -0.01  \\ 
+			[0.8ex]
+			\hline
+			5 & 0.0 & 0.0 & -0.02 & -0.02   \\ 
+			[0.8ex]
+			\hline
+			11 & 0.01 & 0.01 & 0.0 & 0.0   \\ 
+			[0.8ex]
+			\hline	
+			\rowcolor{lightgray} 13 & - & 0.01 & - & -0.01  \\ 
+			[0.8ex]
+			\hline
+			15 & 0.01 & 0.01 & -0.02 & -0.02  \\ 
+			[0.8ex]
+			\hline
+			21 & 0.02 & 0.02 & 0.0 & 0.0  \\ 
+			[0.8ex]
+			\hline
+			23 & 0.02 & 0.02 & -0.01 & -0.01  \\ 
+			[0.8ex]
+			\hline	
+			25 & 0.02 & 0.02 & -0.02 & -0.02   \\ 
+			[0.8ex]
+			\hline
+		\end{tabular}
+		\caption{Relaxed Strain $\psi_{21}$ and $\psi_{12}$ Values in Patch test-2.}
+	\end{center}
+\end{table}
+
+\subsection{Rigid Body Transformation Test}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.49]{Rigid_body_u1_crop.png} 
+	    \includegraphics[scale=0.49]{Rigid_body_u2_crop.png} 
+	\end{center}
+	\caption{Visualization of Displacement $u_1 $ and $u_2 $ in Rigid Body Transformation Test.} 
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.49]{Rigid_body_stress_crop.png} 
+		\includegraphics[scale=0.49]{Rigid_body_strain_crop.png} 
+	\end{center}
+	\caption{Visualization of stress and strain in Rigid Body Transformation Test.} 
+\end{figure}
 \newpage
 \begin{appendices}
 \section{Python file for Patch test-1}
 \includegraphics[scale=0.93,page=1]{Patch_test_1_elem_eqn.pdf}
+\newpage
 \includegraphics[scale=0.93,page=1]{pro.pdf}
 \section{Python file for Patch test-2}
 \includegraphics[scale=0.80,page=1]{Patch_Test_4_elem_eqn.pdf}
+\newpage
 \includegraphics[scale=0.80,page=2]{Patch_Test_4_elem_eqn.pdf}
 \section{Python file for 9-node Element mesh generation}
 \includegraphics[scale=0.80,page=1]{9Node_Mesh_generation.pdf}
+\newpage
 \includegraphics[scale=0.80,page=2]{9Node_Mesh_generation.pdf}
 \section{Flowchart of Strain Gradient Elasticity FEM Model}
 \vspace{5cm}
 \includegraphics[scale=0.60,page=1]{flow_chart_1.pdf}
+\newpage
 \includegraphics[scale=0.60,page=1]{flow_chart_2.pdf}
+\newpage
+\section{Postprocessing tool to visualize UEL}
+We know that commercial Software ABQUS has large range of Eelements which is defined in it. We can use those elements only to visualize the any FEM model. To visualize the User defined Element and any FEM model in ABAQUS \textbf{Dr.-Ing. Stephan Roth} developed one tool. This tool helps us to postprocess any FEM model by replacing the UEL with ABAQUS defined Element.
+\\
+\newline
+There are few steps, which I had to do for the postprocessing of UEL using the tool, are given below,
+\newline
+\\
+\textbf{1)} First of all, the input file has to modified such that it produced one (.fil) file. There are some sequence in order to defined the different parameters in (.inp) input file, such as *part, *Assembly, *instance, *node, *user element, *Uel property, *element in sequence.
+In the last part of input file it has to modified the output request according to out reuqirement in postprocessing.
+\\
+\\
+\textbf{(2)} In second step we have write one (.info) which contains the UEL information. It can be modified according to the many different parameters such as "Degree of Freedom(DOF)", "Number of nodes per element", "Number of Guass points per element", "Number of dimension(DIM)" and finally "Number of solution dependent state variable(SDV)". In this file we have to also give the dummpy element name, which is defined in ABAQUS already, in order to get the desired property in visualization. 
+\\
+\\
+\textbf{(3)} In third step we have to put the some of the files in same folder, in which we run the userelement routine with input file, in order to call the basic environement files for the postprocessing during call the processing code, such as (.info), (ABAQUSER.pyc), (.fil), (abaqusv6.env), and most important (.inp) and (.f) files.
+\\
+\\
+\textbf{(4)} In the last we have to run the Ueser element routine using linux command line or Abaqus commmand prompt by following code.
+\\
+\\
+\textbf{Code} : \textbf{abq6132} \textbf{python} \textbf{ABAQUSER.pyc} $<\textbf{Input-file-name}>$ \\
+\textbf{ABACALL=abq6132} $<\textbf{Info-file-name}>$
+
+
 \end{appendices}
 
 
