@@ -30,7 +30,7 @@
 \contentsline {section}{\numberline {7}Validation Tests}{35}%
 \contentsline {subsection}{\numberline {7.1}Patch Test - 1}{35}%
 \contentsline {subsection}{\numberline {7.2}Patch Test - 2}{37}%
-\contentsline {subsection}{\numberline {7.3}Rigid Body Transformation Test}{41}%
+\contentsline {subsection}{\numberline {7.3}Rigid Body Translation Test}{41}%
 \contentsline {section}{\numberline {A}Python file for Patch test-1}{42}%
 \contentsline {section}{\numberline {B}Python file for Patch test-2}{44}%
 \contentsline {section}{\numberline {C}Python file for 9-node Element mesh generation}{46}%

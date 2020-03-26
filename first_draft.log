@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.18)  21 MAR 2020 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.18)  26 MAR 2020 18:31
 entering extended mode
 **./first_draft.tex
 (first_draft.tex
@@ -732,17 +732,12 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
 
 {C:/Users/dhava/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./tubaf.pdf
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
+Underfull \hbox (badness 10000) in paragraph at lines 59--66
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
+Underfull \hbox (badness 10000) in paragraph at lines 59--66
 
  []
 
@@ -773,17 +768,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout6 = `first_draft.toc'.
 
  [4]
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--76
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 77--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--82
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--85
 
  []
 
@@ -793,25 +788,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--79
 <straingradienthistory.png, id=34, 796.32506pt x 439.94362pt>
 File: straingradienthistory.png Graphic file (type png)
 <use straingradienthistory.png>
-Package pdftex.def Info: straingradienthistory.png  used on input line 87.
+Package pdftex.def Info: straingradienthistory.png  used on input line 93.
 (pdftex.def)             Requested size: 398.16156pt x 219.97127pt.
  [6 <./straingradienthistory.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 121--126
+Underfull \hbox (badness 10000) in paragraph at lines 127--132
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--143
+Underfull \hbox (badness 10000) in paragraph at lines 140--149
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--143
+Underfull \hbox (badness 10000) in paragraph at lines 140--149
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--155
+Underfull \hbox (badness 10000) in paragraph at lines 156--161
 
  []
 
@@ -819,126 +814,126 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--155
 <Tri_Element.JPG, id=47, 301.72725pt x 173.448pt>
 File: Tri_Element.JPG Graphic file (type jpg)
 <use Tri_Element.JPG>
-Package pdftex.def Info: Tri_Element.JPG  used on input line 166.
+Package pdftex.def Info: Tri_Element.JPG  used on input line 172.
 (pdftex.def)             Requested size: 241.38211pt x 138.75858pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--169
+Underfull \hbox (badness 10000) in paragraph at lines 167--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--176
+Underfull \hbox (badness 10000) in paragraph at lines 180--182
 
  []
 
 [8 <./Tri_Element.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 225--231
+Underfull \hbox (badness 10000) in paragraph at lines 231--237
 
  []
 
 <U111_Eta_111.JPG, id=51, 218.61674pt x 113.82526pt>
 File: U111_Eta_111.JPG Graphic file (type jpg)
 <use U111_Eta_111.JPG>
-Package pdftex.def Info: U111_Eta_111.JPG  used on input line 235.
+Package pdftex.def Info: U111_Eta_111.JPG  used on input line 241.
 (pdftex.def)             Requested size: 174.89362pt x 91.06032pt.
 <U222_Eta_222.JPG, id=52, 216.81pt x 114.4275pt>
 File: U222_Eta_222.JPG Graphic file (type jpg)
 <use U222_Eta_222.JPG>
-Package pdftex.def Info: U222_Eta_222.JPG  used on input line 236.
+Package pdftex.def Info: U222_Eta_222.JPG  used on input line 242.
 (pdftex.def)             Requested size: 173.44823pt x 91.54211pt.
 <U122_Eta_122.JPG, id=53, 214.401pt x 104.18925pt>
 File: U122_Eta_122.JPG Graphic file (type jpg)
 <use U122_Eta_122.JPG>
-Package pdftex.def Info: U122_Eta_122.JPG  used on input line 242.
+Package pdftex.def Info: U122_Eta_122.JPG  used on input line 248.
 (pdftex.def)             Requested size: 171.52103pt x 83.3515pt.
 <U211_Eta_211.JPG, id=54, 215.00325pt x 124.66576pt>
 File: U211_Eta_211.JPG Graphic file (type jpg)
 <use U211_Eta_211.JPG>
-Package pdftex.def Info: U211_Eta_211.JPG  used on input line 243.
+Package pdftex.def Info: U211_Eta_211.JPG  used on input line 249.
 (pdftex.def)             Requested size: 172.00282pt x 99.73273pt.
 <U121_Eta_121.JPG, id=55, 215.6055pt x 105.39375pt>
 File: U121_Eta_121.JPG Graphic file (type jpg)
 <use U121_Eta_121.JPG>
-Package pdftex.def Info: U121_Eta_121.JPG  used on input line 249.
+Package pdftex.def Info: U121_Eta_121.JPG  used on input line 255.
 (pdftex.def)             Requested size: 172.48462pt x 84.3151pt.
 <U212_Eta_212.JPG, id=56, 215.00325pt x 124.66576pt>
 File: U212_Eta_212.JPG Graphic file (type jpg)
 <use U212_Eta_212.JPG>
-Package pdftex.def Info: U212_Eta_212.JPG  used on input line 250.
+Package pdftex.def Info: U212_Eta_212.JPG  used on input line 256.
 (pdftex.def)             Requested size: 172.00282pt x 99.73273pt.
 [9 <./U111_Eta_111.JPG> <./U222_Eta_222.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 256--263
+Underfull \hbox (badness 10000) in paragraph at lines 262--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--263
+Underfull \hbox (badness 10000) in paragraph at lines 262--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--273
+Underfull \hbox (badness 10000) in paragraph at lines 271--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--273
+Underfull \hbox (badness 10000) in paragraph at lines 271--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--273
+Underfull \hbox (badness 10000) in paragraph at lines 271--279
 
  []
 
 [10 <./U122_Eta_122.JPG> <./U211_Eta_211.JPG> <./U121_Eta_121.JPG> <./U212_Eta_
 212.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 284--289
+Underfull \hbox (badness 10000) in paragraph at lines 290--295
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--289
+Underfull \hbox (badness 10000) in paragraph at lines 290--295
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--305
+Underfull \hbox (badness 10000) in paragraph at lines 307--311
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--322
+Underfull \hbox (badness 10000) in paragraph at lines 326--328
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 338--342
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 344--348
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--356
+Underfull \hbox (badness 10000) in paragraph at lines 350--354
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--356
+Underfull \hbox (badness 10000) in paragraph at lines 356--362
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--356
+Underfull \hbox (badness 10000) in paragraph at lines 356--362
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 366--370
+Underfull \hbox (badness 10000) in paragraph at lines 356--362
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--376
 
  []
 
@@ -948,30 +943,30 @@ t>
 File: Element_mixed_type_formulation_E_Amanatidou.JPG Graphic file (type jpg)
 <use Element_mixed_type_formulation_E_Amanatidou.JPG>
 Package pdftex.def Info: Element_mixed_type_formulation_E_Amanatidou.JPG  used 
-on input line 375.
+on input line 381.
 (pdftex.def)             Requested size: 378.1483pt x 171.45854pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 379--381
+Underfull \hbox (badness 10000) in paragraph at lines 385--387
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--389
+Underfull \hbox (badness 10000) in paragraph at lines 389--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--389
+Underfull \hbox (badness 10000) in paragraph at lines 389--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 390--393
+Underfull \hbox (badness 10000) in paragraph at lines 396--399
 
  []
 
 [13 <./Element_mixed_type_formulation_E_Amanatidou.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 420--422
+Underfull \hbox (badness 10000) in paragraph at lines 426--428
 
  []
 
@@ -979,131 +974,131 @@ Underfull \hbox (badness 10000) in paragraph at lines 420--422
 <Shu_1_2.JPG, id=77, 399.894pt x 165.61874pt>
 File: Shu_1_2.JPG Graphic file (type jpg)
 <use Shu_1_2.JPG>
-Package pdftex.def Info: Shu_1_2.JPG  used on input line 465.
+Package pdftex.def Info: Shu_1_2.JPG  used on input line 471.
 (pdftex.def)             Requested size: 239.93823pt x 99.37201pt.
 <Shu_3.JPG, id=78, 172.84575pt x 151.767pt>
 File: Shu_3.JPG Graphic file (type jpg)
 <use Shu_3.JPG>
-Package pdftex.def Info: Shu_3.JPG  used on input line 466.
+Package pdftex.def Info: Shu_3.JPG  used on input line 472.
 (pdftex.def)             Requested size: 103.70824pt x 91.06088pt.
 <Shu_4.JPG, id=79, 180.07275pt x 153.57375pt>
 File: Shu_4.JPG Graphic file (type jpg)
 <use Shu_4.JPG>
-Package pdftex.def Info: Shu_4.JPG  used on input line 471.
+Package pdftex.def Info: Shu_4.JPG  used on input line 477.
 (pdftex.def)             Requested size: 108.04448pt x 92.14494pt.
 <Shu_5_6.JPG, id=80, 398.08725pt x 159.59625pt>
 File: Shu_5_6.JPG Graphic file (type jpg)
 <use Shu_5_6.JPG>
-Package pdftex.def Info: Shu_5_6.JPG  used on input line 472.
+Package pdftex.def Info: Shu_5_6.JPG  used on input line 478.
 (pdftex.def)             Requested size: 238.85419pt x 95.75847pt.
 <Shu_info.JPG, id=81, 325.81725pt x 95.75775pt>
 File: Shu_info.JPG Graphic file (type jpg)
 <use Shu_info.JPG>
-Package pdftex.def Info: Shu_info.JPG  used on input line 477.
+Package pdftex.def Info: Shu_info.JPG  used on input line 483.
 (pdftex.def)             Requested size: 260.65413pt x 76.6063pt.
  [15 <./Shu_1_2.JPG> <./Shu_3.JPG>] [16 <./Shu_4.JPG> <./Shu_5_6.JPG> <./Shu_in
 fo.JPG>] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 530--532
+Underfull \hbox (badness 10000) in paragraph at lines 536--538
 
  []
 
 <ele_1.png, id=92, 355.3275pt x 240.9pt>
 File: ele_1.png Graphic file (type png)
 <use ele_1.png>
-Package pdftex.def Info: ele_1.png  used on input line 536.
+Package pdftex.def Info: ele_1.png  used on input line 542.
 (pdftex.def)             Requested size: 284.26237pt x 192.72025pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 545--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--554
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 545--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--554
 
  []
 
 [18 <./ele_1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 555--559
+Underfull \hbox (badness 10000) in paragraph at lines 561--565
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 564--569
+Underfull \hbox (badness 10000) in paragraph at lines 570--575
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 564--569
+Underfull \hbox (badness 10000) in paragraph at lines 570--575
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 581--585
+Underfull \hbox (badness 10000) in paragraph at lines 587--591
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 593--597
+Underfull \hbox (badness 10000) in paragraph at lines 599--603
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--606
+Underfull \hbox (badness 10000) in paragraph at lines 608--612
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 648--654
+Underfull \hbox (badness 10000) in paragraph at lines 654--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 662--666
+Underfull \hbox (badness 10000) in paragraph at lines 668--672
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 686--690
+Underfull \hbox (badness 10000) in paragraph at lines 692--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 691--693
+Underfull \hbox (badness 10000) in paragraph at lines 697--699
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 705--709
+Underfull \hbox (badness 10000) in paragraph at lines 711--715
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 714--719
+Underfull \hbox (badness 10000) in paragraph at lines 720--725
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 714--719
+Underfull \hbox (badness 10000) in paragraph at lines 720--725
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 726--732
+Underfull \hbox (badness 10000) in paragraph at lines 732--738
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 726--732
+Underfull \hbox (badness 10000) in paragraph at lines 732--738
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 726--732
+Underfull \hbox (badness 10000) in paragraph at lines 732--738
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 740--746
+Underfull \hbox (badness 10000) in paragraph at lines 746--752
 
  []
 
@@ -1111,48 +1106,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 740--746
 <ABAQUS_result.png, id=120, 670.505pt x 638.385pt>
 File: ABAQUS_result.png Graphic file (type png)
 <use ABAQUS_result.png>
-Package pdftex.def Info: ABAQUS_result.png  used on input line 849.
+Package pdftex.def Info: ABAQUS_result.png  used on input line 855.
 (pdftex.def)             Requested size: 268.19725pt x 255.34947pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 837--852
+Underfull \hbox (badness 10000) in paragraph at lines 843--858
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 837--852
+Underfull \hbox (badness 10000) in paragraph at lines 843--858
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 837--852
+Underfull \hbox (badness 10000) in paragraph at lines 843--858
 
  []
 
 <MY_code_result_1.png, id=121, 691.58376pt x 640.3925pt>
 File: MY_code_result_1.png Graphic file (type png)
 <use MY_code_result_1.png>
-Package pdftex.def Info: MY_code_result_1.png  used on input line 855.
+Package pdftex.def Info: MY_code_result_1.png  used on input line 861.
 (pdftex.def)             Requested size: 276.6286pt x 256.15245pt.
 [25 <./ABAQUS_result.png>]
 <ABAQUS_result_stress.png, id=125, 704.6325pt x 641.39626pt>
 File: ABAQUS_result_stress.png Graphic file (type png)
 <use ABAQUS_result_stress.png>
-Package pdftex.def Info: ABAQUS_result_stress.png  used on input line 862.
+Package pdftex.def Info: ABAQUS_result_stress.png  used on input line 868.
 (pdftex.def)             Requested size: 281.848pt x 256.55396pt.
 <ABAQUS_result_stress_crp.png, id=126, 475.7775pt x 716.6775pt>
 File: ABAQUS_result_stress_crp.png Graphic file (type png)
 <use ABAQUS_result_stress_crp.png>
-Package pdftex.def Info: ABAQUS_result_stress_crp.png  used on input line 863.
+Package pdftex.def Info: ABAQUS_result_stress_crp.png  used on input line 869.
 (pdftex.def)             Requested size: 166.52461pt x 250.84088pt.
 <MY_code_result_stress.png, id=127, 681.54625pt x 613.29124pt>
 File: MY_code_result_stress.png Graphic file (type png)
 <use MY_code_result_stress.png>
-Package pdftex.def Info: MY_code_result_stress.png  used on input line 869.
+Package pdftex.def Info: MY_code_result_stress.png  used on input line 875.
 (pdftex.def)             Requested size: 272.61366pt x 245.31215pt.
 <MY_code_result_stress_crp.png, id=128, 439.6425pt x 757.83125pt>
 File: MY_code_result_stress_crp.png Graphic file (type png)
 <use MY_code_result_stress_crp.png>
-Package pdftex.def Info: MY_code_result_stress_crp.png  used on input line 870.
+Package pdftex.def Info: MY_code_result_stress_crp.png  used on input line 876.
 
 (pdftex.def)             Requested size: 140.68846pt x 242.51096pt.
  [26 <./MY_code_result_1.png> <./ABAQUS_result_stress.png> <./ABAQUS_result_str
@@ -1161,70 +1156,70 @@ g>]
 <mesh_part.png, id=135, 741.77126pt x 750.805pt>
 File: mesh_part.png Graphic file (type png)
 <use mesh_part.png>
-Package pdftex.def Info: mesh_part.png  used on input line 882.
+Package pdftex.def Info: mesh_part.png  used on input line 888.
 (pdftex.def)             Requested size: 259.62383pt x 262.78568pt.
 <fine_mesh_part.png, id=136, 445.665pt x 451.6875pt>
 File: fine_mesh_part.png Graphic file (type png)
 <use fine_mesh_part.png>
-Package pdftex.def Info: fine_mesh_part.png  used on input line 889.
+Package pdftex.def Info: fine_mesh_part.png  used on input line 895.
 (pdftex.def)             Requested size: 169.35446pt x 171.64302pt.
 <full_grad_crop.png, id=137, 467.94826pt x 333.04425pt>
 File: full_grad_crop.png Graphic file (type png)
 <use full_grad_crop.png>
-Package pdftex.def Info: full_grad_crop.png  used on input line 895.
+Package pdftex.def Info: full_grad_crop.png  used on input line 901.
 (pdftex.def)             Requested size: 374.35912pt x 266.43575pt.
 <Reg11_crop.png, id=138, 460.72125pt x 327.624pt>
 File: Reg11_crop.png Graphic file (type png)
 <use Reg11_crop.png>
-Package pdftex.def Info: Reg11_crop.png  used on input line 901.
+Package pdftex.def Info: Reg11_crop.png  used on input line 907.
 (pdftex.def)             Requested size: 368.5775pt x 262.09953pt.
  [28 <./mesh_part.png> <./fine_mesh_part.png>]
 <Reg22_crop.png, id=144, 465.53925pt x 330.63525pt>
 File: Reg22_crop.png Graphic file (type png)
 <use Reg22_crop.png>
-Package pdftex.def Info: Reg22_crop.png  used on input line 907.
+Package pdftex.def Info: Reg22_crop.png  used on input line 913.
 (pdftex.def)             Requested size: 372.4319pt x 264.50856pt.
 <Reg33_crop.png, id=145, 463.13025pt x 329.43076pt>
 File: Reg33_crop.png Graphic file (type png)
 <use Reg33_crop.png>
-Package pdftex.def Info: Reg33_crop.png  used on input line 913.
+Package pdftex.def Info: Reg33_crop.png  used on input line 919.
 (pdftex.def)             Requested size: 370.5047pt x 263.54495pt.
 
 [29 <./full_grad_crop.png> <./Reg11_crop.png>]
 <Reg12_crop.png, id=151, 462.528pt x 327.02174pt>
 File: Reg12_crop.png Graphic file (type png)
 <use Reg12_crop.png>
-Package pdftex.def Info: Reg12_crop.png  used on input line 919.
+Package pdftex.def Info: Reg12_crop.png  used on input line 925.
 (pdftex.def)             Requested size: 370.02289pt x 261.61774pt.
 <Reg23_crop.png, id=152, 464.33475pt x 332.442pt>
 File: Reg23_crop.png Graphic file (type png)
 <use Reg23_crop.png>
-Package pdftex.def Info: Reg23_crop.png  used on input line 925.
+Package pdftex.def Info: Reg23_crop.png  used on input line 931.
 (pdftex.def)             Requested size: 371.46829pt x 265.95395pt.
  [30 <./Reg22_crop.png> <./Reg33_crop.png>]
 <Reg13_crop.png, id=159, 466.1415pt x 327.02174pt>
 File: Reg13_crop.png Graphic file (type png)
 <use Reg13_crop.png>
-Package pdftex.def Info: Reg13_crop.png  used on input line 931.
+Package pdftex.def Info: Reg13_crop.png  used on input line 937.
 (pdftex.def)             Requested size: 372.9137pt x 261.61774pt.
 <Higher_order_stress_crop.png, id=160, 469.755pt x 339.06676pt>
 File: Higher_order_stress_crop.png Graphic file (type png)
 <use Higher_order_stress_crop.png>
-Package pdftex.def Info: Higher_order_stress_crop.png  used on input line 937.
+Package pdftex.def Info: Higher_order_stress_crop.png  used on input line 943.
 (pdftex.def)             Requested size: 375.80452pt x 271.25377pt.
  [31 <./Reg12_crop.png> <./Reg23_crop.png>]
 <path_full_grad_crop.png, id=166, 346.29375pt x 284.262pt>
 File: path_full_grad_crop.png Graphic file (type png)
 <use path_full_grad_crop.png>
-Package pdftex.def Info: path_full_grad_crop.png  used on input line 943.
+Package pdftex.def Info: path_full_grad_crop.png  used on input line 949.
 (pdftex.def)             Requested size: 415.5504pt x 341.11267pt.
 <path_full_grad_plot.png, id=167, 913.4125pt x 444.66125pt>
 File: path_full_grad_plot.png Graphic file (type png)
 <use path_full_grad_plot.png>
-Package pdftex.def Info: path_full_grad_plot.png  used on input line 949.
+Package pdftex.def Info: path_full_grad_plot.png  used on input line 955.
 (pdftex.def)             Requested size: 529.77963pt x 257.9037pt.
 
-Overfull \hbox (62.58537pt too wide) in paragraph at lines 949--950
+Overfull \hbox (62.58537pt too wide) in paragraph at lines 955--956
  [][] 
  []
 
@@ -1232,35 +1227,35 @@ Overfull \hbox (62.58537pt too wide) in paragraph at lines 949--950
 <Higher_order_stress_plot.png, id=173, 903.375pt x 440.64626pt>
 File: Higher_order_stress_plot.png Graphic file (type png)
 <use Higher_order_stress_plot.png>
-Package pdftex.def Info: Higher_order_stress_plot.png  used on input line 955.
+Package pdftex.def Info: Higher_order_stress_plot.png  used on input line 961.
 (pdftex.def)             Requested size: 523.95787pt x 255.575pt.
 
-Overfull \hbox (56.76361pt too wide) in paragraph at lines 955--956
+Overfull \hbox (56.76361pt too wide) in paragraph at lines 961--962
  [][] 
  []
 
 [33 <./path_full_grad_crop.png> <./path_full_grad_plot.png>] [34 <./Higher_orde
 r_stress_plot.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 961--963
+Underfull \hbox (badness 10000) in paragraph at lines 967--969
 
  []
 
 File: ele_1.png Graphic file (type png)
 <use ele_1.png>
-Package pdftex.def Info: ele_1.png  used on input line 967.
+Package pdftex.def Info: ele_1.png  used on input line 973.
 (pdftex.def)             Requested size: 284.26237pt x 192.72025pt.
 <patch_1_disp_crop.png, id=183, 448.074pt x 336.0555pt>
 File: patch_1_disp_crop.png Graphic file (type png)
 <use patch_1_disp_crop.png>
-Package pdftex.def Info: patch_1_disp_crop.png  used on input line 981.
+Package pdftex.def Info: patch_1_disp_crop.png  used on input line 987.
 (pdftex.def)             Requested size: 371.9013pt x 278.92598pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 971--984
+Underfull \hbox (badness 10000) in paragraph at lines 977--990
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 971--984
+Underfull \hbox (badness 10000) in paragraph at lines 977--990
 
  []
 
@@ -1268,32 +1263,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 971--984
 <patch_1_relaxed_strain_crop.png, id=187, 444.4605pt x 334.851pt>
 File: patch_1_relaxed_strain_crop.png Graphic file (type png)
 <use patch_1_relaxed_strain_crop.png>
-Package pdftex.def Info: patch_1_relaxed_strain_crop.png  used on input line 98
-7.
+Package pdftex.def Info: patch_1_relaxed_strain_crop.png  used on input line 99
+3.
 (pdftex.def)             Requested size: 368.90211pt x 277.92625pt.
  [36 <./patch_1_disp_crop.png> <./patch_1_relaxed_strain_crop.png>]
 <ele_4.png, id=194, 633.567pt x 301.125pt>
 File: ele_4.png Graphic file (type png)
 <use ele_4.png>
-Package pdftex.def Info: ele_4.png  used on input line 1032.
+Package pdftex.def Info: ele_4.png  used on input line 1038.
 (pdftex.def)             Requested size: 475.17409pt x 225.84319pt.
 
-Overfull \hbox (22.20619pt too wide) in paragraph at lines 1032--1033
+Overfull \hbox (22.20619pt too wide) in paragraph at lines 1038--1039
  [] 
  []
 
 <p2_u1.png, id=195, 608.2725pt x 526.96875pt>
 File: p2_u1.png Graphic file (type png)
 <use p2_u1.png>
-Package pdftex.def Info: p2_u1.png  used on input line 1045.
+Package pdftex.def Info: p2_u1.png  used on input line 1051.
 (pdftex.def)             Requested size: 273.7201pt x 237.13374pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1048
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1054
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1048
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1054
 
  []
 
@@ -1301,32 +1296,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 1036--1048
 <p2_u2.png, id=200, 606.265pt x 527.9725pt>
 File: p2_u2.png Graphic file (type png)
 <use p2_u2.png>
-Package pdftex.def Info: p2_u2.png  used on input line 1051.
+Package pdftex.def Info: p2_u2.png  used on input line 1057.
 (pdftex.def)             Requested size: 272.81673pt x 237.58542pt.
 
-Overfull \hbox (62.8624pt too wide) in paragraph at lines 1058--1138
+Overfull \hbox (62.8624pt too wide) in paragraph at lines 1064--1144
  [] 
  []
 
 <Rigid_body_u1_crop.png, id=201, 451.6875pt x 315.579pt>
 File: Rigid_body_u1_crop.png Graphic file (type png)
 <use Rigid_body_u1_crop.png>
-Package pdftex.def Info: Rigid_body_u1_crop.png  used on input line 1221.
+Package pdftex.def Info: Rigid_body_u1_crop.png  used on input line 1227.
 (pdftex.def)             Requested size: 221.3288pt x 154.63506pt.
 <Rigid_body_u2_crop.png, id=202, 452.892pt x 314.3745pt>
 File: Rigid_body_u2_crop.png Graphic file (type png)
 <use Rigid_body_u2_crop.png>
-Package pdftex.def Info: Rigid_body_u2_crop.png  used on input line 1222.
+Package pdftex.def Info: Rigid_body_u2_crop.png  used on input line 1228.
 (pdftex.def)             Requested size: 221.919pt x 154.04485pt.
 <Rigid_body_stress_crop.png, id=203, 454.0965pt x 311.36325pt>
 File: Rigid_body_stress_crop.png Graphic file (type png)
 <use Rigid_body_stress_crop.png>
-Package pdftex.def Info: Rigid_body_stress_crop.png  used on input line 1228.
+Package pdftex.def Info: Rigid_body_stress_crop.png  used on input line 1234.
 (pdftex.def)             Requested size: 222.50923pt x 152.56932pt.
 <Rigid_body_strain_crop.png, id=204, 452.892pt x 314.3745pt>
 File: Rigid_body_strain_crop.png Graphic file (type png)
 <use Rigid_body_strain_crop.png>
-Package pdftex.def Info: Rigid_body_strain_crop.png  used on input line 1229.
+Package pdftex.def Info: Rigid_body_strain_crop.png  used on input line 1235.
 (pdftex.def)             Requested size: 221.919pt x 154.04485pt.
 [38 <./p2_u1.png> <./p2_u2.png>] [39] [40] [41 <./Rigid_body_u1_crop.png> <./Ri
 gid_body_u2_crop.png> <./Rigid_body_stress_crop.png> <./Rigid_body_strain_crop.
@@ -1335,89 +1330,98 @@ png>]
 File: Patch_test_1_elem_eqn.pdf Graphic file (type pdf)
 <use Patch_test_1_elem_eqn.pdf, page 1>
 Package pdftex.def Info: Patch_test_1_elem_eqn.pdf , page1 used on input line 1
-236.
-(pdftex.def)             Requested size: 555.41931pt x 785.98836pt.
+244.
+(pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
+<pro.pdf, id=222, page=1, 597.23125pt x 845.1575pt>
+File: pro.pdf Graphic file (type pdf)
+<use pro.pdf, page 1>
+Package pdftex.def Info: pro.pdf , page1 used on input line 1247.
+(pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
 
-Overfull \hbox (102.45142pt too wide) in paragraph at lines 1236--1237
+Overfull \hbox (24.81775pt too wide) in paragraph at lines 1244--1248
 [] 
  []
 
 
-Overfull \vbox (113.72482pt too high) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 1244--1248
+
+ []
+
+
+Overfull \hbox (24.81775pt too wide) in paragraph at lines 1244--1248
+[] 
+ []
+
+
+Overfull \vbox (18.36339pt too high) has occurred while \output is active []
 
 
 [42 <./Patch_test_1_elem_eqn.pdf>]
-<pro.pdf, id=241, page=1, 597.23125pt x 845.1575pt>
-File: pro.pdf Graphic file (type pdf)
-<use pro.pdf, page 1>
-Package pdftex.def Info: pro.pdf , page1 used on input line 1238.
-(pdftex.def)             Requested size: 555.41931pt x 785.98836pt.
-
-Overfull \hbox (120.07623pt too wide) in paragraph at lines 1238--1239
-[][] 
- []
-
-
-Overfull \vbox (85.48149pt too high) has occurred while \output is active []
-
-
-[43 <./pro.pdf>]
-<Patch_Test_4_elem_eqn.pdf, id=260, page=1, 597.23125pt x 845.1575pt>
+<Patch_Test_4_elem_eqn.pdf, id=242, page=1, 597.23125pt x 845.1575pt>
 File: Patch_Test_4_elem_eqn.pdf Graphic file (type pdf)
 <use Patch_Test_4_elem_eqn.pdf, page 1>
 Package pdftex.def Info: Patch_Test_4_elem_eqn.pdf , page1 used on input line 1
-240.
+249.
+(pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
+<Patch_Test_4_elem_eqn.pdf, id=243, page=2, 597.23125pt x 845.1575pt>
+File: Patch_Test_4_elem_eqn.pdf Graphic file (type pdf)
+<use Patch_Test_4_elem_eqn.pdf, page 2>
+Package pdftex.def Info: Patch_Test_4_elem_eqn.pdf , page2 used on input line 1
+252.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
 
-Overfull \hbox (24.81775pt too wide) in paragraph at lines 1240--1241
+Overfull \hbox (24.81775pt too wide) in paragraph at lines 1249--1253
 [] 
  []
 
 
-Overfull \vbox (3.86339pt too high) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 1249--1253
+
+ []
+
+
+Overfull \hbox (24.81775pt too wide) in paragraph at lines 1249--1253
+[] 
+ []
+
+[43 <./pro.pdf>]
+Overfull \vbox (18.36339pt too high) has occurred while \output is active []
 
 
 [44 <./Patch_Test_4_elem_eqn.pdf>]
-<Patch_Test_4_elem_eqn.pdf, id=279, page=2, 597.23125pt x 845.1575pt>
-File: Patch_Test_4_elem_eqn.pdf Graphic file (type pdf)
-<use Patch_Test_4_elem_eqn.pdf, page 2>
-Package pdftex.def Info: Patch_Test_4_elem_eqn.pdf , page2 used on input line 1
-242.
-(pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
-
-Overfull \hbox (42.44257pt too wide) in paragraph at lines 1242--1243
-[][] 
- []
-
 <9Node_Mesh_generation.pdf, id=280, page=1, 597.23125pt x 845.1575pt>
 File: 9Node_Mesh_generation.pdf Graphic file (type pdf)
 <use 9Node_Mesh_generation.pdf, page 1>
 Package pdftex.def Info: 9Node_Mesh_generation.pdf , page1 used on input line 1
-244.
+254.
+(pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
+<9Node_Mesh_generation.pdf, id=281, page=2, 597.23125pt x 845.1575pt>
+File: 9Node_Mesh_generation.pdf Graphic file (type pdf)
+<use 9Node_Mesh_generation.pdf, page 2>
+Package pdftex.def Info: 9Node_Mesh_generation.pdf , page2 used on input line 1
+257.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
 
-Overfull \hbox (24.81775pt too wide) in paragraph at lines 1244--1245
+Overfull \hbox (24.81775pt too wide) in paragraph at lines 1254--1258
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1254--1258
+
+ []
+
+
+Overfull \hbox (24.81775pt too wide) in paragraph at lines 1254--1258
 [] 
  []
 
 [45 <./Patch_Test_4_elem_eqn.pdf>]
-Overfull \vbox (3.86339pt too high) has occurred while \output is active []
+Overfull \vbox (18.36339pt too high) has occurred while \output is active []
 
 
 [46 <./9Node_Mesh_generation.pdf>]
-<9Node_Mesh_generation.pdf, id=317, page=2, 597.23125pt x 845.1575pt>
-File: 9Node_Mesh_generation.pdf Graphic file (type pdf)
-<use 9Node_Mesh_generation.pdf, page 2>
-Package pdftex.def Info: 9Node_Mesh_generation.pdf , page2 used on input line 1
-246.
-(pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
-
-Overfull \hbox (42.44257pt too wide) in paragraph at lines 1246--1247
-[][] 
- []
-
-
-Overfull \hbox (11.35776pt too wide) in paragraph at lines 1247--1247
+Overfull \hbox (11.35776pt too wide) in paragraph at lines 1258--1258
 []\OT1/cmr/bx/n/17.28 Flowchart of Strain Gra-di-ent Elas-tic-ity FEM Model 
  []
 
@@ -1425,13 +1429,13 @@ Overfull \hbox (11.35776pt too wide) in paragraph at lines 1247--1247
 
 pdfTeX warning: pdflatex.exe (file ./flow_chart_1.pdf): PDF inclusion: found PD
 F version <1.7>, but at most version <1.5> allowed
-<flow_chart_1.pdf, id=318, page=1, 844.15375pt x 817.0525pt>
+<flow_chart_1.pdf, id=303, page=1, 844.15375pt x 817.0525pt>
 File: flow_chart_1.pdf Graphic file (type pdf)
 <use flow_chart_1.pdf, page 1>
-Package pdftex.def Info: flow_chart_1.pdf , page1 used on input line 1249.
+Package pdftex.def Info: flow_chart_1.pdf , page1 used on input line 1260.
 (pdftex.def)             Requested size: 506.49615pt x 490.23529pt.
 
-Overfull \hbox (53.52826pt too wide) in paragraph at lines 1249--1250
+Overfull \hbox (53.52826pt too wide) in paragraph at lines 1260--1261
 [] 
  []
 
@@ -1439,43 +1443,43 @@ Overfull \hbox (53.52826pt too wide) in paragraph at lines 1249--1250
 
 pdfTeX warning: pdflatex.exe (file ./flow_chart_2.pdf): PDF inclusion: found PD
 F version <1.7>, but at most version <1.5> allowed
-<flow_chart_2.pdf, id=353, page=1, 844.15375pt x 901.3675pt>
+<flow_chart_2.pdf, id=323, page=1, 844.15375pt x 901.3675pt>
 File: flow_chart_2.pdf Graphic file (type pdf)
 <use flow_chart_2.pdf, page 1>
-Package pdftex.def Info: flow_chart_2.pdf , page1 used on input line 1251.
+Package pdftex.def Info: flow_chart_2.pdf , page1 used on input line 1262.
 (pdftex.def)             Requested size: 506.49615pt x 540.82466pt.
 
-Overfull \hbox (71.15308pt too wide) in paragraph at lines 1251--1252
+Overfull \hbox (71.15308pt too wide) in paragraph at lines 1262--1263
 [][] 
  []
 
 [49 <./flow_chart_2.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1288
 
  []
 
@@ -1485,13 +1489,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 19709 strings out of 480900
- 374257 string characters out of 2917515
+ 19710 strings out of 480900
+ 374269 string characters out of 2917515
  1055858 words of memory out of 3000000
- 35171 multiletter control sequences out of 15000+200000
+ 35172 multiletter control sequences out of 15000+200000
  541285 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,11n,60p,1343b,350s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,11n,60p,1347b,350s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/Latex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Latex/fonts/type1/pub
 lic/amsfonts/cm/cmbx6.pfb><D:/Latex/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
 <D:/Latex/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Latex/fonts/type1/publi
@@ -1501,9 +1505,9 @@ sfonts/cm/cmr12.pfb><D:/Latex/fonts/type1/public/amsfonts/cm/cmr6.pfb><D:/Latex
 /fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/Latex/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb><D:/Latex/fonts/type1/public/amsfonts/cm/cmti12.pfb><D:/Latex/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on first_draft.pdf (52 pages, 4162690 bytes).
+Output written on first_draft.pdf (52 pages, 4143705 bytes).
 PDF statistics:
- 414 PDF objects out of 1000 (max. 8388607)
+ 384 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  273 words of extra memory for PDF output out of 10000 (max. 10000000)
 

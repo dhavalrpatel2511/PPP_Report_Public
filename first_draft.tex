@@ -56,8 +56,14 @@
 		{\large \today\par}
 	\end{titlepage}
 	\clearpage
-    \textbf{\LARGE Abstract}\\ \newline
-    \newline
+    \textbf{\LARGE Abstract}\\
+    \\
+    During this "Personal Programming Project(PPP)", the "Strain Gradient Elasticity Theory" is implemented through the FEM model. Within this, the element QU34L4, developed by Shu. et al, is integrated as user defined element via the commercial software ABAQUS. The mixed type of FEM formulation is used for this theory.
+    \\
+    \\
+    In this PPP, the User Element routine(UEL) for QU34L4 element and User Material routine(UMAT) for two different strain gradient material are formulated for 2D case.
+    During this PPP time duration this will extended to 3D if it is possible. In the last, this model is also verified by different validation test. 
+
 
 
     \newpage
@@ -71,13 +77,13 @@
 Classical continuum solid mechanics theories, such as linear or non-linear elasticity and plasticity, have been used in wide range of fundamental problems and applications in various fields, but "Classical Continuum Constitutive Models" possess no material/intrinsic scale. So in this regime of micron and nano-scales that experimental evidence and observations have suggested that classical continuum theories do not suffice for an accurate and detailed description in the modelling of size dependent phenomena. Moreover, classical elastic singularities as those emerging during the application of point loads and description of size effects also not solve by it.
 \newline
 \par
-In General, in Gradient elasticity theories, the length scales enter the constitutive equations through the elastic strain energy function, which, in this case depends not only on the strain tensor but also on gradients of the strain tensors Gradient Elasticity theories provide extensions of the classical equations of elasticity with additional higher order spatial derivatives of strains and stresses, but in Gradient elasticity theory one of the most challenging task is to keep the number of additional constitutive parameters to a minimum.
+In General, in Gradient elasticity theories, the length scales enter the constitutive equations through the elastic strain energy function, which, in this case depends not only on the strain tensor but also on gradients of the strain tensors. Gradient Elasticity theories provide extensions of the classical equations of elasticity with additional higher order spatial derivatives of strains and stresses, but in Gradient elasticity theory one of the most challenging task is to keep the number of additional constitutive parameters to a minimum.
 \newline
 \par
-Stress equation of equilibrium, constitutive equations and boundary conditions of the "Strain Gradient theory" were first given in a non-linear form by Toupin in 1960s. After this famous Strain Gradient elasticity theory in three different forms proposed by Mindlin in 1960s. In such theories , when the problem is formulated in terms of displacements, the governing partial differential equation contains the fourth order derivative of displacements. If traditional finite element formulation are used for the numerical solution of such problems, then $C^{1}$ displacement continuity is required. $C^{1}$ displacement continuity means displacement and its first derivative is continuous in inter-element. However, in FEM there is no any robust $C^{1}$ continuous element. So an alternative mixed finite elements formulation is developed, in which both the displacement and the displacement gradients are used as independent unknowns and their relationship is enforced using Lagrange Multiplier Method. In 1999 JOHN Y. SHU proposed the mixed finite formulation based Toupin—Mindlin theories, in which only $C^{0}$ continuous element was used. After this in 2002 E. Amanatidou and N. Aravas also proposed the Mixed type FEM formulation for Toupin—Mindlin theories and also used $C^{0}$ continuous element.
+Stress equation of equilibrium, constitutive equations and boundary conditions of the "Strain Gradient theory" were first given in a non-linear form by Toupin in 1960s. After this famous Strain Gradient elasticity theory in three different forms proposed by Mindlin in 1960s. In such theories , when the problem is formulated in terms of displacements, the governing partial differential equation contains the fourth order derivative of displacements. If traditional finite element formulation are used for the numerical solution of such problems, then $C^{1}$ displacement continuity is required. $C^{1}$ displacement continuity means displacement and its first derivative is continuous in inter-element. However, in FEM there was no any robust $C^{1}$ continuous element. So an alternative mixed finite elements formulation is developed, in which both the displacement and the displacement gradients are used as independent unknowns and their relationship is enforced using Lagrange Multiplier Method. In 1999 JOHN Y. SHU proposed the mixed finite formulation based on Toupin—Mindlin theories, in which only $C^{0}$ continuous element was used. After this in 2002 E. Amanatidou and N. Aravas also proposed the Mixed type FEM formulation for Toupin—Mindlin theories and also used $C^{0}$ continuous element.
 \newline  
 \par
-In the present "Personal Programming Project" report, in the very first section we discussed the theoretical background of the strain gradient elasticity theory with its evolutions and different versions. Following to this section, we discussed in brief few of them theories. After this the Mixed type of FEM formulation with $C^{0}$ continuous element for Strain Gradient theory is discussed in details.
+In the present "Personal Programming Project" report, in the very first section we discussed the theoretical background of the strain gradient elasticity theory with its evolutions and different versions. Following to this section, we discussed in brief few of them theories. After this the Mixed type of FEM formulation with $C^{0}$ continuous element for Strain Gradient theory is discussed in details. In the last, the results of this implemented FEM model is shown. In addition to this the results of the verification tests are also shown.
 \newpage
  
 \section{Theoretical Background}
@@ -89,7 +95,7 @@ In this Section the main focus is to understand the "Classical Strain Gradient E
      	\caption{The history of Strain Gradient Theory}
      \end{figure}
 \subsection{Mindlin's 1964 Theory.}
-In the early 1960s, the Mindlin presented \cite{mindlin1968first} a theory of elasticity with Microstructure length, in which he distinguished between kinematic quantities on two scale micro and macro. As discussed in introduction that it is very challenging task to keep the number of constitutive parameters to a minimum. In this theory constitutive tensor contains 1764 coefficients in total, but for isotropic material its reduced drastically to amount 18. Mindlin present the Strain energy equation as,
+In the early 1960s, the Mindlin \cite{mindlin1968first} presented a theory of elasticity with Microstructure length, in which he distinguished between kinematic quantities on two scale micro and macro. As discussed in introduction that it is very challenging task to keep the number of constitutive parameters to a minimum. In this theory constitutive tensor contains 1764 coefficients in total, but for isotropic material its reduced drastically to amount 18. Mindlin present the Strain energy equation as,
 \begin{equation}\label{first}
 \begin{aligned}
 U= &\frac{1}{2}\lambda\varepsilon_{ii}\varepsilon_{jj}+\mu\varepsilon_{ij}\varepsilon_{ij}+\frac{1}{2}b_1 \gamma_{ii} \gamma_{jj}+\frac{1}{2}b_2 \gamma_{ij} \gamma_{ij}+\frac{1}{2}b_3 \gamma_{ij} \gamma_{ji}+g_1\gamma_{ii}\varepsilon_{jj}
@@ -110,7 +116,7 @@ where $\lambda$ and $\mu$ are the usual Lame constants and the various $a_i$ , $
 \newpage
 
 \subsection{Aifanti's 1992 Theory.} 
-In the early 1990s, motivated by own work in plasticity and non-linear elasticity, Aifantis \cite{askes2011gradient} suggested to extend the linear constitutive model given by Mindlin in form $II$, in which second order terms are expressed as the strain gradient tensor. So he modified this Mindlin form $II$ by neglecting the most of the gradient coefficients. Mindlin present that for a general isotropic elastic solid the strain energy density depends upon
+In the early 1990s, motivated by own work in plasticity and non-linear elasticity, Aifantis \cite{askes2011gradient} suggested to extend the linear constitutive model given by Mindlin in form II, in which second order terms are expressed as the strain gradient tensor. So he modified this Mindlin form II by neglecting the most of the gradient coefficients. Mindlin present that for a general isotropic elastic solid the strain energy density depends upon
 $\varepsilon_{ij}$ and $\kappa_{ijk}$ as the following,
 \begin{equation}\label{two}
 \begin{aligned}
@@ -151,7 +157,7 @@ b_k + (\sigma_{ij}-\tau_{jik,j})_{,i} = 0
 The constitutive law governing the stress $\sigma_{ij}$ and the higher-order stress $\tau_{ijk}$ for an elastic solid is derived through $\sigma_{ij} = \partial w / \partial \varepsilon_{ij}$ and $\tau_{ijk}= \partial w / \partial \eta_{ijk}$ where w is the strain energy density per unit volume. In this Cauchy stress $\sigma_{ij}$ is work conjugate to the strain $\varepsilon_{ij}$ and higher-order stress $\tau_{ijk}$ is work conjugate to the strain gradient  $\eta_{ijk}$.
 \newline
 \newline
-Here, second-order derivatives of displacement occurred in the principle of virtual work Eq.(5), implying that displacement-based elements of $C^1$-continuity are indispensable in a finite element formulation. However there are no robust $C^1$ continuous elements were available at that time for the application of fem formulation of above mentioned both strain gradient theories.
+Here, second-order derivatives of displacement occurred in the principle of virtual work Eq.(5), implying that displacement-based elements of $C^1$-continuity are indispensable in a finite element formulation. However there were no robust $C^1$ continuous elements available at that time for the application of fem formulation of above mentioned both strain gradient theories.
 
 \section{Different FEM Approach}
 There are different FEM approach to the Strain Gradient Elasticity theories are available because of the fact that $C^1$ continuous elements are very difficult to formulate and on the other hand there are also a mixed finite element formulation of strain gradient elasticity derived, which only requires $C^0$ continuity.
@@ -159,7 +165,7 @@ There are different FEM approach to the Strain Gradient Elasticity theories are 
 \subsection{Tomislav Lesicar - Two scale FEM formulation} 
 \subsubsection{ C1-Continuous Element}
 The Aifantis strain gradient theory given in subsection (2.2) has been embedded into finite element framework by Tomislav Lesicar, Zdenko Tonkovic and Jurica Soric \cite{lesivcar2017two}. They used the three node triangular finite element named C1PE3 \cite{putar2017damage}. The element is shown in
-Fig. It contains twelve degrees of freedom (DOF) per node, and it satisfies $C^1$ continuity with assumptions of the plane strains with unit thickness
+Fig 2. \cite{putar2017damage}. It contains twelve degrees of freedom (DOF) per node, and it satisfies $C^1$ continuity with assumptions of the plane strains with unit thickness.
 \newline
      \begin{figure}[H]
      	\begin{center}
@@ -264,7 +270,7 @@ The three equivalent forms strain energy density W given by Mindlin is expressed
 W = \tilde{\mathbf{W}}(\varepsilon,\tilde{\mathbf{\kappa}}) = \hat{\mathbf{W}}(\varepsilon,\hat{\mathbf{\kappa}}) = \bar{\mathbf{W}}(\varepsilon,\bar{\kappa},\bar{\bar \kappa})
 \end{equation}
 \newline
-where the expression $W = \tilde{\mathbf{W}}(\varepsilon,\tilde{\mathbf{\kappa}})$ known as "Type $I$", the expression $W =\hat{\mathbf{W}}(\varepsilon,\hat{\mathbf{\kappa}}) $ known as "Type $II$" and the expression $W = \bar{\mathbf{W}}(\varepsilon,\bar{\kappa},\bar{\bar \kappa}) $ known as "Type $III$".
+where the expression $W = \tilde{\mathbf{W}}(\varepsilon,\tilde{\mathbf{\kappa}})$ known as "Type I", the expression $W =\hat{\mathbf{W}}(\varepsilon,\hat{\mathbf{\kappa}}) $ known as "Type II" and the expression $W = \bar{\mathbf{W}}(\varepsilon,\bar{\kappa},\bar{\bar \kappa}) $ known as "Type III".
 \newline
 \newline
 where the Strain energy density for all three forms are represented as,
@@ -376,7 +382,7 @@ So, Eq.(\ref{seventeen}) and Eq.(\ref{twoone}) are the Voigt-notation of the con
 	    \end{center}  
         \caption{C0-continuous Finite elements for Type I formulation.}   
     \end{figure}
-Amanatidou and Aravas presented several elements that can be used in Type-I formulation are shown in above Fig. The elements are shown in Fig. , the corresponding nodal degrees of freedom are u,$\alpha$ and $\sigma$. Out of these given elements only the element I9-70 passes the all patch test, whereas the elements I5-28 and I13-70 failed into the patch test.
+Amanatidou and Aravas presented several elements that can be used in Type-I formulation are shown in above Fig. The elements are shown in Fig. , the corresponding nodal degrees of freedom are u,$\alpha$ and $\sigma$. Finally, Amanatidou and Aravas conclude that, Out of these given elements only the element I9-70 passes the all patch test, whereas the elements I5-28 and I13-70 failed into the patch test.
 \\
 \subsection{John Y. Shu - Mixed type FEM formulation}
 \vspace{0.4cm}
@@ -593,7 +599,7 @@ N^{[u]^{(1)}}&0&N^{[u]^{(2)}}&0&\cdots &\cdots& N^{[u]^{(9)}}&0 \\
 Now we have shape functions, so in next step we derive the local derivatives of the shape functions with respect to $\xi$ and $\omega$. 
 \\
 \\
-The local derivatives of shape function with respect to are coordinates $\xi$ and $\omega$ is given as, 
+The local derivatives of shape function with respect to area coordinates $\xi$ and $\omega$ is given as, 
 \begin{equation}\label{threeseven}
 N^{[U]^{(i)}}_{,\xi} = \dfrac{\partial N^{[U]^{(i)}} }{\partial \xi}
 \end{equation}
@@ -655,8 +661,8 @@ From Eq.(\ref{threefour}) and Eq.(\ref{fourone}), we can defined the Displacemen
 M^{[u]^\textbf{T}}=
 \begin{bmatrix}
 N_{,1}^{[u]^{(1)}}&0&N_{,1}^{[u]^{(2)}}&0&\cdots &\cdots& N_{,1}^{[u]^{(9)}}&0 \\
-0&N_{,2}^{[u]^{(1)}}&0&N_{,2}^{[u]^{(2)}}&\cdots &\cdots& 0&N_{,2}^{[u]^{(9)}} \\
-N_{,1}^{[u]^{(1)}}&0&N_{,1}^{[u]^{(2)}}&0&\cdots &\cdots& N_{,1}^{[u]^{(9)}}&0 \\
+N_{,2}^{[u]^{(1)}}&0&N_{,2}^{[u]^{(2)}}&0&\cdots &\cdots& N_{,2}^{[u]^{(9)}}&0 \\
+0&N_{,1}^{[u]^{(1)}}&0&N_{,1}^{[u]^{(2)}}&\cdots &\cdots& 0&N_{,1}^{[u]^{(9)}} \\
 0&N_{,2}^{[u]^{(1)}}&0&N_{,2}^{[u]^{(2)}}&\cdots &\cdots& 0&N_{,2}^{[u]^{(9)}}
 \end{bmatrix}
 \end{equation}
@@ -834,7 +840,7 @@ N^{[\rho]}=
 \end{equation}
 \newpage
 \section{Verification of model without Gradient term}
-After completely programmed the Strain Gradient theory for FEM model into Fortran programming language. I tried to run this code with ABAQUS. And Surprisingly, I got the different errors, out of which main errors are Convergence errors, NAN error and singularities error. In conclusion of that I have decided to debug my code from the scratch. Therefore, I have decided to check for the simpler case which is Mechanical Displacement degree of freedom. So first i wanted to check that my code is correctly running for the Displacement degree if freedom.
+After completely programmed the Strain Gradient theory for FEM model into Fortran programming language. I tried to run this code with ABAQUS. And Surprisingly, I got the different errors, out of which main errors are Convergence errors, NAN error and singularities error. In conclusion of that I have decided to debug my code from the scratch. Therefore, I have decided to check for the simpler case which is Mechanical Displacement degree of freedom. So first i wanted to check that my code is correctly running for the Displacement degree of freedom.
 \\
 \\
 So, I have just commented all the terms which is related to gradient term i.e. which is related to the relaxed strain and Lagrange degree of freedom. After that I have implement my code to the plate-720 geometry which is explained in detailed in later sections.
@@ -883,7 +889,7 @@ So, here I have used the same geometry i.e. Plate with domain length of 10 and h
 	\end{center}  
    \caption{Meshed Plate-720 with hole in the left-bottom corner.}
 \end{figure}
-Here, I specifically represent the fine mesh around the hole and also the transition of mesh from coarse mesh to fine mesh at specific position from the centre of the hole.
+Here, I specifically represent the fine mesh around the hole and also the transition of mesh from fine mesh to coarse mesh at specific position from the centre of the hole.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.38]{fine_mesh_part.png} 
@@ -1077,13 +1083,13 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 			6 & 0.000625 & 0.000625 & 0.000625 & 0.0003125 & 0.0003125 & 0.0003125 \\ 
 			[0.8ex]
 			\hline
-			\rowcolor{lightgray} 7 & - & - & 0.0003125 & - & - & -0.0003125 \\ 
+			\rowcolor{lightgray} 7 & - & 0.0001510 & 0.0003125 & - & -0.0001510 & -0.0003125 \\ 
 			[0.8ex]
 			\hline
-			\rowcolor{lightgray} 8 & - & - & -0.000625 & - & - & -0.0021875 \\ 
+			\rowcolor{lightgray} 8 & - & -0.000645 & -0.000625 & - & -0.0021668 & -0.0021875 \\ 
 			[0.8ex]
 			\hline	
-			\rowcolor{lightgray} 9 & - & - & -0.0021875 & - & - & -0.0053125  \\ 
+			\rowcolor{lightgray} 9 & - & -0.0023437 & -0.0021875 & - & -0.0051562 & -0.0053125  \\ 
 			[0.8ex]
 			\hline
 			10 & -0.004375 & -0.004375 & -0.004375 & -0.0096875 & -0.0096875 & -0.0096875  \\ 
@@ -1092,13 +1098,13 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 			11 & 0.0025 & 0.0025 & 0.0025 & 0.00125 & 0.00125 & 0.00125  \\ 
 			[0.8ex]
 			\hline
-			\rowcolor{lightgray} 12 & - & - & 0.0021875 & - & - & 0.000625  \\ 
+			\rowcolor{lightgray} 12 & - & 0.0021668 & 0.0021875 & - & 0.000645 & 0.000625  \\ 
 			[0.8ex]
 			\hline
-			\rowcolor{lightgray} 13 & - & - & -0.00125 & - & - & -0.00125  \\ 
+			\rowcolor{lightgray} 13 & - & 0.00133 & -0.00125 & - & -0.00133 & -0.00125  \\ 
 			[0.8ex]
 			\hline
-			\rowcolor{lightgray} 14 & - & - & -0.0003125 & - & - & -0.004375 \\ 
+			\rowcolor{lightgray} 14 & - & -0.0003331 & -0.0003125 & - & -0.004354 & -0.004375 \\ 
 			[0.8ex]
 			\hline
 			15 & -0.0025 & -0.0025 & -0.0025 & -0.00875 & -0.00875 & -0.00875 \\ 
@@ -1107,14 +1113,14 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 			16 & 0.005625 & 0.005625 & 0.005625 & 0.0028125 & 0.0028125 & 0.0028125 \\ 
 			[0.8ex]
 			\hline	
-			\rowcolor{lightgray} 17 & - & - & 0.0053125 & - & - & 0.0021875  \\ 
+			\rowcolor{lightgray} 17 & - & 0.0051562 & 0.0053125 & - & 0.0023437 & 0.0021875  \\ 
 			[0.8ex]
 			\hline 
 			
-			\rowcolor{lightgray} 18 & - & - & 0.004375 & - & - & 0.0003125 \\ 
+			\rowcolor{lightgray} 18 & - & 0.004354 & 0.004375 & - & 0.0003331 & 0.0003125 \\ 
 			[0.8ex]
 			\hline
-			\rowcolor{lightgray} 19 & - & - & 0.0028125 & - & - & -0.0028125  \\ 
+			\rowcolor{lightgray} 19 & - & 0.0026510 & 0.0028125 & - & -0.0026510 & -0.0028125  \\ 
 			[0.8ex]
 			\hline
 			20 & 0.000625 & 0.000625 & 0.000625 & -0.0071875 & -0.0071875 & -0.0071875  \\ 
@@ -1157,7 +1163,7 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 			11 & 0.0 & 0.0 & 0.005 & 0.005   \\ 
 			[0.8ex]
 			\hline
-			\rowcolor{lightgray} 13 & - & -0.005 & - & 0.005  \\ 
+			\rowcolor{lightgray} 13 & -0.005 & -0.005 & 0.005 & 0.005  \\ 
 			[0.8ex]
 			\hline
 			15 & -0.01 & -0.01 & 0.005 & 0.005  \\ 
@@ -1195,7 +1201,7 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 			11 & 0.01 & 0.01 & 0.0 & 0.0   \\ 
 			[0.8ex]
 			\hline	
-			\rowcolor{lightgray} 13 & - & 0.01 & - & -0.01  \\ 
+			\rowcolor{lightgray} 13 & 0.01 & 0.01 & -0.01 & -0.01  \\ 
 			[0.8ex]
 			\hline
 			15 & 0.01 & 0.01 & -0.02 & -0.02  \\ 
@@ -1215,7 +1221,7 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 	\end{center}
 \end{table}
 
-\subsection{Rigid Body Transformation Test}
+\subsection{Rigid Body Translation Test}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.49]{Rigid_body_u1_crop.png} 
@@ -1230,19 +1236,24 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 	\end{center}
 	\caption{Visualization of stress and strain in Rigid Body Transformation Test.} 
 \end{figure}
+In this "Rigid Body Translation" test, I gave the displacements to the uper edge nodes in positive X and Y direction equals to the 0.1mm. So there is no boundary condition, therfore the geometry moves rigidly and there is no reaction forces at any nodes. Due to this there is no stress and strain emerges into the elements. Above both figures shown the displacements, Stresses and Strains into the Plate-720 geometry after the Rigid body translation test.
+
 \newpage
 \begin{appendices}
 \section{Python file for Patch test-1}
-\includegraphics[scale=0.93,page=1]{Patch_test_1_elem_eqn.pdf}
-\newpage
-\includegraphics[scale=0.93,page=1]{pro.pdf}
+\includegraphics[scale=0.80,page=1]{Patch_test_1_elem_eqn.pdf} 
+\\
+\\
+\includegraphics[scale=0.80,page=1]{pro.pdf}
 \section{Python file for Patch test-2}
 \includegraphics[scale=0.80,page=1]{Patch_Test_4_elem_eqn.pdf}
-\newpage
+\\
+\\
 \includegraphics[scale=0.80,page=2]{Patch_Test_4_elem_eqn.pdf}
 \section{Python file for 9-node Element mesh generation}
 \includegraphics[scale=0.80,page=1]{9Node_Mesh_generation.pdf}
-\newpage
+\\
+\\
 \includegraphics[scale=0.80,page=2]{9Node_Mesh_generation.pdf}
 \section{Flowchart of Strain Gradient Elasticity FEM Model}
 \vspace{5cm}
@@ -1270,8 +1281,10 @@ In the last part of input file it has to modified the output request according t
 \textbf{(4)} In the last we have to run the Ueser element routine using linux command line or Abaqus commmand prompt by following code.
 \\
 \\
-\textbf{Code} : \textbf{abq6132} \textbf{python} \textbf{ABAQUSER.pyc} $<\textbf{Input-file-name}>$ \\
-\textbf{ABACALL=abq6132} $<\textbf{Info-file-name}>$
+\textbf{Code 1 : abq6142 job=$<\textbf{Input-file-name}>$ user=$<\textbf{fortran-file-name}>$}
+\\
+\textbf{Code 2} : \textbf{abq6142} \textbf{python} \textbf{ABAQUSER.pyc} $<\textbf{Input-file-name}>$ \\
+\textbf{ABACALL=abq6142} $<\textbf{Info-file-name}>$
 
 
 \end{appendices}
