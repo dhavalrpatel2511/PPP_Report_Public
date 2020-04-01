@@ -21,6 +21,7 @@
 \usepackage{pdfpages}
 \usepackage{geometry}
 \usepackage{color,colortbl}
+\usepackage{hyperref}
 \begin{document}
 
 	\begin{titlepage}
@@ -171,7 +172,7 @@ Fig 2. \cite{putar2017damage}. It contains twelve degrees of freedom (DOF) per n
      	\begin{center}
 	      \includegraphics[scale=0.8]{Tri_Element.JPG}  
 	    \end{center}  
-        \caption{C1-Continuous Triangular Element}
+        \caption{C1-Continuous Triangular Element \cite{putar2017damage}}
      \end{figure}
 \subsubsection{ Higher-order stress and strain gradient tensor} 
 They used the same weak form of the finite element formulation as given by Eq.(5). Furthermore, using the basic finite element relations strain and stress tensors can be expressed as
@@ -241,20 +242,20 @@ Here, we can see the Physical interpretation of Strain Gradient \cite{lesivcar20
 		\includegraphics[scale=0.8]{U111_Eta_111.JPG}  \qquad \qquad
 		\includegraphics[scale=0.8]{U222_Eta_222.JPG}
 	\end{center}
-   	\caption{Physical Interpretation of Strain Gradient $\eta_{111}$ and $\eta_{222}$}
+   	\caption{Physical Interpretation of Strain Gradient $\eta_{111}$ and $\eta_{222}$ \cite{lesivcar2017two}}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.8]{U122_Eta_122.JPG}  \qquad \qquad
 		\includegraphics[scale=0.8]{U211_Eta_211.JPG}
-   	\caption{Physical Interpretation of Strain Gradient $\eta_{221}$ and $\eta_{112}$}		
+   	\caption{Physical Interpretation of Strain Gradient $\eta_{221}$ and $\eta_{112}$ \cite{lesivcar2017two}}		
 	\end{center}  
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.8]{U121_Eta_121.JPG}  \qquad \qquad
 		\includegraphics[scale=0.8]{U212_Eta_212.JPG}
-   	\caption{Physical Interpretation of Strain Gradient $\eta_{211}$ and $\eta_{122}$}
+   	\caption{Physical Interpretation of Strain Gradient $\eta_{211}$ and $\eta_{122}$ \cite{lesivcar2017two}}
 	\end{center}  
 \end{figure}
 
@@ -373,14 +374,13 @@ D = l^2
 \\
 \\
 So, Eq.(\ref{seventeen}) and Eq.(\ref{twoone}) are the Voigt-notation of the constitutive equation of a general strain gradient solid introduced by Amanatidou and Aravas. 
-
 \newpage
 \subsubsection{ Mixed Tpye Elements}
     \begin{figure}[H]
     	\begin{center}
 		     \includegraphics[scale=.65]{Element_mixed_type_formulation_E_Amanatidou.JPG}  	
 	    \end{center}  
-        \caption{C0-continuous Finite elements for Type I formulation.}   
+        \caption{C0-continuous Finite elements for Type I formulation. \cite{amanatidou2002mixed}}   
     \end{figure}
 Amanatidou and Aravas presented several elements that can be used in Type-I formulation are shown in above Fig. The elements are shown in Fig. , the corresponding nodal degrees of freedom are u,$\alpha$ and $\sigma$. Finally, Amanatidou and Aravas conclude that, Out of these given elements only the element I9-70 passes the all patch test, whereas the elements I5-28 and I13-70 failed into the patch test.
 \\
@@ -482,7 +482,7 @@ So, Eq.(\ref{seventeen}) and Eq.(\ref{threetwo}) are the Voigt-notation of the c
 	\begin{center}
 		\includegraphics[scale=0.8]{Shu_info.JPG}
 	\end{center}  
-    \caption{C0-continuous 6 Finite elements for Mixed type of formulation.}
+    \caption{C0-continuous 6 Finite elements for Mixed type of formulation. \cite{shu1999finite}}
 \end{figure}
 A total of six types of triangular element and quadrilateral element have been developed by JOHN Y. SHU for strain gradient theory. In which Displacement gradients are introduced as extra nodal degrees of freedom in terms of relaxed strain. The kinematic constraints between the relaxed strain and true gradients of displacement are enforced via Lagrange multipliers. All six types of element passed a patch test. However, he recommended QU34L4 elements for practical applications, since it gives precise accuracy than other elements.
 
@@ -896,6 +896,8 @@ Here, I specifically represent the fine mesh around the hole and also the transi
 	\end{center} 
    \caption{Fine mesh and Transition in Plate-720.} 
 \end{figure}
+Now, the Plate-720 is checked under the tensile loading. Therefore the left edge nodes are fixed in x direction so $U_x = 0$ and bottom edge nodes are fixed in y direction so $U_y = 0$. Now the predefined displacement to the Upper edge nodes are given equal to the 0.1 mm. So now Plate-720 is under tensile loading. In following some strain gradients and higher order stress results are shown as visualize in ABAQUS. From that I conclude that the strain gradient effect is depend on the size of the geometry and also size of the meshes. Here in Plate-720, it is seen that there is hole at the lower-left corner and there is also fine mesh, so there is most probability to getting Strain Gradients and Higher order stresses in element. So the highest strain gradient is seen at X=0.3333 mm and Y=0 mm.
+\vspace{3cm} 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.8]{full_grad_crop.png} 
@@ -946,15 +948,15 @@ Here, I specifically represent the fine mesh around the hole and also the transi
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=1.2]{path_full_grad_crop.png} 
+		\includegraphics[scale=1]{path_full_grad_crop.png} 
 	\end{center}  
 	\caption{Visualization of Strain Gradient in specific path}
 \end{figure}
+As shown in above fig, the path is selected on fine mesh part to plot the Strain Gradient values along that path. In addition to that higher order stress values are also ploted on that path in below second plot. In this two plots we can see that the Higher order stress values and Strain Gradient values are getting decreasses when it goes to far from hole edge which shows the size effects.
 \begin{figure}[H]
 \advance\leftskip-0.5cm
 		\includegraphics[scale=0.58]{path_full_grad_plot.png} 
- 
-	\caption{Strain Gradient plot in perticular path}
+	    \caption{Strain Gradient plot in perticular path}
 \end{figure}
 \begin{figure}[H]
 \advance\leftskip-0.5cm
@@ -965,7 +967,7 @@ Here, I specifically represent the fine mesh around the hole and also the transi
 \newpage
 \section{Validation Tests}
 In this chapter I present the Patch test which is implemented with the one element and four element of same geometry using finite element method. The Patch tests are necessary for checking the stability of the newly developed user element and also important to check the convergence of the finite element solutions.  
-\\
+
 \subsection{Patch Test - 1}
 Now, we considered an one Square geometry with specific dimensions as given below. In below given fig L = 1.0 and so therefore the coordinates of the points A(0,0), B(1,0), C(1,1) and D(0,1).  
 \begin{figure}[H]
@@ -978,10 +980,32 @@ In this Patch test we just find the analytical solution for displacements and re
 After that we are finding the values of the displacements and relaxed strain at each nodes and each corner nodes respectively by assigning the position of that node. In the last we implement the all nodal degrees of freedom in terms of the boundary condition and we find the stiffness matrix and right hand side matrix for one element by running the code with ABAQUS and we try to prove the equilibrium equation.
 \\
 \\
+The analytical equation to find the stress,Higher order stress,displacements and relaxed strains are,
+\begin{equation}\label{p_sigma}
+	\sigma_{ik} = \lambda \delta_{ik} \varepsilon_{nn} + 2 \mu \varepsilon_{ik}
+\end{equation}
+\begin{equation}
+	\tau_{jik} = \mu l^2 (u_{k,ij}- u_{j,ki}) , \qquad \tau_{lmn} = \mu l^2 (\eta_{lmn} + \eta_{nml})	
+\end{equation}
+\begin{equation}\label{p_psi}
+	\begin{aligned}
+		\psi_{11} &= u_{1,1} = -0.01x_1, \\
+		\psi_{21} &= u_{1,2} =  0.02x_2, \\
+		\psi_{12} &= u_{2,1} = -0.02x_1, \\
+		\psi_{22} &= u_{2,2} =  0.01x_2 
+	\end{aligned}
+\end{equation}
+\begin{equation}
+	\begin{aligned}
+		u_1 &= -0.005x_1^2 + 0.01x_2^2, \\
+		u_2 &= -0.01x_1^2 + 0.005x_2^2,
+	\end{aligned}
+\end{equation}
+For more details of analytical prove of above equations are given in this \cite{Lzybell2007}.
 In details, we have total 18 displacements values of all nodes and 16 relaxed strain values of each corner nodes of the element which are prescribe in the Input file for one element in terms of boundary condition.  
 \\ 
 \\
-For proving the equilibrium equation, we have stiffness matrix, RHS matrix and displacement matrix in hand. But the dimension of the above matrices are big so we wouldn't prefer to solve it on paper by hand. so i write one python scripts which reads the data of all matrices from individual files. So for that now we have to put the stiffness matrix into 'AMATRX.dat', RHS matrix into 'RHS.dat' and displacement matrix into 'U.dat' file respectively. This python file read the data and store it in terms of multidimensional array and that try to find the residual of the equilibrium equation and print it into terminal so we can verify our results.
+For proving the equilibrium equation, we have stiffness matrix, RHS matrix and displacement matrix in hand. But the dimension of the above matrices are big so we wouldn't prefer to solve it on paper by hand. so i write one python scripts which reads the data of all matrices from individual files. So for that now we have to put the stiffness matrix into 'AMATRX.dat', RHS matrix into 'RHS.dat' and displacement matrix into 'U.dat' file respectively. This python file read the data and store it in terms of multidimensional array and that try to find the residual of the equilibrium equation and print it into terminal so we can verify our results. The residual from the above equilibrium equation is around 1e-07, which is almost zero compare to the stiffness matrix and rhs vector values. The more details of implementation of this test is given in "README-2D-Patch-Test-1" file.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.83]{patch_1_disp_crop.png} 
@@ -994,7 +1018,7 @@ For proving the equilibrium equation, we have stiffness matrix, RHS matrix and d
 	\end{center}  
     \caption{Visualization of Relaxed Strain $\psi$ in Patch Test-1 Model.}
 \end{figure}
-\begin{table}
+\begin{table}[H]
 \begin{center}
 	\begin{tabular}{||c c c c c c c||} 
 		\hline
@@ -1030,7 +1054,7 @@ For proving the equilibrium equation, we have stiffness matrix, RHS matrix and d
 	\caption{Input displacement and Relaxed strain values}
 \end{center}
 \end{table}
-
+\newpage
 \subsection{Patch Test - 2}
 Now, we considered the same geometry with same dimensions as described in Patch test-1, but now we mesh it into four element as shown in below fig.
 \begin{figure}[H]
@@ -1045,22 +1069,66 @@ Now,we trying to implement the Patch test-2, for this one there are some criteri
 In details, we have total 32 displacements values of all nodes and 32 relaxed strains values at each corner nodes of the elements which are prescribed in the Input file for four element in terms of boundary conditions.
 \\
 \\
-As same as in Patch Test-1 i wrote the one python script for patch test-2 which also gives the analytical values of displacements and relaxed strains of the deformed nodes. we just give the values of it at the boundary and we compare the values of all inner nodes with analytical solutions.
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.45]{p2_u1.png} 
-	\end{center}
-    \caption{Visualization of Displacement $u_1 $ in Patch Test-2 Model.}  
-\end{figure}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.45]{p2_u2.png} 
-	\end{center}
-    \caption{Visualization of Displacement $u_2 $ in Patch Test-2 Model.} 
-\end{figure}
+As same as in Patch Test-1 i wrote the one python script for patch test-2 which also gives the analytical values of displacements and relaxed strains of the deformed nodes. we just give the values of it at the boundary and we compare the values of all inner nodes with analytical solutions. 
+\\ \\
+Now, we compare the Stress and Higher order stress at Gauss integration points with analytical solutions. \\ \\
+Here, below data is shown the stress values ($\sigma_{11},\sigma_{22},\sigma_{12}$) at each integration points (9 integration points).
+\begin{verbatim}
+Stress(sigma) :
 
-\begin{table}
-	\begin{center}
+sigma(11)     -0.9355E-03 -0.4126E-02 -0.3702E-02 -0.1105E-02 -0.2531E-02 
+              -0.3541E-02 -0.2403E-02 -0.1541E-02 -0.2541E-02
+ 
+Sigma(22)      0.9355E-03  0.1105E-02  0.3702E-02  0.4126E-02  0.1541E-02  
+               0.2403E-02  0.3541E-02  0.2531E-02  0.2541E-02
+
+Sigma(12)      0.4166E-09 -0.2149E-02  0.4959E-08  0.2149E-02 -0.1205E-02 
+              -0.1168E-02  0.1168E-02  0.1205E-02 -0.6108E-09
+\end{verbatim}
+we know the analytical equation (\ref{p_sigma}) to find the stress values at each integration points.
+Here I found the analytical stress at integration point 9, which is the centre point of element 1 as shown in above fig, which coardinates is (0.25,0.25) mm. \\ \\
+$\sigma_{11}$ = 2$\mu\varepsilon_{11}$ (because $\lambda$ = 0) = 2 $\dfrac{E}{2}\varepsilon_{11}$ (because $\mu = \dfrac{E}{2}$) = $\varepsilon_{11}$ (because E = 1) \\ \\
+so, $\sigma_{11}$ = $\varepsilon_{11}$ = $u_{1,1}$ = $-0.01x_1$  and $\sigma_{22}$ = $\varepsilon_{22}$ = $u_{2,2}$ = $0.01x_2$ --\ref{p_psi} \\ \\
+so, $\sigma_{11}$ = -0.01$\times$0.25 = -0.2500E-02 $\approx$ -0.2541E-02 \\
+    $\sigma_{22}$ = 0.01$\times$0.25 = 0.2500E-02 $\approx$ 0.2541E-02 .
+\begin{verbatim}
+
+Higher Order Stress(Tau) :
+
+Tau(111)      -0.1000E-01 -0.1000E-01 -0.1000E-01 -0.1000E-01 -0.1000E-01 
+              -0.1000E-01 -0.1000E-01 -0.1000E-01 -0.1000E-01
+              
+Tau(221)       0.1000E-01  0.1000E-01  0.1000E-01  0.1000E-01  0.1000E-01  
+               0.1000E-01  0.1000E-01  0.1000E-01  0.1000E-01
+               
+Tau(112)      -0.1000E-01 -0.1000E-01 -0.1000E-01 -0.1000E-01 -0.1000E-01 
+              -0.1000E-01 -0.1000E-01 -0.1000E-01 -0.1000E-01
+              
+Tau(222)       0.1000E-01  0.1000E-01  0.1000E-01  0.1000E-01  0.1000E-01  
+               0.1000E-01  0.1000E-01  0.1000E-01  0.1000E-01
+               
+Tau(121+211)  -0.5000E-02 -0.5000E-02 -0.5000E-02 -0.5000E-02 -0.5000E-02 
+              -0.5000E-02 -0.5000E-02 -0.5000E-02 -0.5000E-02
+              
+Tau(122+212)   0.5000E-02  0.5000E-02  0.5000E-02  0.5000E-02  0.5000E-02  
+               0.5000E-02  0.5000E-02  0.5000E-02  0.5000E-02
+               
+\end{verbatim}
+Now, the analytical equation for Higher order stress is given below, ----\ref{p_psi}\\
+$\tau_{111} = \mu l^2 (\eta_{111} + \eta_{111}) = \psi_{11,1} = -0.01$  (because $\mu = \dfrac{E}{2} and E=1,l=1$ ) \\ 
+$\tau_{222} = \psi_{22,2} = 0.01$    \\
+$\tau_{221} = \mu l^2 (\eta_{221} + \eta_{122}) = \dfrac{1}{2}(u_{1,22}) = 0.01$ \\
+$\tau_{112} = \mu l^2 (\eta_{112} + \eta_{211}) = \dfrac{1}{2}(u_{2,11}) = -0.01$ \\
+$\tau_{121+211} = \tau_{211} = \mu l^2 (\eta_{211} + \eta_{112}) = \dfrac{1}{2}(u_{2,11}) = -0.005$ \\
+$\tau_{122+212} = \tau_{122} = \mu l^2 (\eta_{122} + \eta_{221}) = \dfrac{1}{2}(u_{1,22}) = 0.005$ \\ \\
+So, it is conclude that Patch Test-2 for four element is also pass. The relaxed strain and Higher order Stress values are exactly match with analytical solution with error 0$\%$, whereas the displacement and Stress values are not exactly match, but the error is not bigger than 7$\%$.
+
+
+
+
+
+\begin{table}[H]
+
 		\begin{tabular}{||c c c c c c c||} 
 			\hline
 			Node Number & U1 Input& U1 Output  & U1 Expected & U2 & U2 Output & U2 Expected\\ [0.8ex] 
@@ -1142,10 +1210,10 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 			\hline
 		\end{tabular}
 		\caption{Displacement Values in Patch test-2.}
-	\end{center}
+
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 	\begin{center}
 		\begin{tabular}{||c c c c c||} 
 			\hline
@@ -1183,7 +1251,7 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 	\end{center}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 	\begin{center}
 		\begin{tabular}{||c c c c c||} 
 			\hline
@@ -1236,9 +1304,225 @@ As same as in Patch Test-1 i wrote the one python script for patch test-2 which 
 	\end{center}
 	\caption{Visualization of stress and strain in Rigid Body Transformation Test.} 
 \end{figure}
-In this "Rigid Body Translation" test, I gave the displacements to the uper edge nodes in positive X and Y direction equals to the 0.1mm. So there is no boundary condition, therfore the geometry moves rigidly and there is no reaction forces at any nodes. Due to this there is no stress and strain emerges into the elements. Above both figures shown the displacements, Stresses and Strains into the Plate-720 geometry after the Rigid body translation test.
-
+In this "Rigid Body Translation" test, I gave the displacements to the uper edge nodes in positive X and Y direction equals to the 0.1mm. So there is no boundary condition, therfore the geometry moves rigidly and there is no reaction forces at any nodes. Due to this there is no stress and strain emerges into the elements. Above both figures shown the displacements, Stresses and Strains into the Plate-720 geometry after the Rigid body translation test. For more information on how to implement this test is given in "README-2D-Rigid-Body-Translation" file.
 \newpage
+\section{Documentation of the Programming work}
+\subsection{Implementation details of FEM model}
+In this section, the brief overview of implementation details of FEM model plate-720 is given.
+\subsubsection{ Preprocessing}
+\begin{itemize}
+	\item In plate-720 model there is total 720 element as shown in fig.
+	\item I mesh the $10\times10$ mm square plate with circular hole of radius 0.333 mm as shown in fig, with ABAQUS element CPS8, using the transition of mesh from fine to coarse mesh.
+	\item The transition of mesh is occured at the distance 1.332 mm from the centre of the hole. For more details see the section "Verification  of model plate-720".
+	\item One Python code is written, which convert this 8-noded element(CPS8) mesh into 9-noded element(QU34L4) mesh by including the centre node in each element.
+	\item After getting this new nodes and elements data are used in new Input file for plate-720, which is simulating with UEL.
+\end{itemize}
+\subsubsection{ Processing}
+The main task in Processing is to develope user element routine(UEL) for QU34L4 element to implement the strain gradient elsticity theory.
+
+\begin{itemize}
+	\item \textbf{Input-Output Parameters.} \\
+	\\
+	In UEL subroutine for ABAQUS there is one standard format to defined the input and output parameters. Even there are some standaerd variables which are predefined in ABAQUS. So, it has to be used to developed the UEL. The input parameters to the UEL like material property, coordinates and displacement of nodes, external load to the model. Outputs are amatrx-stiffness matrix and rhs-force vector mainly.
+	\\
+	\item \textbf{Initialization and Dimensioning of the Arrays.} \\
+	\\
+	In fortran programming language it is mandetory to initialize and give dimension to every arrays whether it is vector or matrix. There is another one best practice in fortran is to giving the double precision to the every scalar parameters also. In fortran "dimension() ::" is used to give dimension and "parameter" is used to defined the scalar parameters with it fixed values. To define the array with its predifined values the "data" is used.		
+\end{itemize}
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{||c ||} 
+			\hline
+			\textbf{Start UEL} \\ [0.8ex] 
+			\hline\hline
+			Input Parameters, Output Parameters  \\ 
+			[0.8ex]
+			\hline
+			Initialization of all arrays  \\ 
+			[0.8ex]
+			\hline
+		    Dimensioning of all arrays  \\ 
+			[0.8ex]
+			\hline
+			\textbf{CALL} Shape function subroutine for displacement \\ 
+			[0.8ex]
+			\hline
+			\textbf{CALL} Shape function subroutine for relaxed strain   \\ 
+			[0.8ex]
+			\hline
+			\textbf{CALL} Jacobian subroutine for displacement \\ 
+			[0.8ex]
+			\hline
+			\textbf{CALL} Jacobian subroutine for relaxed strain  \\ 
+			[0.8ex]
+			\hline
+			\textbf{CALL} B-Matrix subroutine for displacement  \\ 
+			\hline
+			\textbf{CALL} B-Matrix subroutine for relaxed strain  \\ 
+			[0.8ex]
+			\hline		
+			\textbf{Assembly of the following Matrices :} \\
+			1) Shape-Matrix for displacement DOF \\
+			2) Displacement-Gradient-Matrix \\
+			3) B-Matrix \\
+			4) Shape-Matrix for Relaxed-Strain DOF \\
+			5) B-Matrix for Relaxed-Strain DOF \\
+			6) Shape-Matrix for Lagrange-Multiplier DOF \\
+			[0.8ex] 
+			\hline
+			\textbf{State Variables} Calculations   \\  [0.8ex] 
+			\hline
+			\textbf{CALL} UMAT - material subroutine   \\  [0.8ex] 
+			\hline
+			\textbf{Stiffness Matrices} Calculations  \\  
+			1) $K_{UU}$ \\
+			2) $K_{PsiPsi}$ \\
+			3) $K_{Urho}$ \\
+			4) $K_{Psirho}$ \\   [0.8ex] 
+			\hline
+			\textbf{Internal Force Vectors} Calculations  \\  [0.8ex] 
+			\hline
+			\textbf{Assembly of Global Stiffness Matrix and RHS vector}   \\  [0.8ex] 
+			\hline
+			\hline
+		    \textbf{End UEL}   \\  [0.8ex] 
+		    \hline
+		\end{tabular}
+		\caption{Implementation flow of UEL}
+	\end{center}
+\end{table}
+
+\begin{itemize}
+	\item \textbf{Shape Function Subroutine.} \\
+	In this UEL for QU34L4 element there are two types of shpe function are used. One is standard quadratic shape function to interpolate the displacement DOF and the second is standard bi-linear shape function to interpolate the newly introduced DOF relaxed strain. In both subroutine this two shape functions and their derivatives with respect to two area-coordinates $\xi$ and $\omega$ respectively defined. In addition to that the Gauss point coordinated are also defined which are the input to this shape functions and their derivatives. \\
+	\\
+	\textbf{Input} : current integration point \\
+	\textbf{Output} : Shape-Function-Matrix, differentiation of Shape-Function-Matrix
+	\\
+	\\
+	\item \textbf{Jacobian Matrix Subroutine.} \\
+	As of seen in Shape function subroutine there are total two types of shape functions so for that two Jacobian matrix are defined in this subroutine. Along with the Jacobian matrix the "Determinant" and "Inverse" of Jacobian matrix are also determind in this subroutine. \\ \\
+	\textbf{Input} : current element number, coordinates of all nodes of current element, \qquad  differentiation of Shape-Function-Matrix \\
+	\textbf{Output} : Determinant of Jacobian matrix, Inverse Jacobian matrix
+
+	\item \textbf{B-Matrix Subroutine.} \\
+	In this subroutine the differential matrix for shape function derivatives are arranged.
+	Therefore, the inverse Jacobian matrix from Jacobian Matrix subroutine and differentiation of shape function from Shape function subroutine are used as input in this subroutine. \\ \\
+	\textbf{Input} : Inverse Jacobian matrix, differentiation of Shape-Function-Matrix  \\
+	\textbf{Output} : B-Matrix(differential Matrix)
+	
+	\item \textbf{Assembly of Common Matrices.} \\
+	Now from the above three subroutines, we got the suffiecient data to assemble the necessary martices to find the state variables and element matrices. In this section of code following matrices are determined, \\ \\
+	N-Matrix(shape function matrix related to displacement DOF) \\
+	M-Matrix(differentiation of N-matrix) \\
+	B-Matrix(differentiation of N-matrix but different arrangement than M-Matrix) \\
+	Npsi-Matrix(shape function matrix related to relaxed strain DOF) \\
+	Bpsi-Matrix(differentiation of Npsi-Matrix) \\
+	Nrho-Matrix(Identity matrix)
+	
+	\item \textbf{Calculation of State Variables.}\\
+	In this section of the code the following state variables are determinded with the help of the above determined Common Matrices and input DOF(displacements, delta-displacements, relaxed-strain, delta-relaxed-strain, langrange multiplier) values. \\ \\
+	Displacement Gradient (M-matrix, displacements) \\
+	Strain (B-Matrix, displacements) \\
+	Delta Strain (B-Matrix, delta-displacements) \\
+	Relaxed Strain (Npsi-Matrix, relaxed-strain) \\
+	Relaxed Strain Gradient (Bpsi-Matrix, relaxed-strain) \\
+	Delta Relaxed Strain Gradient (Bpsi-Matrix, delta-relaxed-strain) \\
+	Langrange Multiplier (Nrho-Matrix, langrange-multiplier)
+	
+	\item \textbf{UMAT - User Material Subroutine} \\
+	In this subroutine another two state variables "Stress" and "Higher order stress" are determined. In this subroutine the elastic matrix(which connects stress and strain) and Higher order elastic matrix(which connects higher order stress and relaxed strain gradient) are also defined. The Higher order elastic matrix is determined for two different type of strain geadient material. The most intersting conclusion of these two UMAT is that they both give approximately same results at microstructural length($l$) 0.0001 mm. However, they do not converge at same $l$. One is only converged at min $l$ at 0.0001 mm and second even converge at 0.01 mm $l$. \\ \\
+	\textbf{Input} : Lemda, Mue (lame constant)  \\
+	Microstructural length (Material Property) \\
+	Current Integration Point \\
+	Strain, Relaxed strain gradient (state variables) \\
+	\textbf{Output} : C-Matrix, D-Matrix (Elastic and Higher order elastic matrix resp.) \\
+	Sigma, Tau (Stress and Higher order stress - State variables)
+	
+	\item \textbf{Calculation of Stiffness Matrices}
+	In this section of code, the Stiffness Matrix related to individual DOF are found. There are total four stiffness matrix to find, \\ \\
+	$K_{UU}$ - Stiffness Matrix related to only displacement DOF (Dimesndion $18\times18$)
+	$K_{PsiPsi}$ - Stiffness Matrix related to only relaxed-strain DOF (Dimesndion $16\times16$)
+	$K_{Urho}$ - Stiffness Matrix related to displacement and langrange multiplier DOFs (Dimesndion $18\times4$) \\
+	$K_{Psirho}$ - Stiffness Matrix related to relaxed-strain and langrange multiplier DOFs (Dimesndion $16\times4$)
+	
+	\item \textbf{Calculation of Internal Force Vectors} \\
+	In this section of code, the Internal forces due to reaction of different DOFs. There are total three Internal Forces to find related three different DOFs, \\ \\
+	$F_{int}$ - Internal force ralated to only displacement DOF (Dimension 18$\times$1) \\
+	$R_{int}$ - Internal force ralated to only relaxed-strain DOF (Dimension 16$\times$1) \\
+	$S_{int}$ - Internal force ralated to only langrange-multiplier DOF (Dimension 4$\times$1)
+	
+	\item \textbf{Assembly of Global Stiffness Matrix and RHS Vector} \\
+	In above both section the Individual Stiffness matrices and Internal force vectors are find out, So now assembly of these into Global Stiffness Matrix and Global RHS Vectors can be done into this section of code. \\
+	
+	\begin{equation}\label{global_stiff}
+	\textbf{K}=
+	\begin{bmatrix}
+	K_{UU}&0&-K_{URho} \\
+	0&K_{PsiPsi}&K_{PsiRho}\\
+	-K_{URho}^T&K_{PsiRho}^T&0\\
+	\end{bmatrix}
+	\end{equation}
+
+	\begin{equation}\label{global_force}
+	\textbf{RHS}=
+	\begin{bmatrix}
+	F_{int} \\
+	R_{int} \\
+	S_{int} \\
+	\end{bmatrix}
+	\end{equation}	
+	
+\end{itemize}
+
+
+
+\subsubsection{ Post-Processing}
+\begin{itemize}
+	\item Finally, after simulating the Plate-720 with user developed element it is time to visualize the model in ABAQUS and visulaize the desired outputs. 
+	\item In ABAQUS there is no 9-noded element, so to visualize the UEL we have to use the \textbf{Dr.-Ing. Stephan Roth's} tool, which is described in appendix.
+	\item Do all the procedures which is described in appendix, than after it can be run with another code which is also given in appendix.
+	\item After successfully run the code, the ODB file is updated with new data.
+	\item Open the ODB file in ABAQUS 6.14 version.
+	\item Now the deformed model is visualized with QU34L4 element.
+\end{itemize}
+
+
+\subsection{Problem Faced during Programming UEL}
+In this section,it is mentioned the errors and problems I faced during the learning the Fortran programming language and also code this User Element in fortran programming language. 
+\begin{itemize}
+	\item Syntax errors in fortran which are totaly different from common programming languages like python or c.
+	\item Intialization and dimensioning of all vectors and matrix and even scalar variables also. 
+	\item Getting "Non Apllicable Number (NAN)" in output because of not giving proper dimensionig or intialization of any variables or input parameters.
+	\item How to define the "Degree Of Freedom (DOF)" for each nodes in User element, which has not unique DOF at each nodes.
+	\item While using DOF relaxed strain in UEL as number 21,22,23,24, the DOF 23 and 24 is not working while giving input values to it and gives the error "Illegal memory reference" (signal 11). However, it is working well without giving input to this DOF 23 and 24.
+	\item "Distrubuted load(DLOAD)" can not directly added to the internal force vector(rhs), due to this reason the new subroutine DLOAD has to be codded for User element routine.
+	\item The assembaly of global stiffness matrix(amatrx). The user element QU34L4 has total 38 DOF and it is not unique at each nodes. Therefor, there are two possible ways to defines global stiffness matrix from individual matrix related to DOF.
+	\item The above problem also faced for the global rhs vector due to the same reason.
+	\item Micro-Structural Length ($l$), which is input parameters as material property. The strain gradient elasticity theory is explicitly depend on it. In the starting stage of the excecution of UEL, I was getting the wrong results due to wrong selection of matrial property $l$.  
+	\item There are two User material for strain gradient elasticity theory and both of them working for different microstructural length.
+	\item Postprocessing of the user element QU34L4 element in commercial software ABAQUS. In abaqus there is no element which has nine node. So, for postprocessing Dr.-Ing. Stephan Roth's tool is used and dummy element CPS8 is used to visualize the QU34L4 in ABAQUS.
+\end{itemize}
+\subsection{Milestones achieved}
+\begin{itemize}
+	\item Implementation of UEL routine for strain gradient elasticity theory in fortran programming language.
+    \item Comparision of classical continum theories and strain gradient elasticity theories.
+    \item Implementation of FEM model based on Aifantis or Mindlin theories.
+    \item Simulation of plate with circular hole (Plate-720).
+    \item Validation and verification of FEM model by various numerical tests.
+\end{itemize}
+\textbf{Extra achieved goals :}
+\begin{itemize}
+	\item Postprocessing and visualization of user element in ABAQUS.
+	\item Write code for KDLOAD.
+	\item Mesh Plate-720 standard geometry includes transition of mesh from fine to coarse mesh.
+	\item Extension to 3D case.
+	\item Python code to convert 8 node element mesh into 9 node element mesh.
+	\item Conversion of 20 nodes element mesh into 27 nodes element mesh.
+\end{itemize}
+\newpage
+
 \begin{appendices}
 \section{Python file for Patch test-1}
 \includegraphics[scale=0.80,page=1]{Patch_test_1_elem_eqn.pdf} 
@@ -1259,7 +1543,10 @@ In this "Rigid Body Translation" test, I gave the displacements to the uper edge
 \vspace{5cm}
 \includegraphics[scale=0.60,page=1]{flow_chart_1.pdf}
 \newpage
-\includegraphics[scale=0.60,page=1]{flow_chart_2.pdf}
+\begin{center}
+	\includegraphics[scale=0.60,page=1]{flow_chart_2.pdf}
+	\captionof{figure}{Flowchart of the Strain Gradient Elasticity theory FEM formulation.}
+\end{center}
 \newpage
 \section{Postprocessing tool to visualize UEL}
 We know that commercial Software ABQUS has large range of Eelements which is defined in it. We can use those elements only to visualize the any FEM model. To visualize the User defined Element and any FEM model in ABAQUS \textbf{Dr.-Ing. Stephan Roth} developed one tool. This tool helps us to postprocess any FEM model by replacing the UEL with ABAQUS defined Element.
