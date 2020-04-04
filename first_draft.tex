@@ -59,11 +59,9 @@
 	\clearpage
     \textbf{\LARGE Abstract}\\
     \\
-    During this "Personal Programming Project(PPP)", the "Strain Gradient Elasticity Theory" is implemented through the FEM model. Within this, the element QU34L4, developed by Shu. et al, is integrated as user defined element via the commercial software ABAQUS. The mixed type of FEM formulation is used for this theory.
-    \\
-    \\
-    In this PPP, the User Element routine(UEL) for QU34L4 element and User Material routine(UMAT) for two different strain gradient material are formulated for 2D case.
-    During this PPP time duration this will extended to 3D if it is possible. In the last, this model is also verified by different validation test. 
+    { \large During this "Personal Programming Project(PPP)", the "Strain Gradient Elasticity Theory" is implemented through the FEM model. Within this, the element QU34L4, developed by Shu. et al, is integrated as user defined element via the commercial software ABAQUS. The mixed type of FEM formulation developed by John Y. shu is used for this theory.
+    In this PPP, the User Element routine(UEL) for QU34L4 element and User Material routine(UMAT) for two different strain gradient material are formulated for 2D case. The numerical results of Plate-720 model is analysed for this theory. Two different patch test is also done two compare the numerical results obtain from this UEL with analytical solutions.The extension of this UEL for 3D model is also done.}
+
 
 
 
@@ -522,7 +520,7 @@ So, initial system of equation which was solved by Newtion raphson method is,
 0 &= I(\bar{u}^{(e)},\bar{\psi}^{(e)}) = S(\bar{u}^{(e)},\bar{\psi}^{(e)}) 
 \end{aligned}
 \end{equation}
-Now, from equations (\ref{thre_2345},\ref{thre_23456} and \ref{thre_234567}), we can write the stiffness matrix,solved by the newton raphson scheme,as follow,
+Now, from equations (\ref{thre_2345},\ref{thre_23456} and \ref{thre_234567}), we can write the stiffness matrix,solved by the newton raphson scheme,as follow \cite{zybell2012three},
 \begin{equation}\label{thre_2345678}
 \begin{aligned}
 K^{[uu]}  &= \frac{dG}{d\bar{u}^{(e)}} = \int\limits_{\Omega^{e}}\! B^{[u]}\Upsilon B^{[u]^{T}} d\Omega, \\
@@ -533,7 +531,7 @@ K^{[\psi\rho]}  &= \frac{dH}{d\bar{\rho}^{(e)}} =\int\limits_{\Omega^{e}}\! N^{[
 \end{equation}
 \newpage
 \section{FEM Implementation}
-In subsection "John Y. Shu - Mixed type FEM formulation", there are 6 different triangular element and quadrilateral element represented out of which element QU34L4 is recommended for practical applications. so here we will use the QU34L4 element in order to implement strain gradient theory.
+In subsection "John Y. Shu - Mixed type FEM formulation", there are 6 different triangular element and quadrilateral element represented out of which element QU34L4 is recommended for practical applications. so here we will use the QU34L4 element in order to implement strain gradient theory. So, use this specific mixed fem formulation \cite{Lzybell2007} is most challenging task for me.
 \\
 \subsection{QU34L4 - ELEMENT}
 This QU34L4 is Shown in below Fig. ,which contains total 9 nodes and 38 degrees of freedom. In this element there are two displacements DOF $ u_1 $ and $ u_2  $ at each nodes of it. There are newly introduced relaxed strain DOF $ \psi_{11} $,$ \psi_{21} $,$ \psi_{12} $ and $ \psi_{22} $ at each corner nodes of it. In addition to that there are also four Lagrange multipliers $ \rho_{11} $,  $ \rho_{21} $, $ \rho_{12} $ and $ \rho_{22} $,  which are assumed to be constant throughout the element. So, in QU34L4 Q stands for nine-noded isoparametric quadrilateral element, where U stands for number of DOF related to the displacement which are total 34 in this element, where L stands for Lagrange multipliers which are total 4 in this element. 
@@ -546,7 +544,7 @@ This QU34L4 is Shown in below Fig. ,which contains total 9 nodes and 38 degrees 
 Displacements $ u_1 $,$ u_2 $ are interpolated using standard quadratic shape functions in terms of the area co-ordinates. Relaxed displacement gradients $ \psi_{11} $,$ \psi_{21} $,$ \psi_{12} $ and $ \psi_{22} $ are interpolated linearly. The different interpolation is motivated by the consideration that the true displacement gradients $ \varepsilon_{ij} $ will depend linearly
 on the co-ordinates if all sides of the element are straight.
 \subsection{Degrees of Freedom(DOF)}
-In this section we derive the finite element shape function and its derivatives for the different DOF - displacements and relaxed strain. In this we also defined matrices for langrange multipliers and also established the matrices containing the shape functions and its derivatives.
+In this section we derive the finite element shape function and its derivatives for the different DOF - displacements and relaxed strain. In this we also defined matrices for langrange multipliers and also established the matrices containing the shape functions and its derivatives \cite{Lzybell2007}.
 \subsubsection{ Displacement DOF}
 As discussed in above section, there are two displacements DOF $u_1$ and $u_2$ at each nodes. From the weak of modified virtual work we can derive the relation between global displacements and nodal-displacement as,
 \\
@@ -900,49 +898,49 @@ Now, the Plate-720 is checked under the tensile loading. Therefore the left edge
 \vspace{3cm} 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.8]{full_grad_crop.png} 
+		\includegraphics[scale=0.9]{full_grad_crop.png} 
 	\end{center}  
    \caption{Strain Gradient Visualization in Plate-720.}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.8]{Reg11_crop.png} 
+		\includegraphics[scale=0.9]{Reg11_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{111} $}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.8]{Reg22_crop.png} 
+		\includegraphics[scale=0.9]{Reg22_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{221} $}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.8]{Reg33_crop.png} 
+		\includegraphics[scale=0.9]{Reg33_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{112} $}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.8]{Reg12_crop.png} 
+		\includegraphics[scale=0.9]{Reg12_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{222} $}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.8]{Reg23_crop.png} 
+		\includegraphics[scale=0.9]{Reg23_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{121}$ + $\eta_{211}$}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.8]{Reg13_crop.png} 
+		\includegraphics[scale=0.9]{Reg13_crop.png} 
 	\end{center}  
    \caption{Visualization of Strain Gradient $\eta_{122}$ + $\eta_{212}$}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.8]{Higher_order_stress_crop.png} 
+		\includegraphics[scale=0.9]{Higher_order_stress_crop.png} 
 	\end{center}  
 	\caption{Visualization of Higher order stress in XY plane}
 \end{figure}
@@ -952,18 +950,31 @@ Now, the Plate-720 is checked under the tensile loading. Therefore the left edge
 	\end{center}  
 	\caption{Visualization of Strain Gradient in specific path}
 \end{figure}
-As shown in above fig, the path is selected on fine mesh part to plot the Strain Gradient values along that path. In addition to that higher order stress values are also ploted on that path in below second plot. In this two plots we can see that the Higher order stress values and Strain Gradient values are getting decreasses when it goes to far from hole edge which shows the size effects.
+\textbf{Strain Gradient values vs True distance along path plot:}
 \begin{figure}[H]
 \advance\leftskip-0.5cm
-		\includegraphics[scale=0.58]{path_full_grad_plot.png} 
+		\includegraphics[scale=0.6]{path_full_grad_plot.png} 
 	    \caption{Strain Gradient plot in perticular path}
 \end{figure}
+\vspace{1cm}
+\textbf{Higher Order Stress values vs True distance along path plot:}
 \begin{figure}[H]
 \advance\leftskip-0.5cm
-		\includegraphics[scale=0.58]{Higher_order_stress_plot.png} 
- 
+		\includegraphics[scale=0.6]{Higher_order_stress_plot.png}  
 	\caption{Higher order stress plot in perticular path}
 \end{figure}
+\newpage
+As shown in above figs, the path is selected on fine mesh part to plot the Strain Gradient values along that path. In addition to that higher order stress values are also ploted on that path in below second plot. In this two plots we can see that the Higher order stress values and Strain Gradient values are getting decreasses when it goes to far from hole edge which shows the size effects. Under this loading condition (just 1$\%$ displacements of the upper edge nodes in Y-direction i.e. along the vertical edge of this model as shown in fig.) the strain gradient and Higher order stresses are not developed in simple geometry which shows clearly that the hole in the plate is very critical part and bacuase of size effect the strain gradient is generated near the hole region and this effect is decreases as going far from this region.
+\\
+\\
+\textbf{Conclusion :} \\
+\\
+In this \textbf{P}ersonal \textbf{P}rogramming \textbf{P}roject(\textbf{PPP}), the Strain Gradient Elasticity theory (SGET) is implemented in FEM. The mixed FEM formulation is used to implement this model in FEM. To implement this User Element routine(UEL) is written for QU34L4 element. In addition to that two User Material routine(UMAT) for two different Strain gradient material is also written. This code is written such way that any two-dimensional complex model can simulate for strain gradient theory even for any number element mesh. From the simulation of Plate-720 with two different UMAT, it is concluded that this theory is totaly dependent on micro structural length($ l $), since for both UMAT this model is converged at different ($ l $). However this model is not converged at ($ l $) equal to the hole size, which might showing wrong results since it has to converged for same. \\
+\\
+This 2D code for UEL is also extended for 3D model. In this same thoery is implemented for three-dimensional model. In this the brick element BR153L9 is used, which is the straight forward extension of QU34L4 langrange element. This code is first checked by the rigid body translation test and it showing the same results as abaqus. However, this 3D code is not working for specific loading condition because of some error in code. 
+
+
+
 \newpage
 \section{Validation Tests}
 In this chapter I present the Patch test which is implemented with the one element and four element of same geometry using finite element method. The Patch tests are necessary for checking the stability of the newly developed user element and also important to check the convergence of the finite element solutions.  
@@ -1290,6 +1301,7 @@ So, it is conclude that Patch Test-2 for four element is also pass. The relaxed 
 \end{table}
 
 \subsection{Rigid Body Translation Test}
+\vspace{1cm}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.49]{Rigid_body_u1_crop.png} 
@@ -1297,6 +1309,7 @@ So, it is conclude that Patch Test-2 for four element is also pass. The relaxed 
 	\end{center}
 	\caption{Visualization of Displacement $u_1 $ and $u_2 $ in Rigid Body Transformation Test.} 
 \end{figure}
+\vspace{1cm}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.49]{Rigid_body_stress_crop.png} 
@@ -1304,6 +1317,7 @@ So, it is conclude that Patch Test-2 for four element is also pass. The relaxed 
 	\end{center}
 	\caption{Visualization of stress and strain in Rigid Body Transformation Test.} 
 \end{figure}
+\vspace{1cm}
 In this "Rigid Body Translation" test, I gave the displacements to the uper edge nodes in positive X and Y direction equals to the 0.1mm. So there is no boundary condition, therfore the geometry moves rigidly and there is no reaction forces at any nodes. Due to this there is no stress and strain emerges into the elements. Above both figures shown the displacements, Stresses and Strains into the Plate-720 geometry after the Rigid body translation test. For more information on how to implement this test is given in "README-2D-Rigid-Body-Translation" file.
 \newpage
 \section{Documentation of the Programming work}
@@ -1492,7 +1506,7 @@ The main task in Processing is to develope user element routine(UEL) for QU34L4 
 \subsection{Problem Faced during Programming UEL}
 In this section,it is mentioned the errors and problems I faced during the learning the Fortran programming language and also code this User Element in fortran programming language. 
 \begin{itemize}
-	\item Syntax errors in fortran which are totaly different from common programming languages like python or c.
+	\item Syntax errors in fortran which are totaly different from common programming languages like "Python" or "C".
 	\item Intialization and dimensioning of all vectors and matrix and even scalar variables also. 
 	\item Getting "Non Apllicable Number (NAN)" in output because of not giving proper dimensionig or intialization of any variables or input parameters.
 	\item How to define the "Degree Of Freedom (DOF)" for each nodes in User element, which has not unique DOF at each nodes.
@@ -1521,7 +1535,70 @@ In this section,it is mentioned the errors and problems I faced during the learn
 	\item Python code to convert 8 node element mesh into 9 node element mesh.
 	\item Conversion of 20 nodes element mesh into 27 nodes element mesh.
 \end{itemize}
+\vspace{1cm}
+\textbf{Special Note :} \\
+As of seen in my whole report I used the John.Y shu mixed Fem formulation and used QU34L4 element. On this topic, Lutz Zybell is also done his diplom thesis. I dont have any source related to this thoery from the starting of the coding of UEL to until now. However that diplom thesis is provided to me for the report purpose and also gaining the deep knowledge about this theory. I have also refer the paper which is published by him on this theory.
+
 \newpage
+
+\section{3D Model}
+\subsection{3D element}
+In addition to this PPP proposal, the extension of the above 2D UEL is done within this PPP duration. In this section a straightforward extension of the two-dimensional finite element QU34L4 introduce by John Y. shu et al. into the three-dimensional finite element BR153L9 is presented. 
+\\
+\\
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1.2]{3d_element.png}  
+	\end{center}  
+	\caption{Sketch of BR153L9 element(3D). \cite{zybell2012three}}
+\end{figure}
+The newly introduced isoparametric brick element BR153L9, as shown in above fig, is also known as Lagrangian finite element, because it uses nine Lagrange Multipliers $\rho_{ij}$ which are assumed to be constant throughout the element and which are connected to the centre node of the element. This element has total 27 nodes and 162 degrees of freedom(DOF). There are twelve DOF $u_i$ and $\psi_{ij}$ at each corner node and three DOF $u_i$ at each of the remaining 19 nodes. As of seen in 2D element QU34L4, the displacement and relaxed strain interpolate with different shape functions. Here, displacements $u_i$ are interpolated by the conventional tri-quadratic Langrangian shape functions and the relaxed strains $\psi_{ij}$ are interpolated tri-linearly.	\\
+\\
+As of discussed above this 3D element BR153L9 is ease extension of 2D element QU34L4 element, so after developing the UEL for 2D element, the 3D case is also extended. For suirity of working of this 3D element, the rigid body translation test is also done and it also give the expected results, but in later I realized that there is one error in 3D UEL, because of which it is not converged for specific loading condition.
+
+\subsection{Rigid body translation test of 3D model.}
+First we visualize the 3D model, which is mesh with 3D element BR153L9 in below fig,
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.9]{3d_model_8_element_crop.png}  
+	\end{center}  
+	\caption{3D model mesh with 8 BR153L9.}
+\end{figure}
+The above 3D model dimesions are (10$ \times $10$ \times $10) mm. In this model the vertical edge is presenting the Y-direction(Y-axis). In this rigid body translation test, the only displacement boundary condition is given to the upper surface node. In this case 0.1 mm predefined displacement is given to the uppersurface along Y-direction.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1.1]{3d_model_U1_crop.png}  
+	\end{center}  
+	\caption{Displacement of 3D model in x-direction$(u_1)$.}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1.1]{3d_model_U2_crop.png}  
+	\end{center}  
+	\caption{Displacement of 3D model in Y-direction$(u_2)$.}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1.1]{3d_model_U3_crop.png}  
+	\end{center}  
+	\caption{Displacement of 3D model in z-direction$(u_3)$.}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1]{3d_model_S_crop.png}  
+	\end{center}  
+	\caption{Stresses$(\sigma)$ developed in 3D model.}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1]{3d_model_E_crop.png}  
+	\end{center}  
+	\caption{Strains$(\varepsilon)$ developed in 3D model.}
+\end{figure}
+In conclusion, it is easily seen that the displacement in Y-direction is same at each node, which shaws the rigid body translation. In addition to that there is no reaction forces because of no additional boundary condition other than the displacement in Y-direction. Therefore there is no stresses and strains developed in element.
+
+
+
 
 \begin{appendices}
 \section{Python file for Patch test-1}
@@ -1573,6 +1650,211 @@ In the last part of input file it has to modified the output request according t
 \textbf{Code 2} : \textbf{abq6142} \textbf{python} \textbf{ABAQUSER.pyc} $<\textbf{Input-file-name}>$ \\
 \textbf{ABACALL=abq6142} $<\textbf{Info-file-name}>$
 
+\newpage
+\section{Git history}
+\begin{verbatim}
+commit c49f7b46f19fbd2b419529c54d809f761aefd4a5
+Author: Dhaval Rasheshkumar Patel <dhavalrpatel2511@gmail.com>
+Date:   Sat Apr 4 12:01:54 2020 +0200
+
+Rename the Fortran file(UEl) from first_1 to UEL_2D.
+
+commit 27aabe75271e3a27c4205f933002e8f157536307
+Author: Dhaval Rasheshkumar Patel <dhavalrpatel2511@gmail.com>
+Date:   Sat Apr 4 12:00:00 2020 +0200
+
+After add the final comments and whole details of each specific 
+subroutine and sections.
+
+commit 9dfb334fc054b781d24b8765e5cbb2be556c9ede
+Author: Dhaval Rasheshkumar Patel <dhavalrpatel2511@gmail.com>
+Date:   Thu Mar 26 18:40:16 2020 +0100
+
+Finalized code after adding the second gradient material (UMAT).
+
+commit 7c683b0472be67355dbaa603bfc580bf78a0bebd
+Author: Dhaval Rasheshkumar Patel <dhavalrpatel2511@gmail.com>
+Date:   Sat Mar 21 17:56:36 2020 +0100
+
+First commit after Exams, lots of changes due to gap between last 
+commit and this commit. -- large number of changes which were not 
+commited before included.
+
+commit 85ce1b756ccfbec1bd00911e910006de4625fd39
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Wed Feb 19 16:09:14 2020 +0100
+
+First attempt of 3D Model. with one element and 27 nodes and 
+27 integration points and total 162 degrees of freedom.
+
+commit 1dfc096affaf9cd819b3b2d6a5bfd87a2b904340
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Tue Feb 11 17:18:12 2020 +0100
+
+Update the mesh_generation_file.
+
+commit 8dc191f6ea13c20bef2eb2c0f10267ffda5c9b26
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Wed Feb 5 23:54:06 2020 +0100
+
+Mesh_720_plate_with_circular_hole_2983_nodes.
+
+commit e24346f4754ff47aa08767c75ba7c6f704cf66e6
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Thu Jan 30 15:32:03 2020 +0100
+
+Add Gauss weight as an vector in to the code for all gauss integration points.
+
+commit cc4510d04424e68c269690f9dfbfaa1261a8e302
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Thu Jan 30 15:27:47 2020 +0100
+
+Wrote one python code for patch test to get the analytical values of 
+Relaxed_Strain and Displacements from equation derive.
+
+commit fe9cbc431e7741239372bcc6aa32d7b8312381e2
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Fri Jan 24 15:03:20 2020 +0100
+
+Add internal force vector into RHS matrix and also assign the numerical 
+zeros to the AMatrix.
+
+commit e75cd27484d6bf8c6a32a91873bcd4e8210a6452
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Fri Jan 24 15:01:17 2020 +0100
+
+Modification in node number and assembaly of nodes into element.
+
+commit 0b87b3462f82a67121ed7cdd51f0a78aff60a51d
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Wed Jan 15 19:02:46 2020 +0100
+
+PYTHON file to convert the 8 noded element into the 9 noded element.
+
+commit 3a122dd1aeb6af7124648380d06c1895de06c8e8
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Mon Jan 13 11:59:51 2020 +0100
+
+Assemble Amatrx- coupling of degrees of freedom Displcement,Relaxed strain
+and Lagrange constrains.
+
+commit e3587f72ea8f5c58bc39a949bd3922ab2235c7f7
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Sun Jan 12 12:10:22 2020 +0100
+
+Add the two force vector R_vector and S_vector which contains the internal 
+forces which is related to degrre of freedom relaxed strain 
+and lagrange respectively.
+
+commit 454d2c395cd736942d2b740d7de428278a158ab4
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Sun Jan 12 12:08:18 2020 +0100
+
+Add internal force vector which is corresponde to the displcement degree of freedom.
+
+commit bf8923d8992b1642575e010a5eb28fcbe452044a
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Mon Jan 6 14:55:51 2020 +0100
+
+code Mass_Matrix for different procedure.
+
+commit e66eb5e44f00829124cbb0a0cce5ee6db7cc59e1
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Tue Dec 31 01:06:12 2019 +0100
+
+Add Stiffness_Psirho and Stiffness_Urho matrix for the combination of 
+relaxed strain and lagrange multiplier and second for displacement 
+and lagrange multiplier respectively.
+
+commit 4ec28f418999d146ecbe7870b45631cd535f6044
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Mon Dec 30 22:44:28 2019 +0100
+
+Code Stiffness_UU and Stiffness_PsiPsi matrix for the displacement 
+and relaxed strain degrees of freedom.
+
+commit e1e99dd7432605275a86b08a01d57efb50402302
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Sat Dec 28 18:14:50 2019 +0100
+
+Store the values of the State varaibles Sigma and Tau into the svars matrix.
+
+commit 1146d04f153c492e0e16eaa60ff75ada651669e7
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Sat Dec 28 17:48:54 2019 +0100
+
+Call the KUMAT subroutine into the main subroutine UEL to fine the 
+state varables Sigma and Tau and print these values to the .dat file
+
+commit 68f15e0c701cccecade627cf6193739cd579c894
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Sat Dec 28 14:58:53 2019 +0100
+
+write KUMAT subroutine to finding state variables Sigma and Tau.
+
+commit c252e05031ef5d1971e61e2ba453ae5bdd1f568f
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Fri Dec 27 16:34:06 2019 +0100
+
+update the state variables-(relaxed_strain_gradient, 
+delta_relaxed_strain_gradient,langrage_multiplier)
+
+commit ab1d03845a4fca1899f5171df0d8d0cb39b3c792
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Fri Dec 27 15:45:13 2019 +0100
+
+update of state variables(displacement gradient,strain,delta_strain,
+relaxed_strain)
+
+commit cc11750b00fede6bcb289f756456db90e72b413e
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Sun Dec 22 15:27:52 2019 +0100
+
+assembly of N_matrix,B_matrix,M_matrix.
+
+commit d394b2ff1fe74aea26d4fc02eed6dbe45cc2b43a
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Fri Dec 13 16:13:15 2019 +0100
+
+call shape functions jacobian and B_matrix.
+
+commit 064c7725b1c5ac02d67d426b43520f57a9cccf17
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Thu Dec 12 22:44:23 2019 +0100
+
+add jacobina matrix subroutine for both shape functions
+
+commit e1e7f9ccf0b26ad711f233de15efe03adc563a6b
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Thu Dec 12 16:03:45 2019 +0100
+
+added the shape function for shi.
+
+commit 43bc0d1672b3d769b0e1664b7ac0d5c5dfd652d3
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Mon Dec 9 19:45:31 2019 +0100
+
+add shape function for diplcement.
+
+commit ac2b72083c031d7e0e0d7a0aec57d09e51b6fd88
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Mon Dec 9 17:51:42 2019 +0100
+
+add gauss_coords and its weights and some properties.
+
+commit 1c83972837639f0153af1db865f0489123f13533
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Mon Dec 9 17:48:26 2019 +0100
+
+add common parameters and dimensions of standard variables.
+
+commit 41f0892d3ea1f9fa895c780b2880fd60bcd4ec5d
+Author: Dhaval Rasheshk Patelumar <dp44dafy@imfd053.imfd.tu-freiberg.de>
+Date:   Mon Dec 9 17:40:50 2019 +0100
+
+add standard format for UEL.
+
+\end{verbatim}
 
 \end{appendices}
 

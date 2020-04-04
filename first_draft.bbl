@@ -39,6 +39,12 @@ John~Y Shu, Wayne~E King, and Norman~A Fleck.
 \newblock {\em International Journal for Numerical Methods in Engineering},
   44(3):373--391, 1999.
 
+\bibitem{zybell2012three}
+L~Zybell, U~M{\"u}hlich, M~Kuna, and ZL~Zhang.
+\newblock A three-dimensional finite element for gradient elasticity based on a
+  mixed-type formulation.
+\newblock {\em Computational materials science}, 52(1):268--273, 2012.
+
 \bibitem{Lzybell2007}
 Lutz Zybell.
 \newblock Implementation of a user-element considering strain gradient effects
