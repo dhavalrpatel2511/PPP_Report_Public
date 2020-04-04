@@ -59,8 +59,9 @@
 	\clearpage
     \textbf{\LARGE Abstract}\\
     \\
-    { \large During this "Personal Programming Project(PPP)", the "Strain Gradient Elasticity Theory" is implemented through the FEM model. Within this, the element QU34L4, developed by Shu. et al, is integrated as user defined element via the commercial software ABAQUS. The mixed type of FEM formulation developed by John Y. shu is used for this theory.
-    In this PPP, the User Element routine(UEL) for QU34L4 element and User Material routine(UMAT) for two different strain gradient material are formulated for 2D case. The numerical results of Plate-720 model is analysed for this theory. Two different patch test is also done two compare the numerical results obtain from this UEL with analytical solutions.The extension of this UEL for 3D model is also done.}
+    { \large During this "Personal Programming Project(PPP)", the "Strain Gradient Elasticity Theory" is implemented through the FEM model. Within this, the element QU34L4, developed by Shu et al. is integrated as user defined element via the commercial software ABAQUS. The mixed type of FEM formulation developed by John Y. \cite{shu1999finite} is used for this theory.
+    In this PPP, the User Element routine(UEL) for QU34L4 element and User Material routine(UMAT) for two different strain gradient material (\cite{amanatidou2002mixed},\cite{shu1999finite}) are formulated for 2D case. The numerical results of Plate-720 model is analysed for this theory. Two different patch test is also done to compare the numerical results obtain from this UEL with analytical solutions. Programming was done completely by myself without any external help. I have started with literature sources \cite{amanatidou2002mixed} and \cite{shu1999finite} and decided to follow the derivations by Shu et al \cite{shu1999finite}. Later on I got an access to the pdf of Diploma Thesis of Mr. L. Zybell [8], however without any code (or part of the code) or scripts. As an extra task, an attempt to extend this UEL for 3D model is also done.}
+
 
 
 
@@ -847,7 +848,7 @@ So, I have just commented all the terms which is related to gradient term i.e. w
 Now, I have implement the my code which is correctly running after the removing of many hurdles in terms of programming error. Here, I representing the my code results for simpler loading conditions and compare it with the ABAQUS results.  
 \\
 \\
-So, here I represent the displacement results of ABAQUS with simpler loading i.e. $ 1 \% $ of displacement in positive Y direction with my results without including the gradient terms and any other degrees of freedom.
+So, here I represent the displacement results of ABAQUS with simpler loading i.e. $ 1 \% $ of strain in positive Y direction with my results without including the gradient terms and any other degrees of freedom.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{ABAQUS_result.png}  
@@ -1528,10 +1529,10 @@ In this section,it is mentioned the errors and problems I faced during the learn
 \end{itemize}
 \textbf{Extra achieved goals :}
 \begin{itemize}
-	\item Postprocessing and visualization of user element in ABAQUS.
+	\item Postprocessing and visualization of user element with ABAQUSER.
 	\item Write code for KDLOAD.
 	\item Mesh Plate-720 standard geometry includes transition of mesh from fine to coarse mesh.
-	\item Extension to 3D case.
+	\item An attempt to extend the code to 3D case as an extra activity during deadline extension.
 	\item Python code to convert 8 node element mesh into 9 node element mesh.
 	\item Conversion of 20 nodes element mesh into 27 nodes element mesh.
 \end{itemize}
