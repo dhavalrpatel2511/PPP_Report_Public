@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.18)  4 APR 2020 23:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.18)  5 APR 2020 18:50
 entering extended mode
 **./first_draft.tex
 (first_draft.tex
@@ -1134,7 +1134,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 535--537
 
  []
 
-<ele_1.png, id=569, 355.3275pt x 240.9pt>
+<ele_1.png, id=571, 355.3275pt x 240.9pt>
 File: ele_1.png Graphic file (type png)
 <use ele_1.png>
 Package pdftex.def Info: ele_1.png  used on input line 541.
@@ -1235,7 +1235,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 745--751
  []
 
 [23] [24] [25]
-<ABAQUS_result.png, id=652, 670.505pt x 638.385pt>
+<ABAQUS_result.png, id=653, 670.505pt x 638.385pt>
 File: ABAQUS_result.png Graphic file (type png)
 <use ABAQUS_result.png>
 Package pdftex.def Info: ABAQUS_result.png  used on input line 854.
@@ -1255,28 +1255,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 842--857
 
  []
 
-<MY_code_result_1.png, id=653, 691.58376pt x 640.3925pt>
+<MY_code_result_1.png, id=654, 691.58376pt x 640.3925pt>
 File: MY_code_result_1.png Graphic file (type png)
 <use MY_code_result_1.png>
 Package pdftex.def Info: MY_code_result_1.png  used on input line 860.
 (pdftex.def)             Requested size: 276.6286pt x 256.15245pt.
 [26 <./ABAQUS_result.png>]
-<ABAQUS_result_stress.png, id=658, 704.6325pt x 641.39626pt>
+<ABAQUS_result_stress.png, id=659, 704.6325pt x 641.39626pt>
 File: ABAQUS_result_stress.png Graphic file (type png)
 <use ABAQUS_result_stress.png>
 Package pdftex.def Info: ABAQUS_result_stress.png  used on input line 867.
 (pdftex.def)             Requested size: 281.848pt x 256.55396pt.
-<ABAQUS_result_stress_crp.png, id=659, 475.7775pt x 716.6775pt>
+<ABAQUS_result_stress_crp.png, id=660, 475.7775pt x 716.6775pt>
 File: ABAQUS_result_stress_crp.png Graphic file (type png)
 <use ABAQUS_result_stress_crp.png>
 Package pdftex.def Info: ABAQUS_result_stress_crp.png  used on input line 868.
 (pdftex.def)             Requested size: 166.52461pt x 250.84088pt.
-<MY_code_result_stress.png, id=660, 681.54625pt x 613.29124pt>
+<MY_code_result_stress.png, id=661, 681.54625pt x 613.29124pt>
 File: MY_code_result_stress.png Graphic file (type png)
 <use MY_code_result_stress.png>
 Package pdftex.def Info: MY_code_result_stress.png  used on input line 874.
 (pdftex.def)             Requested size: 272.61366pt x 245.31215pt.
-<MY_code_result_stress_crp.png, id=661, 439.6425pt x 757.83125pt>
+<MY_code_result_stress_crp.png, id=662, 439.6425pt x 757.83125pt>
 File: MY_code_result_stress_crp.png Graphic file (type png)
 <use MY_code_result_stress_crp.png>
 Package pdftex.def Info: MY_code_result_stress_crp.png  used on input line 875.
@@ -1285,68 +1285,68 @@ Package pdftex.def Info: MY_code_result_stress_crp.png  used on input line 875.
  [27 <./MY_code_result_1.png> <./ABAQUS_result_stress.png> <./ABAQUS_result_str
 ess_crp.png>] [28 <./MY_code_result_stress.png> <./MY_code_result_stress_crp.pn
 g>]
-<mesh_part.png, id=670, 741.77126pt x 750.805pt>
+<mesh_part.png, id=671, 741.77126pt x 750.805pt>
 File: mesh_part.png Graphic file (type png)
 <use mesh_part.png>
 Package pdftex.def Info: mesh_part.png  used on input line 887.
 (pdftex.def)             Requested size: 259.62383pt x 262.78568pt.
-<fine_mesh_part.png, id=671, 445.665pt x 451.6875pt>
+<fine_mesh_part.png, id=672, 445.665pt x 451.6875pt>
 File: fine_mesh_part.png Graphic file (type png)
 <use fine_mesh_part.png>
 Package pdftex.def Info: fine_mesh_part.png  used on input line 894.
 (pdftex.def)             Requested size: 169.35446pt x 171.64302pt.
-<full_grad_crop.png, id=672, 467.94826pt x 333.04425pt>
+<full_grad_crop.png, id=673, 467.94826pt x 333.04425pt>
 File: full_grad_crop.png Graphic file (type png)
 <use full_grad_crop.png>
 Package pdftex.def Info: full_grad_crop.png  used on input line 902.
 (pdftex.def)             Requested size: 421.14954pt x 299.73705pt.
  [29 <./mesh_part.png> <./fine_mesh_part.png>]
-<Reg11_crop.png, id=679, 460.72125pt x 327.624pt>
+<Reg11_crop.png, id=680, 460.72125pt x 327.624pt>
 File: Reg11_crop.png Graphic file (type png)
 <use Reg11_crop.png>
 Package pdftex.def Info: Reg11_crop.png  used on input line 908.
 (pdftex.def)             Requested size: 414.6453pt x 294.85886pt.
-<Reg22_crop.png, id=680, 465.53925pt x 330.63525pt>
+<Reg22_crop.png, id=681, 465.53925pt x 330.63525pt>
 File: Reg22_crop.png Graphic file (type png)
 <use Reg22_crop.png>
 Package pdftex.def Info: Reg22_crop.png  used on input line 914.
 (pdftex.def)             Requested size: 418.98145pt x 297.56897pt.
 
 [30 <./full_grad_crop.png>]
-<Reg33_crop.png, id=687, 463.13025pt x 329.43076pt>
+<Reg33_crop.png, id=688, 463.13025pt x 329.43076pt>
 File: Reg33_crop.png Graphic file (type png)
 <use Reg33_crop.png>
 Package pdftex.def Info: Reg33_crop.png  used on input line 920.
 (pdftex.def)             Requested size: 416.81337pt x 296.48494pt.
-<Reg12_crop.png, id=688, 462.528pt x 327.02174pt>
+<Reg12_crop.png, id=689, 462.528pt x 327.02174pt>
 File: Reg12_crop.png Graphic file (type png)
 <use Reg12_crop.png>
 Package pdftex.def Info: Reg12_crop.png  used on input line 926.
 (pdftex.def)             Requested size: 416.27133pt x 294.31683pt.
  [31 <./Reg11_crop.png> <./Reg22_crop.png>]
-<Reg23_crop.png, id=695, 464.33475pt x 332.442pt>
+<Reg23_crop.png, id=696, 464.33475pt x 332.442pt>
 File: Reg23_crop.png Graphic file (type png)
 <use Reg23_crop.png>
 Package pdftex.def Info: Reg23_crop.png  used on input line 932.
 (pdftex.def)             Requested size: 417.8974pt x 299.19502pt.
-<Reg13_crop.png, id=696, 466.1415pt x 327.02174pt>
+<Reg13_crop.png, id=697, 466.1415pt x 327.02174pt>
 File: Reg13_crop.png Graphic file (type png)
 <use Reg13_crop.png>
 Package pdftex.def Info: Reg13_crop.png  used on input line 938.
 (pdftex.def)             Requested size: 419.52347pt x 294.31683pt.
  [32 <./Reg33_crop.png> <./Reg12_crop.png>]
-<Higher_order_stress_crop.png, id=703, 469.755pt x 339.06676pt>
+<Higher_order_stress_crop.png, id=704, 469.755pt x 339.06676pt>
 File: Higher_order_stress_crop.png Graphic file (type png)
 <use Higher_order_stress_crop.png>
 Package pdftex.def Info: Higher_order_stress_crop.png  used on input line 944.
 (pdftex.def)             Requested size: 422.7756pt x 305.15724pt.
-<path_full_grad_crop.png, id=704, 346.29375pt x 284.262pt>
+<path_full_grad_crop.png, id=705, 346.29375pt x 284.262pt>
 File: path_full_grad_crop.png Graphic file (type png)
 <use path_full_grad_crop.png>
 Package pdftex.def Info: path_full_grad_crop.png  used on input line 950.
 (pdftex.def)             Requested size: 346.2929pt x 284.26129pt.
  [33 <./Reg23_crop.png> <./Reg13_crop.png>]
-<path_full_grad_plot.png, id=711, 913.4125pt x 444.66125pt>
+<path_full_grad_plot.png, id=712, 913.4125pt x 444.66125pt>
 File: path_full_grad_plot.png Graphic file (type png)
 <use path_full_grad_plot.png>
 Package pdftex.def Info: path_full_grad_plot.png  used on input line 957.
@@ -1357,7 +1357,7 @@ Overfull \hbox (80.85747pt too wide) in paragraph at lines 957--958
  []
 
 [34 <./Higher_order_stress_crop.png> <./path_full_grad_crop.png>]
-<Higher_order_stress_plot.png, id=718, 903.375pt x 440.64626pt>
+<Higher_order_stress_plot.png, id=719, 903.375pt x 440.64626pt>
 File: Higher_order_stress_plot.png Graphic file (type png)
 <use Higher_order_stress_plot.png>
 Package pdftex.def Info: Higher_order_stress_plot.png  used on input line 964.
@@ -1392,7 +1392,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 991--996
 
  []
 
-<patch_1_disp_crop.png, id=731, 448.074pt x 336.0555pt>
+[37]
+<patch_1_disp_crop.png, id=740, 448.074pt x 336.0555pt>
 File: patch_1_disp_crop.png Graphic file (type png)
 <use patch_1_disp_crop.png>
 Package pdftex.def Info: patch_1_disp_crop.png  used on input line 1023.
@@ -1402,15 +1403,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 1015--1026
 
  []
 
-[37]
-<patch_1_relaxed_strain_crop.png, id=740, 444.4605pt x 334.851pt>
+<patch_1_relaxed_strain_crop.png, id=741, 444.4605pt x 334.851pt>
 File: patch_1_relaxed_strain_crop.png Graphic file (type png)
 <use patch_1_relaxed_strain_crop.png>
 Package pdftex.def Info: patch_1_relaxed_strain_crop.png  used on input line 10
 29.
 (pdftex.def)             Requested size: 368.90211pt x 277.92625pt.
- [38 <./patch_1_disp_crop.png>] [39 <./patch_1_relaxed_strain_crop.png>]
-<ele_4.png, id=751, 633.567pt x 301.125pt>
+[38 <./patch_1_disp_crop.png>] [39 <./patch_1_relaxed_strain_crop.png>]
+<ele_4.png, id=753, 633.567pt x 301.125pt>
 File: ele_4.png Graphic file (type png)
 <use ele_4.png>
 Package pdftex.def Info: ele_4.png  used on input line 1074.
@@ -1466,22 +1466,22 @@ Overfull \hbox (62.8624pt too wide) in paragraph at lines 1144--1224
  []
 
 [42]
-<Rigid_body_u1_crop.png, id=770, 451.6875pt x 315.579pt>
+<Rigid_body_u1_crop.png, id=772, 451.6875pt x 315.579pt>
 File: Rigid_body_u1_crop.png Graphic file (type png)
 <use Rigid_body_u1_crop.png>
 Package pdftex.def Info: Rigid_body_u1_crop.png  used on input line 1308.
 (pdftex.def)             Requested size: 221.3288pt x 154.63506pt.
-<Rigid_body_u2_crop.png, id=771, 452.892pt x 314.3745pt>
+<Rigid_body_u2_crop.png, id=773, 452.892pt x 314.3745pt>
 File: Rigid_body_u2_crop.png Graphic file (type png)
 <use Rigid_body_u2_crop.png>
 Package pdftex.def Info: Rigid_body_u2_crop.png  used on input line 1309.
 (pdftex.def)             Requested size: 221.919pt x 154.04485pt.
-<Rigid_body_stress_crop.png, id=772, 454.0965pt x 311.36325pt>
+<Rigid_body_stress_crop.png, id=774, 454.0965pt x 311.36325pt>
 File: Rigid_body_stress_crop.png Graphic file (type png)
 <use Rigid_body_stress_crop.png>
 Package pdftex.def Info: Rigid_body_stress_crop.png  used on input line 1316.
 (pdftex.def)             Requested size: 222.50923pt x 152.56932pt.
-<Rigid_body_strain_crop.png, id=773, 452.892pt x 314.3745pt>
+<Rigid_body_strain_crop.png, id=775, 452.892pt x 314.3745pt>
 File: Rigid_body_strain_crop.png Graphic file (type png)
 <use Rigid_body_strain_crop.png>
 Package pdftex.def Info: Rigid_body_strain_crop.png  used on input line 1317.
@@ -1564,7 +1564,7 @@ mer-cial soft-ware ABAQUS.
  []
 
 [49] [50]
-<3d_element.png, id=814, 363.15675pt x 165.0165pt>
+<3d_element.png, id=816, 363.15675pt x 165.0165pt>
 File: 3d_element.png Graphic file (type png)
 <use 3d_element.png>
 Package pdftex.def Info: 3d_element.png  used on input line 1552.
@@ -1584,46 +1584,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 1556--1559
 
  []
 
-<3d_model_8_element_crop.png, id=817, 274.02374pt x 271.61475pt>
+<3d_model_8_element_crop.png, id=819, 274.02374pt x 271.61475pt>
 File: 3d_model_8_element_crop.png Graphic file (type png)
 <use 3d_model_8_element_crop.png>
 Package pdftex.def Info: 3d_model_8_element_crop.png  used on input line 1564.
 (pdftex.def)             Requested size: 246.61908pt x 244.451pt.
 [51 <./3d_element.png>]
-<3d_model_U1_crop.png, id=823, 342.68025pt x 261.97874pt>
+<3d_model_U1_crop.png, id=825, 342.68025pt x 261.97874pt>
 File: 3d_model_U1_crop.png Graphic file (type png)
 <use 3d_model_U1_crop.png>
 Package pdftex.def Info: 3d_model_U1_crop.png  used on input line 1571.
 (pdftex.def)             Requested size: 376.94943pt x 288.1775pt.
-<3d_model_U2_crop.png, id=824, 348.1005pt x 260.172pt>
+<3d_model_U2_crop.png, id=826, 348.1005pt x 260.172pt>
 File: 3d_model_U2_crop.png Graphic file (type png)
 <use 3d_model_U2_crop.png>
 Package pdftex.def Info: 3d_model_U2_crop.png  used on input line 1577.
 (pdftex.def)             Requested size: 382.91173pt x 286.19005pt.
-<3d_model_U3_crop.png, id=825, 343.88475pt x 261.97874pt>
+<3d_model_U3_crop.png, id=827, 343.88475pt x 261.97874pt>
 File: 3d_model_U3_crop.png Graphic file (type png)
 <use 3d_model_U3_crop.png>
 Package pdftex.def Info: 3d_model_U3_crop.png  used on input line 1583.
 (pdftex.def)             Requested size: 378.2744pt x 288.1775pt.
  [52 <./3d_model_8_element_crop.png> <./3d_model_U1_crop.png>]
-<3d_model_S_crop.png, id=832, 343.2825pt x 262.581pt>
+<3d_model_S_crop.png, id=834, 343.2825pt x 262.581pt>
 File: 3d_model_S_crop.png Graphic file (type png)
 <use 3d_model_S_crop.png>
 Package pdftex.def Info: 3d_model_S_crop.png  used on input line 1589.
 (pdftex.def)             Requested size: 343.28165pt x 262.58034pt.
-<3d_model_E_crop.png, id=833, 343.88475pt x 260.172pt>
+<3d_model_E_crop.png, id=835, 343.88475pt x 260.172pt>
 File: 3d_model_E_crop.png Graphic file (type png)
 <use 3d_model_E_crop.png>
 Package pdftex.def Info: 3d_model_E_crop.png  used on input line 1595.
 (pdftex.def)             Requested size: 343.88391pt x 260.17134pt.
  [53 <./3d_model_U2_crop.png> <./3d_model_U3_crop.png>]
-<Patch_test_1_elem_eqn.pdf, id=840, page=1, 597.23125pt x 845.1575pt>
+<Patch_test_1_elem_eqn.pdf, id=842, page=1, 597.23125pt x 845.1575pt>
 File: Patch_test_1_elem_eqn.pdf Graphic file (type pdf)
 <use Patch_test_1_elem_eqn.pdf, page 1>
 Package pdftex.def Info: Patch_test_1_elem_eqn.pdf , page1 used on input line 1
 606.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
-<pro.pdf, id=841, page=1, 597.23125pt x 845.1575pt>
+<pro.pdf, id=843, page=1, 597.23125pt x 845.1575pt>
 File: pro.pdf Graphic file (type pdf)
 <use pro.pdf, page 1>
 Package pdftex.def Info: pro.pdf , page1 used on input line 1609.
@@ -1648,13 +1648,13 @@ Overfull \vbox (18.36339pt too high) has occurred while \output is active []
 
 
 [56 <./Patch_test_1_elem_eqn.pdf>]
-<Patch_Test_4_elem_eqn.pdf, id=872, page=1, 597.23125pt x 845.1575pt>
+<Patch_Test_4_elem_eqn.pdf, id=874, page=1, 597.23125pt x 845.1575pt>
 File: Patch_Test_4_elem_eqn.pdf Graphic file (type pdf)
 <use Patch_Test_4_elem_eqn.pdf, page 1>
 Package pdftex.def Info: Patch_Test_4_elem_eqn.pdf , page1 used on input line 1
 611.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
-<Patch_Test_4_elem_eqn.pdf, id=873, page=2, 597.23125pt x 845.1575pt>
+<Patch_Test_4_elem_eqn.pdf, id=875, page=2, 597.23125pt x 845.1575pt>
 File: Patch_Test_4_elem_eqn.pdf Graphic file (type pdf)
 <use Patch_Test_4_elem_eqn.pdf, page 2>
 Package pdftex.def Info: Patch_Test_4_elem_eqn.pdf , page2 used on input line 1
@@ -1680,13 +1680,13 @@ Overfull \vbox (18.36339pt too high) has occurred while \output is active []
 
 
 [59 <./Patch_Test_4_elem_eqn.pdf>]
-<9Node_Mesh_generation.pdf, id=916, page=1, 597.23125pt x 845.1575pt>
+<9Node_Mesh_generation.pdf, id=918, page=1, 597.23125pt x 845.1575pt>
 File: 9Node_Mesh_generation.pdf Graphic file (type pdf)
 <use 9Node_Mesh_generation.pdf, page 1>
 Package pdftex.def Info: 9Node_Mesh_generation.pdf , page1 used on input line 1
 616.
 (pdftex.def)             Requested size: 477.78564pt x 676.12692pt.
-<9Node_Mesh_generation.pdf, id=917, page=2, 597.23125pt x 845.1575pt>
+<9Node_Mesh_generation.pdf, id=919, page=2, 597.23125pt x 845.1575pt>
 File: 9Node_Mesh_generation.pdf Graphic file (type pdf)
 <use 9Node_Mesh_generation.pdf, page 2>
 Package pdftex.def Info: 9Node_Mesh_generation.pdf , page2 used on input line 1
@@ -1720,7 +1720,7 @@ Overfull \hbox (11.35776pt too wide) in paragraph at lines 1620--1620
 
 pdfTeX warning: pdflatex.exe (file ./flow_chart_1.pdf): PDF inclusion: found PD
 F version <1.7>, but at most version <1.5> allowed
-<flow_chart_1.pdf, id=946, page=1, 844.15375pt x 817.0525pt>
+<flow_chart_1.pdf, id=948, page=1, 844.15375pt x 817.0525pt>
 File: flow_chart_1.pdf Graphic file (type pdf)
 <use flow_chart_1.pdf, page 1>
 Package pdftex.def Info: flow_chart_1.pdf , page1 used on input line 1622.
@@ -1734,7 +1734,7 @@ Overfull \hbox (53.52826pt too wide) in paragraph at lines 1622--1623
 
 pdfTeX warning: pdflatex.exe (file ./flow_chart_2.pdf): PDF inclusion: found PD
 F version <1.7>, but at most version <1.5> allowed
-<flow_chart_2.pdf, id=967, page=1, 844.15375pt x 901.3675pt>
+<flow_chart_2.pdf, id=969, page=1, 844.15375pt x 901.3675pt>
 File: flow_chart_2.pdf Graphic file (type pdf)
 <use flow_chart_2.pdf, page 1>
 Package pdftex.def Info: flow_chart_2.pdf , page1 used on input line 1625.
@@ -1842,9 +1842,9 @@ i6.pfb><D:/Latex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/Latex/fonts/type1
 /amsfonts/cm/cmsy10.pfb><D:/Latex/fonts/type1/public/amsfonts/cm/cmti12.pfb><D:
 /Latex/fonts/type1/public/amsfonts/cm/cmtt12.pfb><D:/Latex/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb>
-Output written on first_draft.pdf (73 pages, 4530375 bytes).
+Output written on first_draft.pdf (73 pages, 4531234 bytes).
 PDF statistics:
- 1115 PDF objects out of 1200 (max. 8388607)
+ 1117 PDF objects out of 1200 (max. 8388607)
  247 named destinations out of 1000 (max. 500000)
  698 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -59,8 +59,8 @@
 	\clearpage
     \textbf{\LARGE Abstract}\\
     \\
-    { \large During this "Personal Programming Project(PPP)", the "Strain Gradient Elasticity Theory" is implemented through the FEM model. Within this, the element QU34L4, developed by Shu et al. is integrated as user defined element via the commercial software ABAQUS. The mixed type of FEM formulation developed by John Y. \cite{shu1999finite} is used for this theory.
-    In this PPP, the User Element routine(UEL) for QU34L4 element and User Material routine(UMAT) for two different strain gradient material (\cite{amanatidou2002mixed},\cite{shu1999finite}) are formulated for 2D case. The numerical results of Plate-720 model is analysed for this theory. Two different patch test is also done to compare the numerical results obtain from this UEL with analytical solutions. Programming was done completely by myself without any external help. I have started with literature sources \cite{amanatidou2002mixed} and \cite{shu1999finite} and decided to follow the derivations by Shu et al \cite{shu1999finite}. Later on I got an access to the pdf of Diploma Thesis of Mr. L. Zybell [8], however without any code (or part of the code) or scripts. As an extra task, an attempt to extend this UEL for 3D model is also done.}
+    { \large During this "Personal Programming Project(PPP)", the "Strain Gradient Elasticity Theory" is implemented through the FEM model. Within this, the element QU34L4, developed by Shu et al. is integrated as user defined element via the commercial software ABAQUS. The mixed type of FEM formulation developed by Shu et al. \cite{shu1999finite} is used for this theory.
+    In this PPP, the User Element routine(UEL) for QU34L4 element and User Material routine(UMAT) for strain gradient material (\cite{amanatidou2002mixed},\cite{shu1999finite}) are formulated for 2D case. The numerical results of Plate-720 model is analysed for this theory. Two different patch test is also done to compare the numerical results obtain from this UEL with analytical solutions. Programming was done completely by myself without any external help. I have started with literature sources \cite{amanatidou2002mixed} and \cite{shu1999finite} and decided to follow the derivations by Shu et al \cite{shu1999finite}. Later on I got an access to the pdf of Diploma Thesis of Mr. L. Zybell [8], however without any code (or part of the code) or scripts. As an extra task, an attempt to extend this UEL for 3D model is also done.}
 
 
 
@@ -486,7 +486,7 @@ So, Eq.(\ref{seventeen}) and Eq.(\ref{threetwo}) are the Voigt-notation of the c
 A total of six types of triangular element and quadrilateral element have been developed by JOHN Y. SHU for strain gradient theory. In which Displacement gradients are introduced as extra nodal degrees of freedom in terms of relaxed strain. The kinematic constraints between the relaxed strain and true gradients of displacement are enforced via Lagrange multipliers. All six types of element passed a patch test. However, he recommended QU34L4 elements for practical applications, since it gives precise accuracy than other elements.
 
 \subsubsection{ Finite Element Approaximation  }
-From equations Eq.(\ref{twofive}) and Eq.(\ref{twosix}) we can write this equations in matrix notation and also in absence of body forces b.
+From equations Eq.(\ref{twofive}) and Eq.(\ref{twosix}) we can write this equations in matrix notation and also in absence of body forces b. For more information about this, refer \cite{Lzybell2007}.
 \begin{equation}\label{thre_23}
 \begin{aligned}
 0 = &\sum_{e} \delta \bar{u}^{{(e)}^T} \Bigg[\int\limits_{\Omega^{e}}\! (B^{[u]}\sigma^{(e)} - MN^{[\rho^{T}]} \bar{\rho}^{(e)} ) d\Omega - \int\limits_{\Gamma^{(e)}_t}\!  N^{[u]}\bar{t}^{[e]}d\Gamma \Bigg] \\ + &\sum_{e} \delta \bar{\psi}^{{(e)}^T} \Bigg[\int\limits_{\Omega^{e}}\! (B^{[\psi]}\tau^{(e)} - N^{[\psi^{T}]}N^{[\rho^{T}]} \bar{\rho}^{(e)} ) d\Omega - \int\limits_{\Gamma^{(e)}}\!  N^{[\psi]}\bar{r}^{[e]}d\Gamma \Bigg]
@@ -532,7 +532,7 @@ K^{[\psi\rho]}  &= \frac{dH}{d\bar{\rho}^{(e)}} =\int\limits_{\Omega^{e}}\! N^{[
 \end{equation}
 \newpage
 \section{FEM Implementation}
-In subsection "John Y. Shu - Mixed type FEM formulation", there are 6 different triangular element and quadrilateral element represented out of which element QU34L4 is recommended for practical applications. so here we will use the QU34L4 element in order to implement strain gradient theory. So, use this specific mixed fem formulation \cite{Lzybell2007} is most challenging task for me.
+In subsection "John Y. Shu - Mixed type FEM formulation", there are 6 different triangular element and quadrilateral element represented out of which element QU34L4 is recommended for practical applications. so here we will use the QU34L4 element in order to implement strain gradient theory. So, use this specific mixed fem formulation is most challenging task for me. This whole section is refer from the \cite{Lzybell2007}.
 \\
 \subsection{QU34L4 - ELEMENT}
 This QU34L4 is Shown in below Fig. ,which contains total 9 nodes and 38 degrees of freedom. In this element there are two displacements DOF $ u_1 $ and $ u_2  $ at each nodes of it. There are newly introduced relaxed strain DOF $ \psi_{11} $,$ \psi_{21} $,$ \psi_{12} $ and $ \psi_{22} $ at each corner nodes of it. In addition to that there are also four Lagrange multipliers $ \rho_{11} $,  $ \rho_{21} $, $ \rho_{12} $ and $ \rho_{22} $,  which are assumed to be constant throughout the element. So, in QU34L4 Q stands for nine-noded isoparametric quadrilateral element, where U stands for number of DOF related to the displacement which are total 34 in this element, where L stands for Lagrange multipliers which are total 4 in this element. 
@@ -839,7 +839,7 @@ N^{[\rho]}=
 \end{equation}
 \newpage
 \section{Verification of model without Gradient term}
-After completely programmed the Strain Gradient theory for FEM model into Fortran programming language. I tried to run this code with ABAQUS. And Surprisingly, I got the different errors, out of which main errors are Convergence errors, NAN error and singularities error. In conclusion of that I have decided to debug my code from the scratch. Therefore, I have decided to check for the simpler case which is Mechanical Displacement degree of freedom. So first i wanted to check that my code is correctly running for the Displacement degree of freedom.
+After completely programmed the Strain Gradient theory for FEM model into Fortran programming language. I tried to run this code with ABAQUS. And Surprisingly, I got the different errors, out of which main errors are Convergence errors, NAN error and singularities error. In conclusion of that I have decided to debug my code from the scratch. Therefore, I have decided to check for the simpler case which is Mechanical Displacement degree of freedom. So firstly, i wanted to check that my code is correctly running for the Displacement degree of freedom.
 \\
 \\
 So, I have just commented all the terms which is related to gradient term i.e. which is related to the relaxed strain and Lagrange degree of freedom. After that I have implement my code to the plate-720 geometry which is explained in detailed in later sections.
@@ -861,7 +861,7 @@ So, here I represent the displacement results of ABAQUS with simpler loading i.e
 	\end{center}  
     \caption{Displacement visualization of Strain Gradient Model.}
 \end{figure}
-So, here I represent the Stress results of ABAQUS with simpler loading i.e. $ 1 \% $ of displacement in positive Y direction with my results without including the gradient terms and any other degrees of freedom. In the second fig I have represent the complex part of geometry.
+So, here I represent the Stress results of ABAQUS with simpler loading i.e. $ 1 \% $ of strain in positive Y direction with my results without including the gradient terms and any other degrees of freedom. In the second fig I have represent the complex part of geometry.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{ABAQUS_result_stress.png} 
@@ -876,12 +876,12 @@ So, here I represent the Stress results of ABAQUS with simpler loading i.e. $ 1 
 	\end{center}  
    \caption{Stress visualization of Strain Gradient Model.}
 \end{figure}
-
+In conclusion, I can say that the displacements vlues of my UEL results are matching exactly with the ABAQUS results. Stresses values are not matching exactly with the ABAQUS results becuase other degrees of freedom are there. However the values of these degrees of freedoms are zero.
 \newpage
 \section{Verification of Model Plate-720}
 As of described in E. Amanatidou - Mixed type FEM formulation, they have used the PLATE-720 which contains the 720 elements and 2983 nodes. Using this geometry they try to find the stress concentration factor and plot the stress concentration factor for different microstructural length.
 \\
-So, here I have used the same geometry i.e. Plate with domain length of 10 and hole radius is 0.333. I also mesh it as same as described in that paper with also transition of fine mesh into the coarse mesh, which is at 1.332 from the centre of the hole.   
+So, here I have used the same geometry i.e. Plate with domain length of 10 and hole radius is 0.333. I also mesh it as same as described in that paper with transition of fine mesh into the coarse mesh, which is placed at 1.332 from the centre of the hole.   
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.35]{mesh_part.png} 
@@ -978,7 +978,7 @@ This 2D code for UEL is also extended for 3D model. In this same thoery is imple
 
 \newpage
 \section{Validation Tests}
-In this chapter I present the Patch test which is implemented with the one element and four element of same geometry using finite element method. The Patch tests are necessary for checking the stability of the newly developed user element and also important to check the convergence of the finite element solutions.  
+In this chapter I present the Patch test which is implemented with the one element and four element of same geometry using finite element method. The more information about these patch tests are given in \cite{Lzybell2007}. The Patch tests are necessary for checking the stability of the newly developed user element and also important to check the convergence of the finite element solutions.  
 
 \subsection{Patch Test - 1}
 Now, we considered an one Square geometry with specific dimensions as given below. In below given fig L = 1.0 and so therefore the coordinates of the points A(0,0), B(1,0), C(1,1) and D(0,1).  
@@ -1143,7 +1143,7 @@ So, it is conclude that Patch Test-2 for four element is also pass. The relaxed 
 
 		\begin{tabular}{||c c c c c c c||} 
 			\hline
-			Node Number & U1 Input& U1 Output  & U1 Expected & U2 & U2 Output & U2 Expected\\ [0.8ex] 
+			Node Number & U1 Input& U1 Output  & U1 Expected & U2 Input & U2 Output & U2 Expected\\ [0.8ex] 
 			\hline\hline
 			1 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0  \\ 
 			[0.8ex]
